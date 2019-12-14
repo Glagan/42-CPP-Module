@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 16:09:26 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/14 16:50:56 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/14 16:53:24 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void Annuaire::add_contact(void)
 void Annuaire::show_search_header(void)
 {
 	std::cout << "|-------------------------------------------|" << std::endl;
-	std::cout << "|    Index |First Name| Last Name|  Nickname|" << std::endl;
+	std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
 	std::cout << "|-------------------------------------------|" << std::endl;
 	for (int i = 0; i < this->amount; i++)
 		this->contacts[i].display_header();
