@@ -5,37 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/13 19:00:09 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/14 18:14:05 by ncolomer         ###   ########.fr       */
+/*   Created: 2019/12/14 18:04:41 by ncolomer          #+#    #+#             */
+/*   Updated: 2019/12/14 18:17:19 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Annuaire.class.hpp"
+#include "Pony.hpp"
 
-int
-	main(void)
+void ponyOnTheStack(void)
 {
-	Annuaire	annuaire;
-	bool		run;
-	std::string	command;
+	Pony	onTheStack("Stack Man");
 
-	annuaire.show_startup();
-	run = true;
-	while (run)
-	{
-		std::cout << ">";
-		std::getline(std::cin, command);
-		if (command == "HELP")
-			annuaire.show_help();
-		else if (command == "ADD")
-			annuaire.add_contact();
-		else if (command == "SEARCH")
-			annuaire.search_contact();
-		else if (command == "EXIT")
-		{
-			std::cout << "# Bye." << std::endl;
-			run = false;
-		}
-	}
+	onTheStack.cry();
+	onTheStack.run();
+}
+
+void ponyOnTheHeap(void)
+{
+	Pony	*onTheHeap;
+
+	onTheHeap = new Pony("Heap Man");
+	onTheHeap->run();
+	onTheHeap->cry();
+	delete onTheHeap;
+}
+
+int main(void)
+{
+	std::cout << "# ponyOnTheStack:" << std::endl;
+	ponyOnTheStack();
+	std::cout << "# ponyOnTheHeap:" << std::endl;
+	ponyOnTheHeap();
+	std::cout << "# Done" << std::endl;
 	return (0);
 }

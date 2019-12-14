@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Pony.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/13 18:47:50 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/14 18:14:11 by ncolomer         ###   ########.fr       */
+/*   Created: 2019/12/14 18:04:46 by ncolomer          #+#    #+#             */
+/*   Updated: 2019/12/14 18:14:53 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#ifndef PONY_HPP
+# define PONY_HPP
 
-int
-	main(int argc, char const *argv[])
+# include <iostream>
+# include <string>
+
+class Pony
 {
-	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else
-	{
-		for (int i = 1; i < argc; i++)
-			for (size_t j = 0; j < strlen(argv[i]); j++)
-				std::cout << (char)toupper(argv[i][j]);
-		std::cout << std::endl;
-	}
-	return 0;
-}
+private:
+	std::string	name;
+public:
+	Pony(std::string name);
+	~Pony();
+
+	void cry(void);
+	void run(void);
+};
+
+#endif
