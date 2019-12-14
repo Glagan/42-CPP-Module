@@ -6,73 +6,38 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 19:00:09 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/13 20:38:28 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/14 16:46:50 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.class.hpp"
+#include "Annuaire.class.hpp"
 
 int
 	main(int argc, char const *argv[])
 {
-	Contact		annuaire[8];
-	int			nbr_contacts;
-	bool		cont, searching;
+	Annuaire	annuaire;
+	bool		run;
 	std::string	command;
-	int			i;
 
-	std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
-	std::cout << "~~~ANNUAIRE                 ~~~" << std::endl;
-	std::cout << "~~~Everything will be erased~~~" << std::endl;
-	std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
-	std::cout << "~~~Enter your command [HELP, ADD, SEARCH, EXIT]:";
-	nbr_contacts = 0;
-	cont = true;
-	while (cont)
+	(void)argc;
+	(void)argv;
+	annuaire.show_startup();
+	run = true;
+	while (run)
 	{
-		std::cout << "\n>";
+		std::cout << ">";
 		std::getline(std::cin, command);
 		if (command == "HELP")
-		{
-			std::cout << "~~~HELP to display this message" << std::endl;
-			std::cout << "~~~ADD to add a contact" << std::endl;
-			std::cout << "~~~SEARCH to search your contacts" << std::endl;
-			std::cout << "~~~EXIT to exit this program" << std::endl;
-		}
+			annuaire.show_help();
 		else if (command == "ADD")
-		{
-			if (nbr_contacts == 8)
-				std::cout << "~~~The list is too full !~~~" << std::endl;
-			else if (annuaire[nbr_contacts].set_informations())
-				nbr_contacts++;
-		}
+			annuaire.add_contact();
 		else if (command == "SEARCH")
-		{
-			searching = true;
-			while (searching)
-			{
-				std::cout << "~~~Contact List~~~" << std::endl;
-				i = 0;
-				while (i < nbr_contacts)
-					annuaire[i++].display_header();
-				std::cout << "~~~Enter Index to display Informations or 0 to Exit~~~\n>";
-				std::cin >> i;
-				if (i == 0)
-					searching = false;
-				else if (i < 0 || i > nbr_contacts)
-					std::cout << "~~~Invalid Index~~~" << std::endl;
-				else
-				{
-					annuaire[i].display();
-					searching = false;
-				}
-			}
-		}
+			annuaire.search_contact();
 		else if (command == "EXIT")
 		{
-			std::cout << "Come back soon !" << std::endl;
-			cont = false;
+			std::cout << "# Bye." << std::endl;
+			run = false;
 		}
 	}
-	return 0;
+	return (0);
 }

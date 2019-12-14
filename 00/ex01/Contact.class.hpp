@@ -6,29 +6,28 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 19:04:23 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/13 20:46:49 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/14 16:10:23 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_CLASS_HPP
 # define CONTACT_CLASS_HPP
 
-#include <iostream>
-#include <string>
+# include <iostream>
+# include <iomanip>
+# include <string>
 
 class Contact
 {
 private:
-	std::string	informations[10];
-	int			birthday[3];
+	int					index;
+	static std::string	fields_name[11];
+	std::string			informations[11];
 public:
 	Contact();
 	~Contact();
 
-	int 	create();
-	int		valid_phone(void);
-	int		valid_birthday(void);
-	bool	set_informations(void);
+	void	set_informations(int index);
 	void	display_header(void);
 	void	display(void);
 
@@ -40,18 +39,10 @@ public:
 		Address,
 		Email,
 		Phone,
-		BirthYear,
-		BirthMonth,
-		BirthDay,
+		Birthday,
 		FavoriteMeal,
 		UnderwearColor,
 		Secret
-	};
-
-	enum BirthdayField {
-		Day = 0,
-		Month,
-		Year
 	};
 };
 

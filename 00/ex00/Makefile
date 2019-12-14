@@ -6,12 +6,12 @@
 #    By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/13 18:47:47 by ncolomer          #+#    #+#              #
-#    Updated: 2019/12/13 18:51:19 by ncolomer         ###   ########.fr        #
+#    Updated: 2019/12/14 15:34:36 by ncolomer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			= megaphone.c
-OBJS			= $(SRCS:.c=.o)
+SRCS			= megaphone.cpp
+OBJS			= $(SRCS:.cpp=.o)
 
 CC				= clang++
 RM				= rm -f
