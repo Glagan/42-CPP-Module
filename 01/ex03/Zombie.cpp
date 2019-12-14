@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 18:25:55 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/14 19:33:45 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/14 19:33:37 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ std::string	Zombie::randomName(std::string::size_type length)
 void Zombie::advert(void)
 {
 	std::cout << "<" << this->name << " (" << this->type << ")> ";
-	std::cout << "Braiiiiiiinnnssss ..." << std::endl;
+	std::cout << "Braiiiiiiinnnssss ?" << std::endl;
 }
 
 void Zombie::announce(void)

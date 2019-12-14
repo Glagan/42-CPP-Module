@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   ZombieHorde.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/14 18:24:33 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/14 19:33:11 by ncolomer         ###   ########.fr       */
+/*   Created: 2019/12/14 19:12:56 by ncolomer          #+#    #+#             */
+/*   Updated: 2019/12/14 19:31:34 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
+#ifndef ZOMBIEHORDE_HPP
+# define ZOMBIEHORDE_HPP
 
-#include <iostream>
-#include <string>
-#include <random>
+# include "Zombie.hpp"
 
-class Zombie
+class ZombieHorde
 {
 private:
 	std::string	type;
-	std::string	name;
+	int			size;
+	Zombie		*zombies;
 public:
-	Zombie();
-	Zombie(std::string type, std::string name);
-	~Zombie();
+	ZombieHorde(std::string type, int size);
+	~ZombieHorde();
 
-	void				setCharacteristics(std::string type, std::string name);
-	static std::string	randomName(std::string::size_type length);
-	void				advert(void);
-	void				announce(void);
+	void	advert(void);
+	void	announce(void);
 };
 
 #endif
