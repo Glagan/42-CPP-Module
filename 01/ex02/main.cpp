@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 18:46:00 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/14 19:10:19 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/15 19:11:39 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,5 @@ int main(void)
 	std::cout << "# Clean All Sniper Zombies" << std::endl;
 	for (int i = 0; i < COUNT; i++)
 		delete snipersZombies[i];
-	return 0;
+	return (0);
 }

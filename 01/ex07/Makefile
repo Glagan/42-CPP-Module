@@ -6,11 +6,11 @@
 #    By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/15 17:06:28 by ncolomer          #+#    #+#              #
-#    Updated: 2019/12/15 18:23:23 by ncolomer         ###   ########.fr        #
+#    Updated: 2019/12/15 18:52:02 by ncolomer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			= main.cpp Sed.class.cpp
+SRCS			= main.cpp Sed.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 CC				= clang++

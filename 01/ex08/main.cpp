@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/13 18:47:50 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/15 19:11:35 by ncolomer         ###   ########.fr       */
+/*   Created: 2019/12/15 18:27:20 by ncolomer          #+#    #+#             */
+/*   Updated: 2019/12/15 19:12:59 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#include "Human.hpp"
 
-int
-	main(int argc, char const *argv[])
+int main(void)
 {
-	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else
-	{
-		for (int i = 1; i < argc; i++)
-			for (size_t j = 0; j < strlen(argv[i]); j++)
-				std::cout << (char)toupper(argv[i][j]);
-		std::cout << std::endl;
-	}
+	Human	h;
+
+	h.action("meleeAttack", "You");
+	h.action("rangedAttack", "You");
+	h.action("intimidatingShout", "YOU");
 	return (0);
 }

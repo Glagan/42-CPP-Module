@@ -1,49 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.class.hpp                                  :+:      :+:    :+:   */
+/*   Annuaire.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/13 19:04:23 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/14 16:10:23 by ncolomer         ###   ########.fr       */
+/*   Created: 2019/12/14 16:08:49 by ncolomer          #+#    #+#             */
+/*   Updated: 2019/12/15 18:52:25 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_CLASS_HPP
-# define CONTACT_CLASS_HPP
+#ifndef ANNUAIRE_HPP
+# define ANNUAIRE_HPP
 
 # include <iostream>
 # include <iomanip>
 # include <string>
+#include "Contact.hpp"
 
-class Contact
+class Annuaire
 {
 private:
-	int					index;
-	static std::string	fields_name[11];
-	std::string			informations[11];
+	Contact	contacts[8];
+	int		amount;
 public:
-	Contact();
-	~Contact();
+	Annuaire();
+	~Annuaire();
 
-	void	set_informations(int index);
-	void	display_header(void);
-	void	display(void);
-
-	enum Field {
-		FirstName = 0,
-		LastName,
-		Nickname,
-		Login,
-		Address,
-		Email,
-		Phone,
-		Birthday,
-		FavoriteMeal,
-		UnderwearColor,
-		Secret
-	};
+	void	show_startup(void);
+	void	show_help(void);
+	void	add_contact(void);
+	void	search_contact(void);
+	void	show_search_header(void);
 };
 
 #endif

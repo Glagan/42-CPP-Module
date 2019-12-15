@@ -6,12 +6,12 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 17:06:44 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/15 18:13:06 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/15 18:51:58 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Sed.class.hpp"
+#include "Sed.hpp"
 
 int main(int argc, char const *argv[])
 {

@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 16:38:24 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/15 16:55:28 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/15 18:29:09 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void Weapon::setType(std::string type)
 	this->type = type;
 }
 
-const std::string &Weapon::getType(void) const
+std::string const &Weapon::getType(void) const
 {
 	return (this->type);
 }

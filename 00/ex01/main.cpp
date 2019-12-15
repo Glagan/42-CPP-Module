@@ -6,11 +6,11 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 19:00:09 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/14 18:14:05 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/15 18:52:48 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Annuaire.class.hpp"
+#include "Annuaire.hpp"
 
 int
 	main(void)

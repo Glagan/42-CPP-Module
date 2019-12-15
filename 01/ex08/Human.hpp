@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Sed.class.hpp                                      :+:      :+:    :+:   */
+/*   Human.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/15 17:16:00 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/15 17:50:41 by ncolomer         ###   ########.fr       */
+/*   Created: 2019/12/15 18:26:32 by ncolomer          #+#    #+#             */
+/*   Updated: 2019/12/15 18:30:28 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SED_HPP
-# define SED_HPP
+#ifndef HUMAN_HPP
+# define HUMAN_HPP
 
 #include <iostream>
-#include <fstream>
-#include <sstream>
+#include <string>
 
-class Sed
+class Human
 {
 private:
-	static std::string strReplace(std::string line, std::string search, std::string replace);
+	void meleeAttack(std::string const &target);
+	void rangedAttack(std::string const &target);
+	void intimidatingShout(std::string const &target);
 public:
-	Sed();
-	~Sed();
-
-	static void replace(std::string filename, std::string search, std::string replace);
+	void action(std::string const &action_name, std::string const &target);
 };
 
 #endif

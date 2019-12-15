@@ -6,11 +6,11 @@
 #    By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/13 18:47:47 by ncolomer          #+#    #+#              #
-#    Updated: 2019/12/14 16:32:38 by ncolomer         ###   ########.fr        #
+#    Updated: 2019/12/15 18:52:15 by ncolomer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			= main.cpp Annuaire.class.cpp Contact.class.cpp
+SRCS			= main.cpp Annuaire.cpp Contact.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 CC				= clang++
