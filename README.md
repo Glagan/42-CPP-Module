@@ -1,2 +1,6 @@
 # CPP Module
 
+## Ressources
+
+* Excellent course from Guillaume Revy (In French).  
+  [Introduction](https://perso.univ-perp.fr/guillaume.revy/teaching/201516/ProgrammationOrienteeObjet/C1-ProgrammationOrienteeObjet.pdf), [Constructors, Destructors and memory](https://perso.univ-perp.fr/guillaume.revy/teaching/201516/ProgrammationOrienteeObjet/C2-ProgrammationOrienteeObjet.pdf), [friend and inheritance](https://perso.univ-perp.fr/guillaume.revy/teaching/201516/ProgrammationOrienteeObjet/C3-ProgrammationOrienteeObjet.pdf), [overload and polymorphism](https://perso.univ-perp.fr/guillaume.revy/teaching/201516/ProgrammationOrienteeObjet/C4-ProgrammationOrienteeObjet.pdf), [Multiple inheritance](https://perso.univ-perp.fr/guillaume.revy/teaching/201516/ProgrammationOrienteeObjet/C5-ProgrammationOrienteeObjet.pdf), [STL, Containers and Iterators](https://perso.univ-perp.fr/guillaume.revy/teaching/201516/ProgrammationOrienteeObjet/C6-ProgrammationOrienteeObjet.pdf), [Abstract types and templates](https://perso.univ-perp.fr/guillaume.revy/teaching/201516/ProgrammationOrienteeObjet/C7-ProgrammationOrienteeObjet.pdf) and [Exceptions](https://perso.univ-perp.fr/guillaume.revy/teaching/201516/ProgrammationOrienteeObjet/C8-ProgrammationOrienteeObjet.pdf).
