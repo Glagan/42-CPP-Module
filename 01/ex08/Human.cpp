@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 18:25:00 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/15 19:20:05 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/15 19:33:57 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void Human::action(std::string const &action_name, std::string const &target)
 	if ("meleeAttack" == action_name
 		|| "rangedAttack" == action_name
 		|| "intimidatingShout" == action_name)
-		((*this).*actions[index[(int)action_name[0]]])(target);
+		(this->*actions[index[(int)action_name[0]]])(target);
 	else
 		throw "error: Invalid action.";
 }

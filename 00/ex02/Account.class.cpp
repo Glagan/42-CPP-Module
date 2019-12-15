@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 16:57:41 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/14 19:57:06 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/15 19:35:42 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void Account::_displayTimestamp(void)
 {
 	std::chrono::time_point<std::chrono::system_clock> now = std::chrono::system_clock::now();
 	std::time_t time_now = std::chrono::system_clock::to_time_t(now);
+
 	tm utc_tm = *localtime(&time_now);
 	std::cout << std::setfill('0') << "[" << (utc_tm.tm_year + 1900)
 			<< std::setw(2) << utc_tm.tm_mon
