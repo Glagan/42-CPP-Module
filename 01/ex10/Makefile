@@ -6,7 +6,7 @@
 #    By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/15 17:06:28 by ncolomer          #+#    #+#              #
-#    Updated: 2019/12/15 20:40:23 by ncolomer         ###   ########.fr        #
+#    Updated: 2019/12/15 20:51:06 by ncolomer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ CC				= clang++
 RM				= rm -f
 CFLAGS			= -Wall -Wextra -Werror -I.
 
-NAME			= cat
+NAME			= cato9tails
 
 all:			$(NAME)
 
