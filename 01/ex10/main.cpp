@@ -5,19 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/15 15:57:39 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/15 19:44:55 by ncolomer         ###   ########.fr       */
+/*   Created: 2019/12/15 19:43:55 by ncolomer          #+#    #+#             */
+/*   Updated: 2019/12/15 19:46:23 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Human.hpp"
+#include "Reader.hpp"
 
-int main(void)
+int main(int argc, char const *argv[])
 {
-	Human bob;
+	Reader reader;
 
-	std::cout << "Bob identify: " << bob.identify() << std::endl;
-	std::cout << "Brain identify: " << bob.getBrain().identify() << std::endl;
 	return (0);
 }

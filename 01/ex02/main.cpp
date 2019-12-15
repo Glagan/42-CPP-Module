@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 18:46:00 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/15 19:11:39 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/15 19:45:27 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 void fightInNeighborTown(void)
 {
-	Zombie		redZombies[COUNT];
-	Zombie		blueZombies[COUNT];
+	Zombie redZombies[COUNT];
+	Zombie blueZombies[COUNT];
 
 	std::cout << "## Creating " << COUNT << " Red and Blue Zombie" << std::endl;
 	for (int i = 0; i < COUNT; i++)
@@ -37,10 +37,10 @@ void fightInNeighborTown(void)
 
 int main(void)
 {
-	ZombieEvent	lurkers;
-	ZombieEvent	snipers;
-	Zombie		*lurkersZombies[COUNT];
-	Zombie		*snipersZombies[COUNT];
+	ZombieEvent lurkers;
+	ZombieEvent snipers;
+	Zombie *lurkersZombies[COUNT];
+	Zombie *snipersZombies[COUNT];
 
 	lurkers.setZombieType("Lurker");
 	std::cout << "# Creating " << COUNT << " Lurker Zombie" << std::endl;

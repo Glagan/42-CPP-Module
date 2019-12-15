@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 18:27:20 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/15 19:23:57 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/15 19:44:19 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main(void)
 {
-	Human	h;
+	Human h;
 
 	h.action("meleeAttack", "You");
 	h.action("rangedAttack", "You");

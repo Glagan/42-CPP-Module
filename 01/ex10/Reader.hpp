@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Reader.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/15 15:57:39 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/15 19:44:55 by ncolomer         ###   ########.fr       */
+/*   Created: 2019/12/15 19:47:40 by ncolomer          #+#    #+#             */
+/*   Updated: 2019/12/15 19:47:59 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Human.hpp"
+#ifndef READER_HPP
+# define READER_HPP
 
-int main(void)
+class Reader
 {
-	Human bob;
+private:
+public:
+	Reader();
+	~Reader();
+};
 
-	std::cout << "Bob identify: " << bob.identify() << std::endl;
-	std::cout << "Brain identify: " << bob.getBrain().identify() << std::endl;
-	return (0);
-}
+#endif

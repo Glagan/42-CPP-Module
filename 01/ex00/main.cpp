@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 18:04:41 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/14 18:17:19 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/15 19:45:41 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void ponyOnTheStack(void)
 {
-	Pony	onTheStack("Stack Man");
+	Pony onTheStack("Stack Man");
 
 	onTheStack.cry();
 	onTheStack.run();
@@ -22,7 +22,7 @@ void ponyOnTheStack(void)
 
 void ponyOnTheHeap(void)
 {
-	Pony	*onTheHeap;
+	Pony *onTheHeap;
 
 	onTheHeap = new Pony("Heap Man");
 	onTheHeap->run();

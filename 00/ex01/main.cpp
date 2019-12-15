@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 19:00:09 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/15 18:52:48 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/15 19:46:04 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 int
 	main(void)
 {
-	Annuaire	annuaire;
-	bool		run;
-	std::string	command;
+	Annuaire annuaire;
+	bool run;
+	std::string command;
 
 	annuaire.show_startup();
 	run = true;

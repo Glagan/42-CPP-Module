@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 18:46:00 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/15 19:11:43 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/15 19:45:10 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 void fightInNeighborTown(void)
 {
 	std::cout << "## Creating Horde Red with " << COUNT << " Zombie" << std::endl;
-	ZombieHorde	red("Red", 10);
+	ZombieHorde red("Red", 10);
 	std::cout << "## Creating Horde Blue with " << COUNT << " Zombie" << std::endl;
-	ZombieHorde	blue("Blue", 10);
+	ZombieHorde blue("Blue", 10);
 	std::cout << "## They fight" << std::endl;
 	red.announce();
 	blue.announce();
@@ -32,9 +32,9 @@ void fightInNeighborTown(void)
 int main(void)
 {
 	std::cout << "# Creating Horde Lurker with " << COUNT << " Zombie" << std::endl;
-	ZombieHorde	lurkers("Lurker", 10);
+	ZombieHorde lurkers("Lurker", 10);
 	std::cout << "# Creating Horde Sniper with " << COUNT << " Zombie" << std::endl;
-	ZombieHorde	snipers("Sniper", 10);
+	ZombieHorde snipers("Sniper", 10);
 
 	std::cout << "# There is a Fight in the neighbor town, again !" << std::endl;
 	fightInNeighborTown();
