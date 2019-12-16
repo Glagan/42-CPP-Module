@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 17:17:08 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/15 20:14:10 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/16 14:13:13 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void Sed::replace(std::string filename, std::string search, std::string replace)
 		throw "error: Output File couldn't be opened.";
 	else if (search.length() == 0)
 		throw "error: Search string is empty.";
-	else if (search.length() == 0)
+	else if (replace.length() == 0)
 		throw "error: Replace string is empty.";
 	while (std::getline(file, line))
 	{

@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 19:47:30 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/15 20:48:27 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/16 14:38:59 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,12 @@ void Reader::openReadFile(std::string const &filename)
 	std::fstream infile(filename);
 
 	if (!infile.is_open() || !infile.good())
+	{
+		//if (errno == EACCES)
+		//	std::cout << "Permission denied" << std::endl;
+		//else
 		std::cout << "cat: " << filename  << ": " << std::strerror(errno) << std::endl;
+	}
 	else
 	{
 		try

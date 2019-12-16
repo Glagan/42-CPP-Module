@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 19:47:40 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/15 20:48:21 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/16 14:37:10 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cerrno>
 
 class Reader
 {
