@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/16 17:14:24 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/16 21:10:51 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/17 15:42:28 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,22 @@ Fixed::Fixed(int const value):
 Fixed::Fixed(float const value):
 	value(0)
 {
-	int decimal;
+	float tmp, lim;
 
 	std::cout << "Float constructor called" << std::endl;
-	decimal = (int)value;
-	this->value = (decimal << Fixed::bits);
-	// TODO: Add fractional part to this->value
+	this->value = (((int)value) << Fixed::bits);
+	tmp = (value - (int)value);
+	std::cout << "tmp: " << tmp << std::endl;
+	for (int i = 1; i <= Fixed::bits; i++)
+	{
+		lim = 1.f / (2.f * (float)i);
+		std::cout << "lim: " << std::endl;
+		if (tmp >= lim)
+			this->value += lim;
+		else
+			i = Fixed::bits;
+		tmp -= lim;
+	}
 }
 
 Fixed::Fixed(Fixed const &other)
