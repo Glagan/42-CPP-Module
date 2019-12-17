@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/16 17:14:08 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/17 16:58:08 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/17 19:04:05 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,25 @@ public:
 
 	Fixed &operator=(Fixed const &other);
 
-	bool operator>(Fixed const &other);
-	bool operator<(Fixed const &other);
-	bool operator>=(Fixed const &other);
-	bool operator<=(Fixed const &other);
-	bool operator==(Fixed const &other);
-	bool operator!=(Fixed const &other);
+	bool operator>(Fixed const &other) const;
+	bool operator<(Fixed const &other) const;
+	bool operator>=(Fixed const &other) const;
+	bool operator<=(Fixed const &other) const;
+	bool operator==(Fixed const &other) const;
+	bool operator!=(Fixed const &other) const;
 
 	Fixed operator+(Fixed const &other);
 	Fixed operator-(Fixed const &other);
 	Fixed operator*(Fixed const &other);
 	Fixed operator/(Fixed const &other);
+
+	Fixed operator++(int);
+	Fixed operator++();
+	Fixed operator--(int);
+	Fixed operator--();
+
+	static Fixed const &min(Fixed const &a, Fixed const &b);
+	static Fixed const &max(Fixed const &a, Fixed const &b);
 
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
@@ -50,7 +58,7 @@ public:
 };
 
 std::ostream &operator<<(std::ostream &out, Fixed const &value);
-Fixed &min(Fixed &a, Fixed &b);
-Fixed &max(Fixed &a, Fixed &b);
+Fixed const &min(Fixed const &a, Fixed const &b);
+Fixed const &max(Fixed const &a, Fixed const &b);
 
 #endif
