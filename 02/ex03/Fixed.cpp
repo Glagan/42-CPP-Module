@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/16 17:14:24 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 12:50:57 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/18 15:33:21 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ Fixed::Fixed()
 	this->value = 0;
 }
 
-Fixed::Fixed(int const value):
-	value(0)
+Fixed::Fixed(int const value)
 {
 	this->value = (value << Fixed::bits);
 }

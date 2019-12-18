@@ -6,14 +6,21 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 19:28:46 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 13:52:16 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/18 16:28:39 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Expression.hpp"
 
-Expression::Expression()
+Expression::Expression():
+	acc(0), str(std::string()), expr(std::string())
 {
+}
+
+Expression::Expression(std::string const str):
+	acc(0)
+{
+	this->setExpression(str);
 }
 
 Expression::~Expression()
@@ -22,8 +29,50 @@ Expression::~Expression()
 
 bool Expression::isOperand(char c)
 {
-	return (c == '+' || c == '-'
-			|| c == '*' || c == '/');
+	return (c == '+' || c == '-' || c == '*' || c == '/');
+}
+
+void Expression::simplify(void)
+{
+	std::stringstream ss;
+	size_t length;
+	size_t j;
+	size_t stack;
+	char last;
+
+	length = this->str.length();
+	for (int i = 0; i < length; i++)
+	{
+		if (this->str[i] == ')')
+			throw "invalid bracket closing.";
+		else if (this->str[i] == '(')
+		{
+			std::string tmp(ss.str());
+			if (tmp.length() > 0
+				&& !Expression::isOperand(tmp[tmp.length() - 1]))
+				throw "missing operand.";
+			stack = 0;
+			for (j = i + 1; j < length; j++)
+			{
+				if (this->str[j] == '(')
+					stack++;
+				else if (this->str[j] == ')')
+				{
+					if (stack == 0)
+						break ;
+					else
+						stack--;
+				}
+			}
+			if (stack > 0 || i + 1 == j || this->str[j] != ')')
+				throw "unclosed bracket.";
+			ss << (Expression(this->str.substr(i + 1, j - i - 1))).calculate();
+			i = j;
+		}
+		else if (this->str[i] != ' ')
+			ss << this->str[i];
+	}
+	this->expr = ss.str();
 }
 
 Fixed &Expression::execute(Fixed &acc, char op, Fixed const &value)
@@ -48,67 +97,78 @@ Fixed &Expression::execute(Fixed &acc, char op, Fixed const &value)
 	return (acc);
 }
 
-Fixed &Expression::accumulate(Fixed &acc, char operand, std::stringstream &ss)
+bool Expression::accumulate(Fixed &acc, char operand, std::stringstream &ss)
 {
 	Fixed value;
 	std::string str(ss.str());
 
 	ss.str(std::string());
 	ss.clear();
-	if (str.length() == 0)
-		return (acc);
+	if (!operand && str.length() == 0)
+		throw "missing value.";
+	else if (str.length() == 0)
+		return (false);
 	try
 	{
 		value = Fixed(std::stof(str));
+		std::cout << "str: " << str << ", found: " << value << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		return (acc);
 	}
 	if (operand)
+	{
 		Expression::execute(acc, operand, value);
-	else
-		acc = value;
-	return (acc);
+		return (false);
+	}
+	acc = value;
+	return (true);
 }
 
-Fixed &Expression::calculate(Fixed &acc, std::string const &str)
+Fixed Expression::calculate(void)
 {
+	Fixed acc;
 	std::stringstream ss;
 	size_t length;
-	int j;
 	char operand;
 
-	if (str.find_first_not_of(" 0123456789.()+-*/") != std::string::npos)
-		throw "invalid expression.";
+	length = this->expr.length();
 	operand = 0;
-	length = str.length();
 	for (int i = 0; i < length; i++)
 	{
-		if (str[i] == '(')
+		if (Expression::isOperand(this->expr[i]))
 		{
-			Expression::accumulate(acc, operand, ss);
-			j = length - 1;
-			std::cout << "j " << j << std::endl;
-			while (j > i && str[j] != ')')
-				j++;
-			std::cout << "i, j pos of par " << i << "," << j << std::endl;
-			std::cout << "j " << j << std::endl;
-			if (str[j] != ')')
-				throw "invalid expression.";
-			Expression::calculate(acc, str.substr(i + 1, j - i));
-			i = j;
-		}
-		else if (str[i] == ' ')
-			Expression::accumulate(acc, operand, ss);
-		else if (Expression::isOperand(str[i]))
-		{
-			Expression::accumulate(acc, operand, ss);
-			operand = str[i];
+			if (i + 1 >= length)
+				throw "invalid operand position.";
+			if ((this->expr[i] == '-' || this->expr[i] == '+')
+				&& !operand
+				&& ::isdigit(this->expr[i + 1])
+				&& !::isdigit(this->expr[i - 1]))
+				ss << this->expr[i];
+			else
+			{
+				if (Expression::accumulate(acc, operand, ss))
+					operand = this->expr[i];
+			}
 		}
 		else
-			ss << str[i];
+			ss << this->expr[i];
 	}
 	Expression::accumulate(acc, operand, ss);
 	return (acc);
+}
+
+std::string &Expression::getExpression(void)
+{
+	return (this->str);
+}
+
+void Expression::setExpression(std::string const expr)
+{
+	this->str = expr;
+	this->simplify();
+	std::cout << "final expression " << this->expr << std::endl;
+	if (this->expr.find_first_not_of("0123456789.+-*/") != std::string::npos)
+		throw "invalid character.";
 }
