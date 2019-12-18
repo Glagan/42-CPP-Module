@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 17:00:10 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 18:22:42 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/18 19:07:17 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include <iostream>
 # include <string>
-
-# define NBR_QUOTES 5
 
 class FragTrap
 {
@@ -31,7 +29,8 @@ protected:
 	int rangedAttackDamage;
 	int armorDamageReduction;
 
-	static std::string quotes[NBR_QUOTES];
+	static const int nbrQuotes = 5;
+	static std::string quotes[FragTrap::nbrQuotes];
 
 	void initialize(void);
 public:

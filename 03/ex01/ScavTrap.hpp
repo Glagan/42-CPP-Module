@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 18:20:26 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 18:26:29 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/18 19:06:20 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include <iostream>
 # include <string>
-
-# define NBR_CHALLS 5
 
 class ScavTrap
 {
@@ -31,7 +29,8 @@ protected:
 	int rangedAttackDamage;
 	int armorDamageReduction;
 
-	static std::string challenges[NBR_CHALLS];
+	static const int nbrChalls = 5;
+	static std::string challenges[ScavTrap::nbrChalls];
 
 	void initialize(void);
 public:

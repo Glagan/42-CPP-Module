@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 18:20:20 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 19:06:11 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/18 19:06:08 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,10 @@ std::string ScavTrap::challenges[ScavTrap::nbrChalls] = {
 	"Did someone feel something?"
 };
 
-ScavTrap::ScavTrap(std::string const &name)
+ScavTrap::ScavTrap(std::string const &name):
+	ClapTrap(name)
 {
-	this->name = name;
 	std::cout << this->name << ": Locking the door." << std::endl;
-	this->initialize();
-}
-
-ScavTrap::~ScavTrap()
-{
-	std::cout << this->name << ": Door breached."  << std::endl;
-}
-
-void ScavTrap::initialize(void)
-{
 	this->hitPoints = 100;
 	this->maxHitPoints = 100;
 	this->energyPoints = 50;
@@ -42,6 +32,11 @@ void ScavTrap::initialize(void)
 	this->meleeAttackDamage = 20;
 	this->rangedAttackDamage = 15;
 	this->armorDamageReduction = 3;
+}
+
+ScavTrap::~ScavTrap()
+{
+	std::cout << this->name << ": Door breached."  << std::endl;
 }
 
 void ScavTrap::rangedAttack(std::string const &target)
@@ -56,33 +51,6 @@ void ScavTrap::meleeAttack(std::string const &target)
 	std::cout << this->name << " made a melee attack to "
 			<< target << " dealing "
 			<< this->meleeAttackDamage << " points of damage!" << std::endl;
-}
-
-bool ScavTrap::takeDamage(unsigned int amount)
-{
-	int dealt = amount - this->armorDamageReduction;
-	this->hitPoints -= dealt;
-	if (this->hitPoints < 0)
-	{
-		dealt += this->hitPoints;
-		this->hitPoints = 0;
-	}
-	std::cout << this->name << " take "
-			<< dealt << " points of damage!" << std::endl;
-	return (this->hitPoints == 0);
-}
-
-void ScavTrap::beRepaired(unsigned int amount)
-{
-	int healed = amount;
-	this->hitPoints += amount;
-	if (this->hitPoints > this->maxHitPoints)
-	{
-		healed -= (this->hitPoints - this->maxHitPoints);
-		this->hitPoints = this->maxHitPoints;
-	}
-	std::cout << this->name << " is repaired for "
-			<< healed << "!" << std::endl;
 }
 
 void ScavTrap::challengeNewcomer(void)

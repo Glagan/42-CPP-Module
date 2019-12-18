@@ -6,13 +6,13 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 17:00:28 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 18:47:00 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/18 19:08:13 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-std::string FragTrap::quotes[NBR_QUOTES] = {
+std::string FragTrap::quotes[FragTrap::nbrQuotes] = {
 	"Take that!",
 	"Get off my lawn!",
 	"Coffee? Black... like my soul.",
@@ -91,9 +91,9 @@ void FragTrap::vaulthunter_dot_exe(std::string const &target)
 	{
 		this->energyPoints -= 25;
 		std::cout << this->name << ": "
-				<< FragTrap::quotes[rand() % NBR_QUOTES] << std::endl
+				<< FragTrap::quotes[rand() % FragTrap::nbrQuotes] << std::endl
 				<< this->name << " attacks "
-				<< target << " for " << (rand() % this->meleeAttackDamage)
+				<< target << " for " << ((rand() % this->meleeAttackDamage) + 1)
 				<< " points of damage!" << std::endl;
 	}
 	else
