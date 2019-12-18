@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 17:00:28 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 19:29:27 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/18 19:35:14 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ std::string FragTrap::quotes[FragTrap::nbrQuotes] = {
 
 FragTrap::FragTrap(std::string const &name)
 {
-	std::cout << this->name << ": Recompiling my combat code !" << std::endl;
 	this->name = name;
+	std::cout << this->name << ": Recompiling my combat code !" << std::endl;
 	this->level = 1;
 	this->hitPoints = 100;
 	this->maxHitPoints = 100;

@@ -6,15 +6,15 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 18:51:53 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 19:23:23 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/18 20:09:55 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
 
-#include <iostream>
-#include <string>
+# include <iostream>
+# include <string>
 
 class ClapTrap
 {
@@ -32,8 +32,8 @@ public:
 	ClapTrap(std::string const &name);
 	virtual ~ClapTrap();
 
-	virtual void meleeAttack(std::string const &target);
-	virtual void rangedAttack(std::string const &target);
+	void meleeAttack(std::string const &target);
+	void rangedAttack(std::string const &target);
 	bool takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 

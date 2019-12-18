@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 18:20:26 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 19:26:48 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/18 20:03:31 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <string>
 # include "ClapTrap.hpp"
 
-class ScavTrap: public ClapTrap
+class ScavTrap: virtual public ClapTrap
 {
 protected:
 	static const int nbrChalls = 5;

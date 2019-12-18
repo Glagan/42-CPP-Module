@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 17:00:10 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 20:03:28 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/18 20:02:27 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ protected:
 	static std::string quotes[FragTrap::nbrQuotes];
 public:
 	FragTrap(std::string const &name);
-	~FragTrap();
+	virtual ~FragTrap();
 
 	void meleeAttack(std::string const &target);
 	void rangedAttack(std::string const &target);

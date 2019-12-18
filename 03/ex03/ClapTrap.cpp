@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 18:51:45 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 19:30:05 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/18 19:35:29 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 ClapTrap::ClapTrap(std::string const &name)
 {
-	std::cout << "ClapTrap " << name << " created." << std::endl;
 	this->name = name;
+	std::cout << "ClapTrap " << name << " created." << std::endl;
 	this->level = 1;
 	this->hitPoints = 100;
 	this->maxHitPoints = 100;

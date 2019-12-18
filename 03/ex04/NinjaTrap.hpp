@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   NinjaTrap.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/18 17:00:10 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 20:03:28 by ncolomer         ###   ########.fr       */
+/*   Created: 2019/12/18 19:11:39 by ncolomer          #+#    #+#             */
+/*   Updated: 2019/12/18 20:02:32 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef NINJATRAP_HPP
+# define NINJATRAP_HPP
 
 # include <iostream>
 # include <string>
 # include "ClapTrap.hpp"
+# include "FragTrap.hpp"
+# include "ScavTrap.hpp"
 
-class FragTrap: virtual public ClapTrap
+class NinjaTrap: virtual public ClapTrap
 {
-protected:
-	static const int nbrQuotes = 5;
-	static std::string quotes[FragTrap::nbrQuotes];
 public:
-	FragTrap(std::string const &name);
-	~FragTrap();
+	NinjaTrap(std::string const &name);
+	virtual ~NinjaTrap();
 
 	void meleeAttack(std::string const &target);
 	void rangedAttack(std::string const &target);
-	void vaulthunter_dot_exe(std::string const &target);
+	void ninjaShoebox(FragTrap &trap);
+	void ninjaShoebox(ScavTrap &trap);
+	void ninjaShoebox(ClapTrap &trap);
+	void ninjaShoebox(NinjaTrap &trap);
 };
 
 #endif

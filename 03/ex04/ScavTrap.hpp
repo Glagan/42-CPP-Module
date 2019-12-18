@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/18 17:00:10 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 20:03:28 by ncolomer         ###   ########.fr       */
+/*   Created: 2019/12/18 18:20:26 by ncolomer          #+#    #+#             */
+/*   Updated: 2019/12/18 20:03:05 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
 # include <iostream>
 # include <string>
 # include "ClapTrap.hpp"
 
-class FragTrap: virtual public ClapTrap
+class ScavTrap: virtual public ClapTrap
 {
 protected:
-	static const int nbrQuotes = 5;
-	static std::string quotes[FragTrap::nbrQuotes];
+	static const int nbrChalls = 5;
+	static std::string challenges[ScavTrap::nbrChalls];
 public:
-	FragTrap(std::string const &name);
-	~FragTrap();
+	ScavTrap(std::string const &name);
+	virtual ~ScavTrap();
 
 	void meleeAttack(std::string const &target);
 	void rangedAttack(std::string const &target);
-	void vaulthunter_dot_exe(std::string const &target);
+	void challengeNewcomer(void);
 };
 
 #endif
