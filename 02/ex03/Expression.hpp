@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 19:28:49 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 16:27:30 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/18 16:35:30 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ private:
 	void simplify(void);
 	Fixed &operand(Fixed &acc, char op, std::string const &str);
 	Fixed &execute(Fixed &acc, char op, Fixed const &value);
-	bool accumulate(Fixed &acc, char operand, std::stringstream &ss);
+	Fixed &accumulate(Fixed &acc, char operand, std::stringstream &ss);
 public:
 	Expression();
 	Expression(std::string const str);

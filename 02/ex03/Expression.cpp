@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 19:28:46 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 16:28:39 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/18 16:35:13 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ Fixed &Expression::execute(Fixed &acc, char op, Fixed const &value)
 	return (acc);
 }
 
-bool Expression::accumulate(Fixed &acc, char operand, std::stringstream &ss)
+Fixed &Expression::accumulate(Fixed &acc, char operand, std::stringstream &ss)
 {
 	Fixed value;
 	std::string str(ss.str());
@@ -107,7 +107,7 @@ bool Expression::accumulate(Fixed &acc, char operand, std::stringstream &ss)
 	if (!operand && str.length() == 0)
 		throw "missing value.";
 	else if (str.length() == 0)
-		return (false);
+		return (acc);
 	try
 	{
 		value = Fixed(std::stof(str));
@@ -118,12 +118,10 @@ bool Expression::accumulate(Fixed &acc, char operand, std::stringstream &ss)
 		return (acc);
 	}
 	if (operand)
-	{
 		Expression::execute(acc, operand, value);
-		return (false);
-	}
-	acc = value;
-	return (true);
+	else
+		acc = value;
+	return (acc);
 }
 
 Fixed Expression::calculate(void)
@@ -148,8 +146,8 @@ Fixed Expression::calculate(void)
 				ss << this->expr[i];
 			else
 			{
-				if (Expression::accumulate(acc, operand, ss))
-					operand = this->expr[i];
+				Expression::accumulate(acc, operand, ss);
+				operand = this->expr[i];
 			}
 		}
 		else
