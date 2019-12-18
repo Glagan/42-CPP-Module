@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 19:28:46 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 16:38:44 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/18 16:54:10 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,6 @@ Fixed &Expression::accumulate(Fixed &acc, char operand, std::stringstream &ss)
 	try
 	{
 		value = Fixed(std::stof(str));
-		std::cout << "str: " << str << ", found: " << value << std::endl;
 	}
 	catch(const std::exception& e)
 	{
@@ -165,7 +164,6 @@ void Expression::setExpression(std::string const expr)
 {
 	this->str = expr;
 	this->simplify();
-	std::cout << "final expression " << this->expr << std::endl;
 	if (this->expr.find_first_not_of("0123456789.+-*/") != std::string::npos)
 		throw "invalid character.";
 }
