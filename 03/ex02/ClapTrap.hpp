@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 18:51:53 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 19:02:51 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/18 19:27:04 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ public:
 	ClapTrap(std::string const &name);
 	virtual ~ClapTrap();
 
-	virtual void rangedAttack(std::string const &target);
 	virtual void meleeAttack(std::string const &target);
+	virtual void rangedAttack(std::string const &target);
 	bool takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 };

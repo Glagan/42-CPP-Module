@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 18:20:26 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 19:06:20 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/18 19:28:54 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,12 @@ protected:
 
 	static const int nbrChalls = 5;
 	static std::string challenges[ScavTrap::nbrChalls];
-
-	void initialize(void);
 public:
 	ScavTrap(std::string const &name);
 	~ScavTrap();
 
-	void rangedAttack(std::string const &target);
 	void meleeAttack(std::string const &target);
+	void rangedAttack(std::string const &target);
 	bool takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 	void challengeNewcomer(void);

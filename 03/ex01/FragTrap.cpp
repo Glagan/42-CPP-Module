@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 17:00:28 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 19:08:19 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/18 19:29:08 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,16 @@ std::string FragTrap::quotes[FragTrap::nbrQuotes] = {
 
 FragTrap::FragTrap(std::string const &name)
 {
-	this->name = name;
 	std::cout << this->name << ": Recompiling my combat code !" << std::endl;
-	this->initialize();
+	this->name = name;
+	this->level = 1;
+	this->hitPoints = 100;
+	this->maxHitPoints = 100;
+	this->energyPoints = 100;
+	this->maxEnergyPoints = 100;
+	this->meleeAttackDamage = 30;
+	this->rangedAttackDamage = 20;
+	this->armorDamageReduction = 5;
 }
 
 FragTrap::~FragTrap()
@@ -32,16 +39,11 @@ FragTrap::~FragTrap()
 	std::cout << this->name << ": Argh arghargh death gurgle gurglegurgle urgh... death."  << std::endl;
 }
 
-void FragTrap::initialize(void)
+void FragTrap::meleeAttack(std::string const &target)
 {
-	this->hitPoints = 100;
-	this->maxHitPoints = 100;
-	this->energyPoints = 100;
-	this->maxEnergyPoints = 100;
-	this->level = 1;
-	this->meleeAttackDamage = 30;
-	this->rangedAttackDamage = 20;
-	this->armorDamageReduction = 5;
+	std::cout << this->name << " attacks "
+			<< target << " at melee, causing "
+			<< this->meleeAttackDamage << " points of damage!" << std::endl;
 }
 
 void FragTrap::rangedAttack(std::string const &target)
@@ -49,13 +51,6 @@ void FragTrap::rangedAttack(std::string const &target)
 	std::cout << this->name << " attacks "
 			<< target << " at range, causing "
 			<< this->rangedAttackDamage << " points of damage!" << std::endl;
-}
-
-void FragTrap::meleeAttack(std::string const &target)
-{
-	std::cout << this->name << " attacks "
-			<< target << " at melee, causing "
-			<< this->meleeAttackDamage << " points of damage!" << std::endl;
 }
 
 bool FragTrap::takeDamage(unsigned int amount)

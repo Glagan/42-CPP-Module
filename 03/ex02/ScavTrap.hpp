@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 18:20:26 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 19:08:28 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/18 19:26:48 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ public:
 	ScavTrap(std::string const &name);
 	~ScavTrap();
 
-	void rangedAttack(std::string const &target);
 	void meleeAttack(std::string const &target);
+	void rangedAttack(std::string const &target);
 	void challengeNewcomer(void);
 };
 

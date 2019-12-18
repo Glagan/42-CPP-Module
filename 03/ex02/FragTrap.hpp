@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 17:00:10 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 19:05:27 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/18 19:26:58 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ public:
 	FragTrap(std::string const &name);
 	~FragTrap();
 
-	void rangedAttack(std::string const &target);
 	void meleeAttack(std::string const &target);
+	void rangedAttack(std::string const &target);
 	void vaulthunter_dot_exe(std::string const &target);
 };
 

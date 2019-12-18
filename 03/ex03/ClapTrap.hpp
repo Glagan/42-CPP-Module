@@ -1,45 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/18 17:00:10 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 19:29:15 by ncolomer         ###   ########.fr       */
+/*   Created: 2019/12/18 18:51:53 by ncolomer          #+#    #+#             */
+/*   Updated: 2019/12/18 19:23:23 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
-# include <iostream>
-# include <string>
+#include <iostream>
+#include <string>
 
-class FragTrap
+class ClapTrap
 {
 protected:
+	std::string name;
 	int hitPoints;
 	int maxHitPoints;
 	int energyPoints;
 	int maxEnergyPoints;
 	int level;
-	std::string name;
 	int meleeAttackDamage;
 	int rangedAttackDamage;
 	int armorDamageReduction;
-
-	static const int nbrQuotes = 5;
-	static std::string quotes[FragTrap::nbrQuotes];
 public:
-	FragTrap(std::string const &name);
-	~FragTrap();
+	ClapTrap(std::string const &name);
+	virtual ~ClapTrap();
 
-	void meleeAttack(std::string const &target);
-	void rangedAttack(std::string const &target);
+	virtual void meleeAttack(std::string const &target);
+	virtual void rangedAttack(std::string const &target);
 	bool takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
-	void vaulthunter_dot_exe(std::string const &target);
+
+	std::string const &getName(void);
 };
 
 #endif

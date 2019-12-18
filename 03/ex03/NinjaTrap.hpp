@@ -1,45 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   NinjaTrap.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/18 17:00:10 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 19:29:15 by ncolomer         ###   ########.fr       */
+/*   Created: 2019/12/18 19:11:39 by ncolomer          #+#    #+#             */
+/*   Updated: 2019/12/18 19:23:50 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef NINJATRAP_HPP
+# define NINJATRAP_HPP
 
 # include <iostream>
 # include <string>
+# include "ClapTrap.hpp"
+# include "FragTrap.hpp"
+# include "ScavTrap.hpp"
 
-class FragTrap
+class NinjaTrap: public ClapTrap
 {
-protected:
-	int hitPoints;
-	int maxHitPoints;
-	int energyPoints;
-	int maxEnergyPoints;
-	int level;
-	std::string name;
-	int meleeAttackDamage;
-	int rangedAttackDamage;
-	int armorDamageReduction;
-
-	static const int nbrQuotes = 5;
-	static std::string quotes[FragTrap::nbrQuotes];
 public:
-	FragTrap(std::string const &name);
-	~FragTrap();
+	NinjaTrap(std::string const &name);
+	~NinjaTrap();
 
 	void meleeAttack(std::string const &target);
 	void rangedAttack(std::string const &target);
-	bool takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
-	void vaulthunter_dot_exe(std::string const &target);
+	void ninjaShoebox(FragTrap &trap);
+	void ninjaShoebox(ScavTrap &trap);
+	void ninjaShoebox(ClapTrap &trap);
+	void ninjaShoebox(NinjaTrap &trap);
 };
 
 #endif
