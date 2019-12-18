@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 19:28:46 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 16:35:13 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/18 16:38:44 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,6 @@ Fixed Expression::calculate(void)
 			if (i + 1 >= length)
 				throw "invalid operand position.";
 			if ((this->expr[i] == '-' || this->expr[i] == '+')
-				&& !operand
 				&& ::isdigit(this->expr[i + 1])
 				&& !::isdigit(this->expr[i - 1]))
 				ss << this->expr[i];
