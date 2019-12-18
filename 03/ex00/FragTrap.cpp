@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 17:00:28 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 18:44:28 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/18 18:47:00 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,9 @@ void FragTrap::vaulthunter_dot_exe(std::string const &target)
 	if (this->energyPoints >= 25)
 	{
 		this->energyPoints -= 25;
-		std::cout << this->name << ": ";
-		std::cout << FragTrap::quotes[rand() % NBR_QUOTES] << std::endl;
-		std::cout << "FR4G-TP " << this->name << " attacks "
+		std::cout << this->name << ": "
+				<< FragTrap::quotes[rand() % NBR_QUOTES] << std::endl
+				<< this->name << " attacks "
 				<< target << " for " << (rand() % this->meleeAttackDamage)
 				<< " points of damage!" << std::endl;
 	}

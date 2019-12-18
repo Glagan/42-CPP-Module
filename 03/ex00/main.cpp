@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 16:59:59 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 18:14:09 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/18 18:48:33 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int main(void)
 
 	srand(time(NULL));
 	frag.vaulthunter_dot_exe("CL4P-TP");
-	frag.rangedAttack("CL4P-TP");
 	frag.meleeAttack("CL4P-TP");
+	frag.rangedAttack("CL4P-TP");
 	frag.takeDamage(24);
 	frag.beRepaired(50);
 	frag.takeDamage(42);

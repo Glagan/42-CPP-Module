@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 16:59:59 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 18:41:29 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/18 18:48:53 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int main(void)
 
 	srand(time(NULL));
 	frag.vaulthunter_dot_exe("CL4P-TP");
-	frag.rangedAttack("CL4P-TP");
 	frag.meleeAttack("CL4P-TP");
+	frag.rangedAttack("CL4P-TP");
 	frag.takeDamage(24);
 	frag.beRepaired(50);
 	frag.takeDamage(42);
@@ -34,8 +34,8 @@ int main(void)
 	frag.vaulthunter_dot_exe("CL4P-TP");
 	std::cout << "---" << std::endl;
 	scav.challengeNewcomer();
-	scav.rangedAttack("CL4P-TP");
 	scav.meleeAttack("CL4P-TP");
+	scav.rangedAttack("CL4P-TP");
 	scav.takeDamage(24);
 	scav.beRepaired(50);
 	scav.takeDamage(42);
