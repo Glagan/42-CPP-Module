@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/16 17:14:24 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/17 20:08:49 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/18 12:50:57 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,12 +59,14 @@ Fixed &Fixed::operator-=(Fixed const &other)
 
 Fixed &Fixed::operator*=(Fixed const &other)
 {
-	return (*this * other);
+	*this = *this * other;
+	return (*this);
 }
 
 Fixed &Fixed::operator/=(Fixed const &other)
 {
-	return (*this / other);
+	*this = *this / other;
+	return (*this);
 }
 
 bool Fixed::operator>(Fixed const &other) const

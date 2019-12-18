@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 19:28:49 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/17 20:01:43 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/18 13:24:13 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ public:
 	Expression();
 	~Expression();
 
-	static Fixed &execute(std::string const &str);
-	static Fixed &calculate(std::string const &str);
+	static Fixed &execute(Fixed &acc, char op, Fixed const &value);
+	static Fixed &accumulate(Fixed &acc, char operand, std::stringstream &ss);
+	static Fixed &calculate(Fixed &acc, std::string const &str);
 };
 
 #endif

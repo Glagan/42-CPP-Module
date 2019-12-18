@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 19:28:46 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/17 20:08:10 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/18 13:52:16 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,110 +26,89 @@ bool Expression::isOperand(char c)
 			|| c == '*' || c == '/');
 }
 
-Fixed &Expression::operand(Fixed &acc, char op, std::string const &str)
+Fixed &Expression::execute(Fixed &acc, char op, Fixed const &value)
 {
-	float tmp;
-
 	if (!op)
-		throw "error: eval_expr: invalid expression.";
-	tmp = std::stof(str);
+		throw "missing operand.";
 	switch (op)
 	{
 	case '+':
-		acc = (acc + Fixed(tmp));
+		acc = (acc + value);
 		break;
 	case '-':
-		acc = (acc - Fixed(tmp));
+		acc = (acc - value);
 		break;
 	case '*':
-		acc = (acc * Fixed(tmp));
+		acc = (acc * value);
 		break;
 	case '/':
-		acc = (acc / Fixed(tmp));
+		acc = (acc / value);
 		break;
 	}
 	return (acc);
 }
 
-Fixed &Expression::execute(std::string const &str)
+Fixed &Expression::accumulate(Fixed &acc, char operand, std::stringstream &ss)
 {
-	Fixed acc;
-	bool hasValue;
-	float tmp;
-	char operand;
-	std::stringstream ss;
-	size_t length;
+	Fixed value;
+	std::string str(ss.str());
 
-	operand = 0;
-	hasValue = false;
-	length = str.length();
-	for (int i = 0; i < length; i++)
-	{
-		if (std::isalpha(str[i]) || str[i] == '.')
-			ss << str[i];
-		else if (str[i] == ' ')
-		{
-			if (hasValue)
-			{
-				acc = Expression::operand(acc, operand, ss.str());
-				operand = 0;
-			}
-			else
-			{
-				acc = Fixed(std::stof(ss.str()));
-				hasValue = true;
-			}
-			ss.clear();
-		}
-		else if (Expression::isOperand(str[i]))
-			operand = str[i];
-		else
-			throw "error: eval_expr: invalid expression.";
-	}
-	if (hasValue)
-	{
-		acc = Expression::operand(acc, operand, ss.str());
-		operand = 0;
-	}
-	else
-	{
-		acc = Fixed(std::stof(ss.str()));
-		hasValue = true;
-	}
+	ss.str(std::string());
 	ss.clear();
+	if (str.length() == 0)
+		return (acc);
+	try
+	{
+		value = Fixed(std::stof(str));
+	}
+	catch(const std::exception& e)
+	{
+		return (acc);
+	}
+	if (operand)
+		Expression::execute(acc, operand, value);
+	else
+		acc = value;
 	return (acc);
 }
 
-Fixed &Expression::calculate(std::string const &str)
+Fixed &Expression::calculate(Fixed &acc, std::string const &str)
 {
-	Fixed acc;
 	std::stringstream ss;
-	std::string tmp;
 	size_t length;
 	int j;
+	char operand;
 
+	if (str.find_first_not_of(" 0123456789.()+-*/") != std::string::npos)
+		throw "invalid expression.";
+	operand = 0;
 	length = str.length();
 	for (int i = 0; i < length; i++)
 	{
 		if (str[i] == '(')
 		{
-			tmp = ss.str();
-			if (tmp.length() > 0)
-				acc += Expression::execute(tmp);
-			ss.clear();
+			Expression::accumulate(acc, operand, ss);
 			j = length - 1;
+			std::cout << "j " << j << std::endl;
 			while (j > i && str[j] != ')')
 				j++;
+			std::cout << "i, j pos of par " << i << "," << j << std::endl;
+			std::cout << "j " << j << std::endl;
 			if (str[j] != ')')
-				throw "error: eval_expr: invalid expression.";
-			acc += Expression::calculate(str.substr(i + 1, j - i));
+				throw "invalid expression.";
+			Expression::calculate(acc, str.substr(i + 1, j - i));
 			i = j;
+		}
+		else if (str[i] == ' ')
+			Expression::accumulate(acc, operand, ss);
+		else if (Expression::isOperand(str[i]))
+		{
+			Expression::accumulate(acc, operand, ss);
+			operand = str[i];
 		}
 		else
 			ss << str[i];
 	}
-	tmp = ss.str();
-	if (tmp.length() > 0)
-		acc += Expression::execute(tmp);
+	Expression::accumulate(acc, operand, ss);
 	return (acc);
 }
