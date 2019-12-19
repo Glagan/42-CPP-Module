@@ -6,21 +6,20 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 18:25:55 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 17:56:11 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 20:04:03 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie()
+Zombie::Zombie():
+    type(std::string()), name(std::string())
 {
-	this->type = "";
-	this->name = "";
 }
 
-Zombie::Zombie(std::string type, std::string name)
+Zombie::Zombie(std::string type, std::string name):
+    type(type), name(name)
 {
-	this->setCharacteristics(type, name);
 }
 
 Zombie::~Zombie()

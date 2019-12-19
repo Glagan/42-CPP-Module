@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 18:04:46 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/14 18:14:53 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 19:55:21 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 class Pony
 {
 private:
-	std::string	name;
+	std::string	const &name;
 public:
-	Pony(std::string name);
+	Pony(std::string const &name);
 	~Pony();
 
 	void cry(void);

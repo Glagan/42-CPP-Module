@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 19:24:27 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 18:23:38 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 20:15:50 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,24 +47,21 @@ void Logger::logToConsole(std::string const &value)
 
 void Logger::logToFile(std::string const &value)
 {
-	if (!this->olog.is_open())
-		throw "error: Cannot write to log file.";
+	if (!this->olog.is_open() || !this->olog.good())
+		throw "Cannot write to log file.";
 	olog << this->makeLogEntry(value) << std::endl;
 }
 
 void Logger::log(std::string const &dest, std::string const &message)
 {
-	int index[255];
+	int key;
 	void (Logger::* const actions[2])(std::string const &value) = {
 		&Logger::logToConsole,
 		&Logger::logToFile
 	};
 
-	index[(int)'C'] = 0;
-	index[(int)'F'] = 1;
-	if (dest == "logToConsole"
-		|| dest == "logToFile")
-		(this->*actions[index[(int)dest[5]]])(message);
-	else
-		throw "error: Invalid log destination.";
+	key = ("logToConsole" == dest) ? 0 :
+		("logToFile" == dest) ? 1
+		: throw "Invalid log destination.";
+	(this->*actions[key])(message);
 }

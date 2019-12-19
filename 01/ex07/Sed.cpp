@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 17:17:08 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 18:14:12 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 20:05:52 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,3 @@ void Sed::replace(std::string filename, std::string search, std::string replace)
 	file.close();
 	output.close();
 }
-

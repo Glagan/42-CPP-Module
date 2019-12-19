@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 18:27:20 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 18:17:41 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 20:16:08 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main(void)
 	}
 	catch(char const *e)
 	{
-		std::cerr << "exception: " << e << std::endl;
+		std::cerr << "human: exception: " << e << std::endl;
 	}
 	return (0);
 }

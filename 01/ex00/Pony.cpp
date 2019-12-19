@@ -6,15 +6,15 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 18:04:44 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/14 18:15:27 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 19:55:31 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Pony.hpp"
 
-Pony::Pony(std::string name)
+Pony::Pony(std::string const &name):
+	name(name)
 {
-	this->name = name;
 	std::cout << "Pony \"" << this->name << "\" has been constructed !" << std::endl;
 }
 

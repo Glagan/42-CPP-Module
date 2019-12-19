@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 19:47:30 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 18:26:30 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 20:16:53 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void Reader::openReadFile(std::string const &filename)
 		}
 		catch(char const *e)
 		{
-			std::cerr << "cato9tails: "<< filename << ": Exception: " << e << std::endl;
+			std::cerr << "cato9tails: "<< filename << ": " << e << std::endl;
 		}
 		infile.close();
 	}

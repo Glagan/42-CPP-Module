@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 18:25:00 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/15 19:33:57 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 20:16:00 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,16 @@ void Human::intimidatingShout(std::string const &target)
 
 void Human::action(std::string const &action_name, std::string const &target)
 {
-	int index[255];
+	int key;
 	void (Human::* const actions[3])(std::string const &target) = {
 		&Human::meleeAttack,
 		&Human::rangedAttack,
 		&Human::intimidatingShout
 	};
 
-	index[(int)'m'] = 0;
-	index[(int)'r'] = 1;
-	index[(int)'i'] = 2;
-	if ("meleeAttack" == action_name
-		|| "rangedAttack" == action_name
-		|| "intimidatingShout" == action_name)
-		(this->*actions[index[(int)action_name[0]]])(target);
-	else
-		throw "error: Invalid action.";
+	key = ("meleeAttack" == action_name) ? 0 :
+		("rangedAttack" == action_name) ? 1 :
+		("intimidatingShout" == action_name) ? 2
+		: throw "Invalid action.";
+	(this->*actions[key])(target);
 }

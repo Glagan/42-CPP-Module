@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 18:32:55 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 17:58:58 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 20:04:25 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ void ZombieEvent::setZombieType(std::string type)
 	this->type = type;
 }
 
-Zombie	*ZombieEvent::newZombie(std::string name)
+Zombie *ZombieEvent::newZombie(std::string name)
 {
 	return (new Zombie(this->type, name));
 }
 
-Zombie	*ZombieEvent::randomChump(void)
+Zombie *ZombieEvent::randomChump(void)
 {
 	Zombie *zombie;
 
