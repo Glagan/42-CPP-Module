@@ -6,21 +6,21 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/16 17:14:08 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 12:49:51 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 19:09:02 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
 # define FIXED_HPP
 
-#include <iostream>
-#include <cmath>
+# include <iostream>
+# include <cmath>
 
 class Fixed
 {
 private:
 	int value;
-	static const int bits;
+	static const int bits = 8;
 public:
 	Fixed();
 	Fixed(int const value);
@@ -53,6 +53,8 @@ public:
 
 	static Fixed const &min(Fixed const &a, Fixed const &b);
 	static Fixed const &max(Fixed const &a, Fixed const &b);
+	static Fixed &min(Fixed &a, Fixed &b);
+	static Fixed &max(Fixed &a, Fixed &b);
 
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
@@ -64,5 +66,7 @@ public:
 std::ostream &operator<<(std::ostream &out, Fixed const &value);
 Fixed const &min(Fixed const &a, Fixed const &b);
 Fixed const &max(Fixed const &a, Fixed const &b);
+Fixed &min(Fixed &a, Fixed &b);
+Fixed &max(Fixed &a, Fixed &b);
 
 #endif

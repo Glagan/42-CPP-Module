@@ -6,13 +6,11 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/16 17:14:24 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/17 16:43:53 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 19:06:56 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-
-const int Fixed::bits = 8;
 
 Fixed::Fixed()
 {
@@ -20,8 +18,7 @@ Fixed::Fixed()
 	this->value = 0;
 }
 
-Fixed::Fixed(int const value):
-	value(0)
+Fixed::Fixed(int const value)
 {
 	std::cout << "Int constructor called" << std::endl;
 	this->value = (value << Fixed::bits);

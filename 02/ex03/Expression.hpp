@@ -6,17 +6,17 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 19:28:49 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 16:35:30 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 19:04:20 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EXPRESSION_HPP
 # define EXPRESSION_HPP
 
-#include <iostream>
-#include <sstream>
-#include <string>
-#include "Fixed.hpp"
+# include <iostream>
+# include <sstream>
+# include <string>
+# include "Fixed.hpp"
 
 class Expression
 {

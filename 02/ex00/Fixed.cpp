@@ -6,13 +6,11 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/16 17:14:24 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/16 17:57:29 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 18:55:58 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-
-const int Fixed::bits = 8;
 
 Fixed::Fixed()
 {

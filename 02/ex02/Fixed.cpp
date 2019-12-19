@@ -6,21 +6,18 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/16 17:14:24 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/17 19:09:27 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 19:09:14 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-
-const int Fixed::bits = 8;
 
 Fixed::Fixed()
 {
 	this->value = 0;
 }
 
-Fixed::Fixed(int const value):
-	value(0)
+Fixed::Fixed(int const value)
 {
 	this->value = (value << Fixed::bits);
 }
@@ -166,11 +163,6 @@ int Fixed::toInt(void) const
 	return (this->value >> Fixed::bits);
 }
 
-Fixed const &min(Fixed const &a, Fixed const &b)
-{
-	return (Fixed::min(a, b));
-}
-
 Fixed const &Fixed::min(Fixed const &a, Fixed const &b)
 {
 	if (a > b)
@@ -178,9 +170,21 @@ Fixed const &Fixed::min(Fixed const &a, Fixed const &b)
 	return (a);
 }
 
-Fixed const &max(Fixed const &a, Fixed const &b)
+Fixed &Fixed::min(Fixed &a, Fixed &b)
 {
-	return (Fixed::max(a, b));
+	if (a > b)
+		return (b);
+	return (a);
+}
+
+Fixed const &min(Fixed const &a, Fixed const &b)
+{
+	return (Fixed::min(a, b));
+}
+
+Fixed &min(Fixed &a, Fixed &b)
+{
+	return (Fixed::min(a, b));
 }
 
 Fixed const &Fixed::max(Fixed const &a, Fixed const &b)
@@ -188,4 +192,21 @@ Fixed const &Fixed::max(Fixed const &a, Fixed const &b)
 	if (a > b)
 		return (a);
 	return (b);
+}
+
+Fixed &Fixed::max(Fixed &a, Fixed &b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}
+
+Fixed const &max(Fixed const &a, Fixed const &b)
+{
+	return (Fixed::max(a, b));
+}
+
+Fixed &max(Fixed &a, Fixed &b)
+{
+	return (Fixed::max(a, b));
 }
