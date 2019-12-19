@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 19:28:49 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 19:04:20 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 20:19:32 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ private:
 	Fixed &accumulate(Fixed &acc, char operand, std::stringstream &ss);
 public:
 	Expression();
-	Expression(std::string const str);
+	Expression(std::string const &str);
 	~Expression();
 
 	Fixed calculate(void);
 
 	std::string &getExpression(void);
-	void setExpression(std::string const expr);
+	void setExpression(std::string const &expr);
 };
 
 #endif

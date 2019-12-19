@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 19:28:46 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 16:54:10 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 20:19:36 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Expression::Expression():
 {
 }
 
-Expression::Expression(std::string const str):
+Expression::Expression(std::string const &str):
 	acc(0)
 {
 	this->setExpression(str);
@@ -160,7 +160,7 @@ std::string &Expression::getExpression(void)
 	return (this->str);
 }
 
-void Expression::setExpression(std::string const expr)
+void Expression::setExpression(std::string const &expr)
 {
 	this->str = expr;
 	this->simplify();

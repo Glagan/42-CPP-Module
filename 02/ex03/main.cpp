@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/16 17:46:46 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 19:04:11 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 20:20:07 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int main(int argc, char const **argv)
 	if (argc != 2)
 	{
 		std::cout << "eval_expr: error: bad arguments.\n";
-		std::cout << "           usage: expr" << std::endl;
+		std::cout << "           usage: expression" << std::endl;
 	}
 	else
 	{
