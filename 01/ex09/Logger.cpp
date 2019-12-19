@@ -6,14 +6,13 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 19:24:27 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/15 19:41:31 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 18:23:38 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Logger.hpp"
 
-Logger::Logger(std::string logfile):
-	logfile(logfile)
+Logger::Logger(std::string const &logfile)
 {
 	this->olog.open(logfile, std::ios::app);
 }
@@ -55,15 +54,17 @@ void Logger::logToFile(std::string const &value)
 
 void Logger::log(std::string const &dest, std::string const &message)
 {
+	int index[255];
 	void (Logger::* const actions[2])(std::string const &value) = {
 		&Logger::logToConsole,
 		&Logger::logToFile
 	};
 
-	if (dest == "logToConsole")
-		(this->*actions[0])(message);
-	else if (dest == "logToFile")
-		(this->*actions[1])(message);
+	index[(int)'C'] = 0;
+	index[(int)'F'] = 1;
+	if (dest == "logToConsole"
+		|| dest == "logToFile")
+		(this->*actions[index[(int)dest[5]]])(message);
 	else
 		throw "error: Invalid log destination.";
 }

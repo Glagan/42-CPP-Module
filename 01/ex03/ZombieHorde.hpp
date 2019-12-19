@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 19:12:56 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/14 19:31:34 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 17:59:56 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ private:
 	int			size;
 	Zombie		*zombies;
 public:
+	ZombieHorde(int size);
 	ZombieHorde(std::string type, int size);
 	~ZombieHorde();
 
-	void	advert(void);
 	void	announce(void);
 };
 

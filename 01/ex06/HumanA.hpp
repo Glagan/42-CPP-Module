@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 16:37:35 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/15 16:56:48 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 18:06:47 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ private:
 	std::string name;
 	const Weapon &weapon;
 public:
-	HumanA();
 	HumanA(std::string, const Weapon &weapon);
 	~HumanA();
 

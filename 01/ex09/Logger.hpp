@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 19:24:06 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/15 19:35:27 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 18:23:34 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,12 @@ class Logger
 {
 private:
 	std::ofstream olog;
-	std::string logfile;
 
 	std::string makeLogEntry(std::string const &value);
 	void logToConsole(std::string const &value);
 	void logToFile(std::string const &value);
 public:
-	Logger(std::string logfile);
+	Logger(std::string const &logfile);
 	~Logger();
 
 	void log(std::string const &dest, std::string const &message);

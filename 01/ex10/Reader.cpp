@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 19:47:30 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/16 14:39:31 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 18:26:30 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void Reader::openReadFile(std::string const &filename)
 	std::fstream infile(filename);
 
 	if (!infile.is_open() || !infile.good())
-		std::cout << "cat: " << filename  << ": " << std::strerror(errno) << std::endl;
+		std::cerr << "cato9tails: " << filename  << ": " << std::strerror(errno) << std::endl;
 	else
 	{
 		try
@@ -48,7 +48,7 @@ void Reader::openReadFile(std::string const &filename)
 		}
 		catch(char const *e)
 		{
-			std::cout << "cat: "<< filename << ": Exception: " << e << std::endl;
+			std::cerr << "cato9tails: "<< filename << ": Exception: " << e << std::endl;
 		}
 		infile.close();
 	}

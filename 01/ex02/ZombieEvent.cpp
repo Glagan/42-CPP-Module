@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 18:32:55 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/14 18:44:20 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 17:58:58 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,9 @@ Zombie	*ZombieEvent::newZombie(std::string name)
 
 Zombie	*ZombieEvent::randomChump(void)
 {
-	std::string	name;
-	Zombie		*zombie;
+	Zombie *zombie;
 
 	zombie = new Zombie(this->type, Zombie::randomName(10));
-	zombie->advert();
+	zombie->announce();
 	return (zombie);
 }

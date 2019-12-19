@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 17:17:08 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/16 14:13:13 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 18:14:12 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ Sed::~Sed()
 std::string Sed::strReplace(std::string line, std::string search, std::string replace)
 {
 	std::stringstream ss;
-	size_t		j;
-	size_t		slength(search.length());
+	size_t j;
+	size_t slength(search.length());
 
 	for (size_t i = 0; i < line.length(); i++)
 	{
@@ -44,18 +44,22 @@ std::string Sed::strReplace(std::string line, std::string search, std::string re
 
 void Sed::replace(std::string filename, std::string search, std::string replace)
 {
-	std::ifstream	file(filename);
-	std::ofstream	output(filename + ".replace", std::ios::trunc);
-	std::string		line;
+	std::ifstream file;
+	std::ofstream output;
+	std::string line;
 
-	if (!file.is_open())
-		throw "error: Input File couldn't be opened.";
-	else if (!file.is_open())
-		throw "error: Output File couldn't be opened.";
+	if (filename.length() == 0)
+		throw "Filename is empty.";
 	else if (search.length() == 0)
-		throw "error: Search string is empty.";
+		throw "Search string is empty.";
 	else if (replace.length() == 0)
-		throw "error: Replace string is empty.";
+		throw "Replace string is empty.";
+	file.open(filename);
+	if (!file.is_open())
+		throw "Input File couldn't be opened.";
+	output.open(filename + ".replace", std::ios::trunc);
+	if (!output.is_open())
+		throw "Output File couldn't be opened.";
 	while (std::getline(file, line))
 	{
 		output << Sed::strReplace(line, search, replace);

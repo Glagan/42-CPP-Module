@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 18:24:33 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/14 19:32:56 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 17:58:16 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ public:
 
 	void				setCharacteristics(std::string type, std::string name);
 	static std::string	randomName(std::string::size_type length);
-	void				advert(void);
 	void				announce(void);
 };
 

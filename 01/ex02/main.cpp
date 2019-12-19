@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 18:46:00 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/15 19:45:27 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 17:55:19 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void fightInNeighborTown(void)
 	std::cout << "## They fight" << std::endl;
 	for (int i = 0; i < COUNT; i++)
 	{
-		redZombies[i].advert();
-		blueZombies[i].advert();
+		redZombies[i].announce();
+		blueZombies[i].announce();
 	}
 	std::cout << "## Fight is over, nobody won" << std::endl;
 }

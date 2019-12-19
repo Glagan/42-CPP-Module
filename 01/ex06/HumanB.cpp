@@ -6,16 +6,11 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 16:38:13 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/15 16:58:50 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 18:07:02 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
-
-HumanB::HumanB():
-	name(""), weapon(NULL)
-{
-}
 
 HumanB::HumanB(std::string name):
 	name(name), weapon(NULL)
