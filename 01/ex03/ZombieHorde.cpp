@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 19:12:49 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 20:02:55 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 20:29:21 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ ZombieHorde::ZombieHorde(int size):
 		std::cout << "# Not enough zombies !" << std::endl;
 }
 
-ZombieHorde::ZombieHorde(std::string type, int size):
+ZombieHorde::ZombieHorde(std::string const &type, int size):
 	type(type), size(size)
 {
 	if (size > 0)

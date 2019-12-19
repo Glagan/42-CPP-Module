@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 16:36:59 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 19:11:14 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 20:28:04 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ private:
 	std::string type;
 public:
 	Weapon();
-	Weapon(std::string type);
+	Weapon(std::string const &type);
 	~Weapon();
 
 	void setType(std::string const &type);

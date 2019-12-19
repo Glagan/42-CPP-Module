@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 17:16:00 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 19:11:05 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 20:27:50 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@
 class Sed
 {
 private:
-	static std::string strReplace(std::string line, std::string search, std::string replace);
+	static std::string strReplace(std::string const &line, std::string const &search, std::string const &replace);
 public:
 	Sed();
 	~Sed();
 
-	static void replace(std::string filename, std::string search, std::string replace);
+	static void replace(std::string const &filename, std::string const &search, std::string const &replace);
 };
 
 #endif

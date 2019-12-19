@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 17:17:08 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 20:05:52 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 20:27:18 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Sed::~Sed()
 {
 }
 
-std::string Sed::strReplace(std::string line, std::string search, std::string replace)
+std::string Sed::strReplace(std::string const &line, std::string const &search, std::string const &replace)
 {
 	std::stringstream ss;
 	size_t j;
@@ -42,7 +42,7 @@ std::string Sed::strReplace(std::string line, std::string search, std::string re
 	return (ss.str());
 }
 
-void Sed::replace(std::string filename, std::string search, std::string replace)
+void Sed::replace(std::string const &filename, std::string const &search, std::string const &replace)
 {
 	std::ifstream file;
 	std::ofstream output;

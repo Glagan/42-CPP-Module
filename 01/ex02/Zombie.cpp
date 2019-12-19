@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 18:25:55 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 20:04:03 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 20:29:48 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Zombie::Zombie():
 {
 }
 
-Zombie::Zombie(std::string type, std::string name):
+Zombie::Zombie(std::string const &type, std::string const &name):
     type(type), name(name)
 {
 }
@@ -27,7 +27,7 @@ Zombie::~Zombie()
 	std::cout << "<" << this->name << " (" << this->type << ")> Died" << std::endl;
 }
 
-void Zombie::setCharacteristics(std::string type, std::string name)
+void Zombie::setCharacteristics(std::string const &type, std::string const &name)
 {
 	this->type = type;
 	this->name = name;

@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 16:37:25 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 19:11:11 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 20:28:18 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ private:
 	std::string name;
 	const Weapon *weapon;
 public:
-	HumanB(std::string name);
+	HumanB(std::string const &name);
 	~HumanB();
 
 	void setWeapon(const Weapon &weapon);

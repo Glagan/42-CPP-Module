@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 16:59:59 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 18:48:53 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 20:23:42 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ int main(void)
 	frag.vaulthunter_dot_exe("CL4P-TP");
 	frag.vaulthunter_dot_exe("CL4P-TP");
 	frag.vaulthunter_dot_exe("CL4P-TP");
+
 	std::cout << "---" << std::endl;
+
 	scav.challengeNewcomer();
 	scav.meleeAttack("CL4P-TP");
 	scav.rangedAttack("CL4P-TP");
