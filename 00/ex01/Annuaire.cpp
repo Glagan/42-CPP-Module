@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 16:09:26 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/15 18:52:18 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 15:44:37 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,8 @@ void Annuaire::add_contact(void)
 {
 	if (this->amount == 8)
 		std::cout << "# The directory is full !" << std::endl;
-	else
-	{
-		this->contacts[this->amount].set_informations(this->amount + 1);
+	else if (this->contacts[this->amount].set_informations(this->amount + 1))
 		this->amount++;
-	}
 }
 
 void Annuaire::show_search_header(void)

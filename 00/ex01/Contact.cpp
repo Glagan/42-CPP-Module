@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 19:02:01 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/15 18:52:35 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 15:43:16 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,15 @@ std::string Contact::fields_name[11] = {
 
 Contact::Contact()
 {
+	for (int i = FirstName; i < Secret; i++)
+		this->informations[i] = std::string();
 }
 
 Contact::~Contact()
 {
 }
 
-void Contact::set_informations(int index)
+bool Contact::set_informations(int index)
 {
 	this->index = index;
 	for (int i = FirstName; i < Secret; i++)
@@ -42,7 +44,16 @@ void Contact::set_informations(int index)
 		std::cout << "# " << Contact::fields_name[i] << ":\n+";
 		std::getline(std::cin, this->informations[i]);
 	}
+	size_t totalLength = 0;
+	for (int i = FirstName; i < Secret; i++)
+		totalLength += this->informations[i].length();
+	if (totalLength == 0)
+	{
+		std::cout << "# Empty contact not added !" << std::endl;
+		return (false);
+	}
 	std::cout << "# Contact added !" << std::endl;
+	return (true);
 }
 
 void Contact::display_header()

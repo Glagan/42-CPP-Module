@@ -6,7 +6,7 @@
 #    By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/13 18:47:47 by ncolomer          #+#    #+#              #
-#    Updated: 2019/12/14 15:34:36 by ncolomer         ###   ########.fr        #
+#    Updated: 2019/12/19 14:54:40 by ncolomer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ NAME			= megaphone
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				$(CC) ${CFLAGS} -o ${NAME} ${OBJS}
+				$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 clean:
 				$(RM) $(OBJS)
