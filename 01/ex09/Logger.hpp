@@ -6,19 +6,19 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 19:24:06 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 18:23:34 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 19:10:57 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LOGGER_HPP
 # define LOGGER_HPP
 
-#include <iostream>
-#include <iomanip>
-#include <fstream>
-#include <string>
-#include <sstream>
-#include <chrono>
+# include <iostream>
+# include <iomanip>
+# include <fstream>
+# include <string>
+# include <sstream>
+# include <chrono>
 
 class Logger
 {

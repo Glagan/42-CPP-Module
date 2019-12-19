@@ -6,16 +6,16 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 18:32:25 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/14 18:45:12 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 19:11:35 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ZOMBIEVENT_HPP
 # define ZOMBIEVENT_HPP
 
-#include <iostream>
-#include <string>
-#include "Zombie.hpp"
+# include <iostream>
+# include <string>
+# include "Zombie.hpp"
 
 class ZombieEvent
 {

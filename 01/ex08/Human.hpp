@@ -6,15 +6,15 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 18:26:32 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/15 18:30:28 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 19:11:00 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HUMAN_HPP
 # define HUMAN_HPP
 
-#include <iostream>
-#include <string>
+# include <iostream>
+# include <string>
 
 class Human
 {

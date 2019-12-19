@@ -6,16 +6,16 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 18:24:33 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 17:52:23 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 19:11:33 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ZOMBIE_HPP
 # define ZOMBIE_HPP
 
-#include <iostream>
-#include <string>
-#include <random>
+# include <iostream>
+# include <string>
+# include <random>
 
 class Zombie
 {

@@ -6,16 +6,16 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 16:37:25 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 18:06:58 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 19:11:11 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HUMANB_HPP
 # define HUMANB_HPP
 
-#include <iostream>
-#include <string>
-#include "Weapon.hpp"
+# include <iostream>
+# include <string>
+# include "Weapon.hpp"
 
 class HumanB
 {

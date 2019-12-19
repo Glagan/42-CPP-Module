@@ -6,16 +6,16 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 17:16:00 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/15 18:51:53 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 19:11:05 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SED_HPP
 # define SED_HPP
 
-#include <iostream>
-#include <fstream>
-#include <sstream>
+# include <iostream>
+# include <fstream>
+# include <sstream>
 
 class Sed
 {

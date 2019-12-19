@@ -6,16 +6,16 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 16:37:35 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 18:06:47 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 19:11:09 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HUMANA_HPP
 # define HUMANA_HPP
 
-#include <iostream>
-#include <string>
-#include "Weapon.hpp"
+# include <iostream>
+# include <string>
+# include "Weapon.hpp"
 
 class HumanA
 {

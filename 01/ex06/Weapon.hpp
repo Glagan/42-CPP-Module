@@ -6,15 +6,15 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 16:36:59 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 18:08:16 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 19:11:14 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef WEAPON_HPP
 # define WEAPON_HPP
 
-#include <iostream>
-#include <string>
+# include <iostream>
+# include <string>
 
 class Weapon
 {

@@ -6,16 +6,16 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 15:58:26 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/15 16:16:27 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 19:11:21 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HUMAN_HPP
 # define HUMAN_HPP
 
-#include <iostream>
-#include <string>
-#include "Brain.hpp"
+# include <iostream>
+# include <string>
+# include "Brain.hpp"
 
 class Human
 {
