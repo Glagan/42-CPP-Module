@@ -6,7 +6,7 @@
 #    By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/15 17:06:28 by ncolomer          #+#    #+#              #
-#    Updated: 2019/12/15 18:52:02 by ncolomer         ###   ########.fr        #
+#    Updated: 2019/12/19 18:34:39 by ncolomer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ NAME			= replace
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				$(CC) ${CFLAGS} -o ${NAME} ${OBJS}
+				$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 clean:
 				$(RM) $(OBJS)
