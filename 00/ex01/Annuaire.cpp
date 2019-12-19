@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 16:09:26 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 15:44:37 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 17:38:44 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,6 @@ void Annuaire::show_startup(void)
 {
 	std::cout << "# ANNUAIRE" << std::endl;
 	std::cout << "# Enter your command [HELP, ADD, SEARCH, EXIT]:" << std::endl;
-}
-
-void Annuaire::show_help(void)
-{
-
-	std::cout << "# HELP to display this message" << std::endl;
-	std::cout << "# ADD to add a contact" << std::endl;
-	std::cout << "# SEARCH to search your contacts" << std::endl;
-	std::cout << "# EXIT to exit this program" << std::endl;
 }
 
 void Annuaire::add_contact(void)

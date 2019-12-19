@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 16:08:49 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/15 18:52:25 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 17:38:39 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ public:
 	~Annuaire();
 
 	void	show_startup(void);
-	void	show_help(void);
 	void	add_contact(void);
 	void	search_contact(void);
 	void	show_search_header(void);

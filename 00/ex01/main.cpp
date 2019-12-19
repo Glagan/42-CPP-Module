@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 19:00:09 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/15 19:46:04 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/19 17:38:36 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ int
 	{
 		std::cout << ">";
 		std::getline(std::cin, command);
-		if (command == "HELP")
-			annuaire.show_help();
-		else if (command == "ADD")
+		if (command == "ADD")
 			annuaire.add_contact();
 		else if (command == "SEARCH")
 			annuaire.search_contact();
