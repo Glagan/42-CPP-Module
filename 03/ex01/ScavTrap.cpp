@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 18:20:20 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 19:35:23 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/20 16:59:50 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ std::string ScavTrap::challenges[ScavTrap::nbrChalls] = {
 	"Did someone feel something?"
 };
 
-ScavTrap::ScavTrap(std::string const &name)
+ScavTrap::ScavTrap(std::string const &name):
+	name(name)
 {
-	this->name = name;
 	std::cout << this->name << ": Locking the door." << std::endl;
 	this->level = 1;
 	this->hitPoints = 100;
@@ -34,9 +34,35 @@ ScavTrap::ScavTrap(std::string const &name)
 	this->armorDamageReduction = 3;
 }
 
+ScavTrap::ScavTrap(ScavTrap const &other):
+	name(other.name)
+{
+	std::cout << this->name << ": Locking the door." << std::endl;
+	this->level = other.level;
+	this->hitPoints = other.hitPoints;
+	this->maxHitPoints = other.maxHitPoints;
+	this->energyPoints = other.energyPoints;
+	this->maxEnergyPoints = other.maxEnergyPoints;
+	this->meleeAttackDamage = other.meleeAttackDamage;
+	this->rangedAttackDamage = other.rangedAttackDamage;
+}
+
 ScavTrap::~ScavTrap()
 {
 	std::cout << this->name << ": Door breached."  << std::endl;
+}
+
+ScavTrap &ScavTrap::operator=(ScavTrap const &other)
+{
+	this->name = other.name;
+	this->level = other.level;
+	this->hitPoints = other.hitPoints;
+	this->maxHitPoints = other.maxHitPoints;
+	this->energyPoints = other.energyPoints;
+	this->maxEnergyPoints = other.maxEnergyPoints;
+	this->meleeAttackDamage = other.meleeAttackDamage;
+	this->rangedAttackDamage = other.rangedAttackDamage;
+	return (*this);
 }
 
 void ScavTrap::meleeAttack(std::string const &target)

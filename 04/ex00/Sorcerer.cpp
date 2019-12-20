@@ -6,17 +6,11 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 13:28:17 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 13:55:48 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/20 17:08:22 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sorcerer.hpp"
-
-Sorcerer::Sorcerer():
-	name(std::string()), title(std::string())
-{
-	std::cout << this->name << ", " << this->title << ", is born !" << std::endl;
-}
 
 Sorcerer::Sorcerer(std::string const &name, std::string const &title):
 	name(name), title(title)
@@ -27,6 +21,7 @@ Sorcerer::Sorcerer(std::string const &name, std::string const &title):
 Sorcerer::Sorcerer(Sorcerer const &other):
 	name(other.name), title(other.title)
 {
+	std::cout << this->name << ", " << this->title << ", is born !" << std::endl;
 }
 
 Sorcerer::~Sorcerer()

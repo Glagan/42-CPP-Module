@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 19:11:32 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 19:32:46 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/20 17:03:54 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,22 @@ NinjaTrap::NinjaTrap(std::string const &name):
 	this->armorDamageReduction = 0;
 }
 
+NinjaTrap::NinjaTrap(NinjaTrap const &other):
+	ClapTrap(other.name)
+{
+	std::cout << this->name << ": setting up traps..." << std::endl;
+	ClapTrap::copy(other);
+}
+
 NinjaTrap::~NinjaTrap()
 {
 	std::cout << this->name << ": I will leave, for now."  << std::endl;
+}
+
+NinjaTrap &NinjaTrap::operator=(NinjaTrap const &other)
+{
+	ClapTrap::copy(other);
+	return (*this);
 }
 
 void NinjaTrap::meleeAttack(std::string const &target)

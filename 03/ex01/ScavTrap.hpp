@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 18:20:26 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 19:28:54 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/20 16:49:39 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@
 
 class ScavTrap
 {
-protected:
+private:
+	ScavTrap();
+
 	int hitPoints;
 	int maxHitPoints;
 	int energyPoints;
@@ -33,7 +35,10 @@ protected:
 	static std::string challenges[ScavTrap::nbrChalls];
 public:
 	ScavTrap(std::string const &name);
+	ScavTrap(ScavTrap const &other);
 	~ScavTrap();
+
+	ScavTrap &operator=(ScavTrap const &other);
 
 	void meleeAttack(std::string const &target);
 	void rangedAttack(std::string const &target);

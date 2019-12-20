@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 17:00:28 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 19:28:30 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/20 17:00:36 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,22 @@ FragTrap::FragTrap(std::string const &name):
 	this->armorDamageReduction = 5;
 }
 
+FragTrap::FragTrap(FragTrap const &other):
+	ClapTrap(other.name)
+{
+	std::cout << this->name << ": Recompiling my combat code !" << std::endl;
+	ClapTrap::copy(other);
+}
+
 FragTrap::~FragTrap()
 {
 	std::cout << this->name << ": Argh arghargh death gurgle gurglegurgle urgh... death."  << std::endl;
+}
+
+FragTrap &FragTrap::operator=(FragTrap const &other)
+{
+	ClapTrap::copy(other);
+	return (*this);
 }
 
 void FragTrap::meleeAttack(std::string const &target)

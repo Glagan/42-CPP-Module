@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 19:11:39 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 20:03:21 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/20 16:50:14 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,14 @@
 
 class NinjaTrap: virtual public ClapTrap
 {
+private:
+	NinjaTrap();
 public:
 	NinjaTrap(std::string const &name);
+	NinjaTrap(NinjaTrap const &other);
 	~NinjaTrap();
+
+	NinjaTrap &operator=(NinjaTrap const &other);
 
 	void meleeAttack(std::string const &target);
 	void rangedAttack(std::string const &target);

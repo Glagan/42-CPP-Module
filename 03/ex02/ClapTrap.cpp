@@ -6,16 +6,16 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 18:51:45 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 19:29:43 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/20 17:00:02 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string const &name)
+ClapTrap::ClapTrap(std::string const &name):
+	name(name)
 {
 	std::cout << "ClapTrap " << name << " created." << std::endl;
-	this->name = name;
 	this->level = 1;
 	this->hitPoints = 100;
 	this->maxHitPoints = 100;
@@ -26,9 +26,33 @@ ClapTrap::ClapTrap(std::string const &name)
 	this->armorDamageReduction = 100;
 }
 
+ClapTrap::ClapTrap(ClapTrap const &other):
+	name(other.name)
+{
+	std::cout << "ClapTrap " << name << " created." << std::endl;
+	ClapTrap::copy(other);
+}
+
 ClapTrap::~ClapTrap()
 {
 	std::cout << "ClapTrap " << name << " destroyed." << std::endl;
+}
+
+ClapTrap &ClapTrap::operator=(ClapTrap const &other)
+{
+	ClapTrap::copy(other);
+	return (*this);
+}
+
+void ClapTrap::copy(ClapTrap const &other)
+{
+	this->level = other.level;
+	this->hitPoints = other.hitPoints;
+	this->maxHitPoints = other.maxHitPoints;
+	this->energyPoints = other.energyPoints;
+	this->maxEnergyPoints = other.maxEnergyPoints;
+	this->meleeAttackDamage = other.meleeAttackDamage;
+	this->rangedAttackDamage = other.rangedAttackDamage;
 }
 
 void ClapTrap::meleeAttack(std::string const &target)

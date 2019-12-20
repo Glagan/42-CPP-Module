@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 19:36:22 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 20:09:41 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/20 17:04:54 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,20 @@ SuperTrap::SuperTrap(std::string const &name):
 	this->armorDamageReduction = this->FragTrap::armorDamageReduction;
 }
 
+SuperTrap::SuperTrap(SuperTrap const &other):
+	ClapTrap(other.name), NinjaTrap(name), FragTrap(name)
+{
+	std::cout << this->name << ": SUPER CREATING." << std::endl;
+	ClapTrap::copy(other);
+}
+
 SuperTrap::~SuperTrap()
 {
 	std::cout << this->name << ": SUPER DESTROYING."  << std::endl;
+}
+
+SuperTrap &SuperTrap::operator=(SuperTrap const &other)
+{
+	ClapTrap::copy(other);
+	return (*this);
 }

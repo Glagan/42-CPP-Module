@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 17:00:28 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 19:35:21 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/20 16:59:36 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ std::string FragTrap::quotes[FragTrap::nbrQuotes] = {
 	"Lightening! Kukachow!"
 };
 
-FragTrap::FragTrap(std::string const &name)
+FragTrap::FragTrap(std::string const &name):
+	name(name)
 {
-	this->name = name;
 	std::cout << this->name << ": Recompiling my combat code !" << std::endl;
 	this->level = 1;
 	this->hitPoints = 100;
@@ -34,9 +34,35 @@ FragTrap::FragTrap(std::string const &name)
 	this->armorDamageReduction = 5;
 }
 
+FragTrap::FragTrap(FragTrap const &other):
+	name(other.name)
+{
+	std::cout << this->name << ": Recompiling my combat code !" << std::endl;
+	this->level = other.level;
+	this->hitPoints = other.hitPoints;
+	this->maxHitPoints = other.maxHitPoints;
+	this->energyPoints = other.energyPoints;
+	this->maxEnergyPoints = other.maxEnergyPoints;
+	this->meleeAttackDamage = other.meleeAttackDamage;
+	this->rangedAttackDamage = other.rangedAttackDamage;
+}
+
 FragTrap::~FragTrap()
 {
 	std::cout << this->name << ": Argh arghargh death gurgle gurglegurgle urgh... death."  << std::endl;
+}
+
+FragTrap &FragTrap::operator=(FragTrap const &other)
+{
+	this->name = other.name;
+	this->level = other.level;
+	this->hitPoints = other.hitPoints;
+	this->maxHitPoints = other.maxHitPoints;
+	this->energyPoints = other.energyPoints;
+	this->maxEnergyPoints = other.maxEnergyPoints;
+	this->meleeAttackDamage = other.meleeAttackDamage;
+	this->rangedAttackDamage = other.rangedAttackDamage;
+	return (*this);
 }
 
 void FragTrap::meleeAttack(std::string const &target)

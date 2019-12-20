@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 19:36:31 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 20:00:40 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/20 16:50:25 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,14 @@
 
 class SuperTrap: public NinjaTrap, public FragTrap
 {
-protected:
+private:
+	SuperTrap();
 public:
 	SuperTrap(std::string const &name);
+	SuperTrap(SuperTrap const &other);
 	~SuperTrap();
+
+	SuperTrap &operator=(SuperTrap const &other);
 
 	using FragTrap::rangedAttack;
 	using NinjaTrap::meleeAttack;

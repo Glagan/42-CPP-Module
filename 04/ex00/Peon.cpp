@@ -6,17 +6,11 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 13:56:01 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 14:43:55 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/20 17:08:30 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Peon.hpp"
-
-Peon::Peon():
-	Victim(std::string())
-{
-	std::cout << "Zog zog." << std::endl;
-}
 
 Peon::Peon(std::string const &name):
 	Victim(name)
@@ -24,9 +18,10 @@ Peon::Peon(std::string const &name):
 	std::cout << "Zog zog." << std::endl;
 }
 
-Peon::Peon(Peon const &other)
+Peon::Peon(Peon const &other):
+	Victim(other.name)
 {
-	this->name = other.name;
+	std::cout << "Zog zog." << std::endl;
 }
 
 Peon::~Peon()

@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 17:00:10 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 19:28:57 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/20 16:48:09 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@
 
 class FragTrap
 {
-protected:
+private:
+	FragTrap();
+
 	int hitPoints;
 	int maxHitPoints;
 	int energyPoints;
@@ -33,7 +35,10 @@ protected:
 	static std::string quotes[FragTrap::nbrQuotes];
 public:
 	FragTrap(std::string const &name);
+	FragTrap(FragTrap const &other);
 	~FragTrap();
+
+	FragTrap &operator=(FragTrap const &other);
 
 	void meleeAttack(std::string const &target);
 	void rangedAttack(std::string const &target);

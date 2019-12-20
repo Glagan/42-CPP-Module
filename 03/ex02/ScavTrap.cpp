@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 18:20:20 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/18 19:28:34 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/20 17:01:04 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,22 @@ ScavTrap::ScavTrap(std::string const &name):
 	this->armorDamageReduction = 3;
 }
 
+ScavTrap::ScavTrap(ScavTrap const &other):
+	ClapTrap(other.name)
+{
+	std::cout << this->name << ": Locking the door." << std::endl;
+	ClapTrap::copy(other);
+}
+
 ScavTrap::~ScavTrap()
 {
 	std::cout << this->name << ": Door breached."  << std::endl;
+}
+
+ScavTrap &ScavTrap::operator=(ScavTrap const &other)
+{
+	ClapTrap::copy(other);
+	return (*this);
 }
 
 void ScavTrap::meleeAttack(std::string const &target)

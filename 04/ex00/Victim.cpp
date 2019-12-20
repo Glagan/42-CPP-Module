@@ -6,17 +6,11 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 13:48:53 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 13:54:50 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/20 16:54:40 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Victim.hpp"
-
-Victim::Victim():
-	name(std::string())
-{
-	std::cout << "Some random victim called " << this->name << " just popped"  << std::endl;
-}
 
 Victim::Victim(std::string const &name):
 	name(name)
@@ -27,6 +21,7 @@ Victim::Victim(std::string const &name):
 Victim::Victim(Victim const &other):
 	name(other.name)
 {
+	std::cout << "Some random victim called " << this->name << " just popped"  << std::endl;
 }
 
 Victim::~Victim()
