@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 19:28:46 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 20:19:36 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/20 13:37:31 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,21 @@ Expression::Expression(std::string const &str):
 	this->setExpression(str);
 }
 
+Expression::Expression(Expression const &other):
+	acc(other.acc), str(other.str), expr(other.expr)
+{
+}
+
 Expression::~Expression()
 {
+}
+
+Expression &Expression::operator=(Expression const &other)
+{
+	this->acc = other.acc;
+	this->str = other.str;
+	this->expr = other.expr;
+	return (*this);
 }
 
 bool Expression::isOperand(char c)
