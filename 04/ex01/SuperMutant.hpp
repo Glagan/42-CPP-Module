@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Victim.hpp                                         :+:      :+:    :+:   */
+/*   SuperMutant.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/20 13:49:01 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 16:37:34 by ncolomer         ###   ########.fr       */
+/*   Created: 2019/12/20 15:33:34 by ncolomer          #+#    #+#             */
+/*   Updated: 2019/12/20 16:36:53 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VICTIM_HPP
-# define VICTIM_HPP
+#ifndef SUPERMUTANT_HPP
+# define SUPERMUTANT_HPP
 
-# include <iostream>
-# include <string>
+# include "Enemy.hpp"
 
-class Victim
+class SuperMutant: public Enemy
 {
-private:
-	Victim();
-protected:
-	std::string name;
 public:
-	Victim(std::string const &name);
-	Victim(const Victim& other);
-	virtual ~Victim();
+	SuperMutant();
+	SuperMutant(SuperMutant const &other);
+	~SuperMutant();
 
-	Victim &operator=(const Victim& other);
+	SuperMutant &operator=(SuperMutant const &other);
 
-	std::string const &getName(void) const;
-	virtual void getPolymorphed(void) const;
+	void takeDamage(int damage);
 };
-
-std::ostream &operator<<(std::ostream &out, Victim const &sorcerer);
 
 #endif

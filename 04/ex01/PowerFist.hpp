@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Victim.hpp                                         :+:      :+:    :+:   */
+/*   PowerFist.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/20 13:49:01 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 16:37:34 by ncolomer         ###   ########.fr       */
+/*   Created: 2019/12/20 15:14:59 by ncolomer          #+#    #+#             */
+/*   Updated: 2019/12/20 16:36:58 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VICTIM_HPP
-# define VICTIM_HPP
+#ifndef POWERFIST_HPP
+# define POWERFIST_HPP
 
-# include <iostream>
-# include <string>
+# include "AWeapon.hpp"
 
-class Victim
+class PowerFist: public AWeapon
 {
-private:
-	Victim();
-protected:
-	std::string name;
 public:
-	Victim(std::string const &name);
-	Victim(const Victim& other);
-	virtual ~Victim();
+	PowerFist();
+	PowerFist(PowerFist const &other);
+	~PowerFist();
 
-	Victim &operator=(const Victim& other);
+	PowerFist &operator=(PowerFist const &other);
 
-	std::string const &getName(void) const;
-	virtual void getPolymorphed(void) const;
+	void attack(void) const;
 };
-
-std::ostream &operator<<(std::ostream &out, Victim const &sorcerer);
 
 #endif

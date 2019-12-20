@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Sorcerer.hpp                                       :+:      :+:    :+:   */
+/*   AWeapon.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/20 13:28:15 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 15:55:32 by ncolomer         ###   ########.fr       */
+/*   Created: 2019/12/20 15:00:35 by ncolomer          #+#    #+#             */
+/*   Updated: 2019/12/20 16:37:11 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SORCERER_HPP
-# define SORCERER_HPP
+#ifndef AWEAPON_HPP
+# define AWEAPON_HPP
 
 # include <iostream>
 # include <string>
-# include "Victim.hpp"
 
-class Sorcerer
+class AWeapon
 {
-private:
-	Sorcerer();
+protected:
+	AWeapon();
 
 	std::string name;
-	std::string title;
+	int apCost;
+	int damage;
 public:
-	Sorcerer(std::string const &name, std::string const &title);
-	Sorcerer(const Sorcerer& other);
-	~Sorcerer();
+	AWeapon(std::string const &name, int apcost, int damage);
+	AWeapon(AWeapon const &other);
+	virtual ~AWeapon();
 
-	Sorcerer &operator=(const Sorcerer& other);
+	AWeapon &operator=(AWeapon const &other);
 
 	std::string const &getName(void) const;
-	std::string const &getTitle(void) const;
-	void polymorph(Victim const &victim) const;
-};
+	int getAPCost(void) const;
+	int getDamage(void) const;
 
-std::ostream &operator<<(std::ostream &out, Sorcerer const &sorcerer);
+	virtual void attack() const = 0;
+};
 
 #endif

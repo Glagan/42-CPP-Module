@@ -1,41 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Sorcerer.hpp                                       :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/20 13:28:15 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 15:55:32 by ncolomer         ###   ########.fr       */
+/*   Created: 2019/12/20 15:46:35 by ncolomer          #+#    #+#             */
+/*   Updated: 2019/12/20 16:09:43 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SORCERER_HPP
-# define SORCERER_HPP
+#ifndef CHARACTER_HPP
+# define CHARACTER_HPP
 
 # include <iostream>
 # include <string>
-# include "Victim.hpp"
+# include "AWeapon.hpp"
+# include "Enemy.hpp"
 
-class Sorcerer
+class Character
 {
 private:
-	Sorcerer();
+	Character();
 
 	std::string name;
-	std::string title;
+	int ap;
+	AWeapon *weapon;
 public:
-	Sorcerer(std::string const &name, std::string const &title);
-	Sorcerer(const Sorcerer& other);
-	~Sorcerer();
+	Character(std::string const &name);
+	Character(Character const &other);
+	~Character();
 
-	Sorcerer &operator=(const Sorcerer& other);
+	Character &operator=(Character const &other);
 
 	std::string const &getName(void) const;
-	std::string const &getTitle(void) const;
-	void polymorph(Victim const &victim) const;
+	int getAP(void) const;
+	AWeapon *getWeapon(void) const;
+
+	void recoverAP(void);
+	void equip(AWeapon *weapon);
+	void attack(Enemy *enemy);
 };
 
-std::ostream &operator<<(std::ostream &out, Sorcerer const &sorcerer);
+std::ostream &operator<<(std::ostream &out, Character const &chara);
 
 #endif

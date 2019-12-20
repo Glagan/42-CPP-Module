@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Victim.hpp                                         :+:      :+:    :+:   */
+/*   PlasmaRifle.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/20 13:49:01 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 16:37:34 by ncolomer         ###   ########.fr       */
+/*   Created: 2019/12/20 15:07:36 by ncolomer          #+#    #+#             */
+/*   Updated: 2019/12/20 16:37:02 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VICTIM_HPP
-# define VICTIM_HPP
+#ifndef PLASMARIFLE_HPP
+# define PLASMARIFLE_HPP
 
-# include <iostream>
-# include <string>
+# include "AWeapon.hpp"
 
-class Victim
+class PlasmaRifle: public AWeapon
 {
-private:
-	Victim();
-protected:
-	std::string name;
 public:
-	Victim(std::string const &name);
-	Victim(const Victim& other);
-	virtual ~Victim();
+	PlasmaRifle();
+	PlasmaRifle(PlasmaRifle const &other);
+	~PlasmaRifle();
 
-	Victim &operator=(const Victim& other);
+	PlasmaRifle &operator=(PlasmaRifle const &other);
 
-	std::string const &getName(void) const;
-	virtual void getPolymorphed(void) const;
+	void attack(void) const;
 };
-
-std::ostream &operator<<(std::ostream &out, Victim const &sorcerer);
 
 #endif

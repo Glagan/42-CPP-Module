@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Victim.hpp                                         :+:      :+:    :+:   */
+/*   Enemy.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/20 13:49:01 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 16:37:34 by ncolomer         ###   ########.fr       */
+/*   Created: 2019/12/20 15:17:47 by ncolomer          #+#    #+#             */
+/*   Updated: 2019/12/20 16:37:06 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef VICTIM_HPP
-# define VICTIM_HPP
+#ifndef ENEMY_HPP
+# define ENEMY_HPP
 
 # include <iostream>
 # include <string>
 
-class Victim
+class Enemy
 {
-private:
-	Victim();
 protected:
-	std::string name;
+	Enemy();
+
+	std::string type;
+	int hp;
 public:
-	Victim(std::string const &name);
-	Victim(const Victim& other);
-	virtual ~Victim();
+	Enemy(int hp, std::string const &type);
+	Enemy(Enemy const &other);
+	virtual ~Enemy();
 
-	Victim &operator=(const Victim& other);
+	Enemy &operator=(Enemy const &other);
 
-	std::string const &getName(void) const;
-	virtual void getPolymorphed(void) const;
+	std::string const &getType(void) const;
+	int getHP(void) const;
+
+	virtual void takeDamage(int damage);
 };
-
-std::ostream &operator<<(std::ostream &out, Victim const &sorcerer);
 
 #endif
