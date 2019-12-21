@@ -6,23 +6,23 @@
 #    By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/15 17:06:28 by ncolomer          #+#    #+#              #
-#    Updated: 2019/12/19 18:34:53 by ncolomer         ###   ########.fr        #
+#    Updated: 2019/12/21 16:04:04 by ncolomer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS			= main.cpp Reader.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
-CC				= clang++
+CXX				= clang++
 RM				= rm -f
-CFLAGS			= -Wall -Wextra -Werror -I.
+CXXFLAGS		= -Wall -Wextra -Werror -I.
 
 NAME			= cato9tails
 
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+				$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 clean:
 				$(RM) $(OBJS)

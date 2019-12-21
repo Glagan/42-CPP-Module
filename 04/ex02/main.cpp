@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 17:25:33 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 18:52:59 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/20 18:58:02 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ int main(void)
 			squad.getUnit(i)->meleeAttack();
 	}
 	std::cout << squad.getCount() << " -> " << squad.push(nullptr) << std::endl;
-	std::cout << squad.getCount() << " -> " << squad.push(squad.getUnit(49)) << std::endl;
-	std::cout << squad.getCount() << " -> " << squad.push(squad.getUnit(50)) << std::endl;
-	std::cout << squad.getCount() << " -> " << squad.push(squad.getUnit(51)) << std::endl;
+	std::cout << squad.getCount() << " -> " << squad.push(squad.getUnit(UNITS - 1)) << std::endl;
+	std::cout << squad.getCount() << " -> " << squad.push(squad.getUnit(UNITS)) << std::endl;
+	std::cout << squad.getCount() << " -> " << squad.push(squad.getUnit(UNITS + 1)) << std::endl;
 	std::cout << squad.getUnit(-1) << " " << squad.getUnit(10000) << std::endl;
 
 	TacticalMarine *tac = new TacticalMarine(*static_cast<TacticalMarine*>(squad.getUnit(0)));

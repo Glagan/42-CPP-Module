@@ -6,23 +6,23 @@
 #    By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/17 19:21:17 by ncolomer          #+#    #+#              #
-#    Updated: 2019/12/18 16:20:41 by ncolomer         ###   ########.fr        #
+#    Updated: 2019/12/21 16:03:39 by ncolomer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS			= main.cpp Fixed.cpp Expression.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
-CC				= clang++
+CXX				= clang++
 RM				= rm -f
-CFLAGS			= -Wall -Wextra -Werror -I.
+CXXFLAGS		= -Wall -Wextra -Werror -I.
 
 NAME			= eval_expr
 
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+				$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 clean:
 				$(RM) $(OBJS)

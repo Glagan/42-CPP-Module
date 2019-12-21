@@ -6,23 +6,23 @@
 #    By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/13 18:47:47 by ncolomer          #+#    #+#              #
-#    Updated: 2019/12/19 14:54:57 by ncolomer         ###   ########.fr        #
+#    Updated: 2019/12/21 16:04:31 by ncolomer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS			= main.cpp Annuaire.cpp Contact.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
-CC				= clang++
+CXX				= clang++
 RM				= rm -f
-CFLAGS			= -Wall -Wextra -Werror -I.
+CXXFLAGS		= -Wall -Wextra -Werror -I.
 
 NAME			= directory
 
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
+				$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
 
 clean:
 				$(RM) $(OBJS)

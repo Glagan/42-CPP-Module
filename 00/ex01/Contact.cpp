@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 19:02:01 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 17:32:57 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/21 16:07:36 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ bool Contact::set_informations(int index)
 
 void Contact::display_header()
 {
-	int	i;
-
 	std::cout << "|" << std::setw(10) << this->index;
 	for (int i = FirstName; i <= Nickname; i++)
 	{

@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 19:28:46 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 13:37:31 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/21 16:06:27 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,9 @@ void Expression::simplify(void)
 	size_t length;
 	size_t j;
 	size_t stack;
-	char last;
 
 	length = this->str.length();
-	for (int i = 0; i < length; i++)
+	for (size_t i = 0; i < length; i++)
 	{
 		if (this->str[i] == ')')
 			throw "invalid bracket closing.";
@@ -145,7 +144,7 @@ Fixed Expression::calculate(void)
 
 	length = this->expr.length();
 	operand = 0;
-	for (int i = 0; i < length; i++)
+	for (size_t i = 0; i < length; i++)
 	{
 		if (Expression::isOperand(this->expr[i]))
 		{
