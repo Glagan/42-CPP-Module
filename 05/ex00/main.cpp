@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 17:28:22 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/21 19:05:10 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/21 19:29:05 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 int main(void)
 {
 	Bureaucrat francis("Francis", 100);
+	std::cout << francis << std::endl;
+	francis.incrementGrade();
+	std::cout << francis << std::endl;
+	francis.decrementGrade();
 	std::cout << francis << std::endl;
 
 	try

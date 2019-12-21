@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 17:28:54 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/21 19:36:26 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/21 19:36:22 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <iostream>
 # include <string>
+class Bureaucrat;
+# include "Form.hpp"
 
 class Bureaucrat
 {
@@ -46,6 +48,7 @@ public:
 
 	void incrementGrade(void);
 	void decrementGrade(void);
+	bool signForm(Form &form);
 };
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &bureaucrat);
