@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ISpaceMarine.hpp                                   :+:      :+:    :+:   */
+/*   StripMiner.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/20 17:18:11 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/21 16:32:05 by ncolomer         ###   ########.fr       */
+/*   Created: 2019/12/21 16:19:51 by ncolomer          #+#    #+#             */
+/*   Updated: 2019/12/21 17:03:46 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ISPACEMARINE_HPP
-# define ISPACEMARINE_HPP
+#ifndef STRIPMINER_HPP
+# define STRIPMINER_HPP
 
-# include <iostream>
+# include "IMiningLaser.hpp"
 
-class ISpaceMarine
+class StripMiner: public IMiningLaser
 {
 public:
-	virtual ~ISpaceMarine() {}
-	virtual ISpaceMarine *clone(void) const = 0;
-	virtual void battleCry(void) const = 0;
-	virtual void rangedAttack(void) const = 0;
-	virtual void meleeAttack(void) const = 0;
+	StripMiner();
+	StripMiner(StripMiner const &other);
+	~StripMiner();
+
+	StripMiner &operator=(StripMiner const &other);
+
+	void mine(IAsteroid *asteroid);
 };
 
 #endif

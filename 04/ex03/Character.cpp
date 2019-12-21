@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 15:06:36 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/21 15:36:03 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/21 17:10:05 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ Character &Character::operator=(Character const &other)
 	return (*this);
 }
 
-std::string const &Character::getName() const
+std::string const &Character::getName(void) const
 {
 	return (this->name);
 }
@@ -66,7 +66,7 @@ void Character::unequip(int idx)
 {
 	if (idx < 0 || idx >= this->equipped || this->inventory[idx] == nullptr)
 		return ;
-	for (int i = idx; i < 4; i++)
+	for (int i = idx; i < 3; i++)
 	{
 		this->inventory[i] = this->inventory[i + 1];
 		this->inventory[i + 1] = nullptr;

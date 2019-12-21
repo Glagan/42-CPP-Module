@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ISpaceMarine.hpp                                   :+:      :+:    :+:   */
+/*   DeepCoreMiner.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/20 17:18:11 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/21 16:32:05 by ncolomer         ###   ########.fr       */
+/*   Created: 2019/12/21 16:19:35 by ncolomer          #+#    #+#             */
+/*   Updated: 2019/12/21 17:03:43 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ISPACEMARINE_HPP
-# define ISPACEMARINE_HPP
+#ifndef DEEPCOREMINER_HPP
+# define DEEPCOREMINER_HPP
 
-# include <iostream>
+# include "IMiningLaser.hpp"
 
-class ISpaceMarine
+class DeepCoreMiner: public IMiningLaser
 {
 public:
-	virtual ~ISpaceMarine() {}
-	virtual ISpaceMarine *clone(void) const = 0;
-	virtual void battleCry(void) const = 0;
-	virtual void rangedAttack(void) const = 0;
-	virtual void meleeAttack(void) const = 0;
+	DeepCoreMiner();
+	DeepCoreMiner(DeepCoreMiner const &other);
+	~DeepCoreMiner();
+
+	DeepCoreMiner &operator=(DeepCoreMiner const &other);
+
+	void mine(IAsteroid *asteroid);
 };
 
 #endif

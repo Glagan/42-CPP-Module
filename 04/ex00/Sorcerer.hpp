@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 13:28:15 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 15:55:32 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/21 16:32:45 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ public:
 
 	std::string const &getName(void) const;
 	std::string const &getTitle(void) const;
+
 	void polymorph(Victim const &victim) const;
 };
 

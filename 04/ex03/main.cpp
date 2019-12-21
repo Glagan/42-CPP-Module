@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 14:42:26 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/21 16:09:01 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/21 17:11:11 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,12 @@ int main(void)
 
 	ICharacter* me = new Character("me");
 
-	AMateria* tmp;
-	AMateria* first;
+	AMateria* tmp = nullptr;
+	AMateria* first = nullptr;
 	tmp = src->createMateria("fire");
 	me->equip(tmp);
 	tmp = src->createMateria("ice");
 	first = tmp;
-	std::cout << first << std::endl;
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);

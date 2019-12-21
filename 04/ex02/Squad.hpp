@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 17:19:22 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 17:59:35 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/21 16:31:56 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ public:
 
 	int getCount(void) const;
 	ISpaceMarine *getUnit(int index) const;
+
 	int push(ISpaceMarine *unit);
 };
 

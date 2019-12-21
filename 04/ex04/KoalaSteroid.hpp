@@ -1,40 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Character.hpp                                      :+:      :+:    :+:   */
+/*   KoalaSteroid.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/21 15:06:27 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/21 16:31:37 by ncolomer         ###   ########.fr       */
+/*   Created: 2019/12/21 16:26:32 by ncolomer          #+#    #+#             */
+/*   Updated: 2019/12/21 17:07:22 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHARACTER_HPP
-# define CHARACTER_HPP
+#ifndef KOALASTEROID_HPP
+# define KOALASTEROID_HPP
 
-# include "ICharacter.hpp"
+# include "IAsteroid.hpp"
 
-class Character: public ICharacter
+class KoalaSteroid: public IAsteroid
 {
 private:
-	Character();
-
 	std::string name;
-	int equipped;
-	AMateria *inventory[4];
 public:
-	Character(std::string const &name);
-	Character(Character const &other);
-	~Character();
+	KoalaSteroid();
+	KoalaSteroid(std::string const &name);
+	KoalaSteroid(KoalaSteroid const &other);
+	~KoalaSteroid();
 
-	Character &operator=(Character const &other);
+	KoalaSteroid &operator=(KoalaSteroid const &other);
 
-	std::string const &getName(void) const;
+	std::string getName(void) const;
 
-	void equip(AMateria *m);
-	void unequip(int idx);
-	void use(int idx, ICharacter &target);
+	std::string beMined(DeepCoreMiner *laser) const;
+	std::string beMined(StripMiner *laser) const;
 };
 
 #endif

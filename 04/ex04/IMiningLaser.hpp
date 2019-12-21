@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ISpaceMarine.hpp                                   :+:      :+:    :+:   */
+/*   IMiningLaser.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/20 17:18:11 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/21 16:32:05 by ncolomer         ###   ########.fr       */
+/*   Created: 2019/12/21 16:16:33 by ncolomer          #+#    #+#             */
+/*   Updated: 2019/12/21 17:03:54 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ISPACEMARINE_HPP
-# define ISPACEMARINE_HPP
+#ifndef IMININGLASER_HPP
+# define IMININGLASER_HPP
 
 # include <iostream>
+# include "IAsteroid.hpp"
 
-class ISpaceMarine
+class IMiningLaser
 {
 public:
-	virtual ~ISpaceMarine() {}
-	virtual ISpaceMarine *clone(void) const = 0;
-	virtual void battleCry(void) const = 0;
-	virtual void rangedAttack(void) const = 0;
-	virtual void meleeAttack(void) const = 0;
+	virtual ~IMiningLaser() {}
+	virtual void mine(IAsteroid *asteroid) = 0;
 };
 
 #endif
