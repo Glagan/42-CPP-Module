@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:33:34 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 16:36:53 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:57:30 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class SuperMutant: public Enemy
 public:
 	SuperMutant();
 	SuperMutant(SuperMutant const &other);
-	~SuperMutant();
+	virtual ~SuperMutant();
 
 	SuperMutant &operator=(SuperMutant const &other);
 

@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/13 19:04:23 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 17:33:02 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:59:50 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ private:
 	};
 public:
 	Contact();
-	~Contact();
+	virtual ~Contact();
 
 	bool	set_informations(int index);
 	void	display_header(void);

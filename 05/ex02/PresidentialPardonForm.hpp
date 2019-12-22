@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 19:41:12 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/21 19:54:02 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:56:38 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,16 @@ class PresidentialPardonForm: public Form
 private:
 	PresidentialPardonForm();
 
+	static std::string const &name;
 	std::string const &target;
 public:
 	PresidentialPardonForm(std::string const &target);
 	PresidentialPardonForm(PresidentialPardonForm const &other);
-	~PresidentialPardonForm();
+	virtual ~PresidentialPardonForm();
 
 	PresidentialPardonForm &operator=(PresidentialPardonForm const &other);
 
+	void execute(Bureaucrat const &executor) const;
 };
 
 #endif

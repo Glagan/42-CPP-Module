@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 17:28:54 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/21 19:36:22 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:56:36 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ private:
 public:
 	Bureaucrat(std::string const &name, int grade);
 	Bureaucrat(Bureaucrat const &other);
-	~Bureaucrat();
+	virtual ~Bureaucrat();
 
 	class GradeTooHighException: public std::exception {
 		virtual const char* what() const throw() {
@@ -49,6 +49,7 @@ public:
 	void incrementGrade(void);
 	void decrementGrade(void);
 	bool signForm(Form &form);
+	bool executeForm(Form const &form);
 };
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &bureaucrat);

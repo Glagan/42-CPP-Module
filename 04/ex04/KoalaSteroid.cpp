@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 16:26:21 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/21 17:03:06 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/21 20:00:45 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ KoalaSteroid::KoalaSteroid(std::string const &name):
 {
 }
 
-KoalaSteroid::KoalaSteroid(KoalaSteroid const &other)
+KoalaSteroid::KoalaSteroid(KoalaSteroid const &other):
+	name(other.name)
 {
-	this->name = other.name;
 }
 
 

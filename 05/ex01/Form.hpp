@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 19:07:41 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/21 19:36:11 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:56:31 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ private:
 public:
 	Form(std::string const &name, int const signGrade, int const executeGrade);
 	Form(Form const &other);
-	~Form();
+	virtual ~Form();
 
 	class GradeTooHighException: public std::exception {
 		virtual const char* what() const throw() {

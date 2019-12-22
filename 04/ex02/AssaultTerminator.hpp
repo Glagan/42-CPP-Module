@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 17:28:02 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 18:10:37 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:57:22 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class AssaultTerminator: public ISpaceMarine
 public:
 	AssaultTerminator();
 	AssaultTerminator(AssaultTerminator const &other);
-	~AssaultTerminator();
+	virtual ~AssaultTerminator();
 
 	AssaultTerminator &operator=(AssaultTerminator const &other);
 

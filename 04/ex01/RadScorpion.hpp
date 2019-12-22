@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:40:56 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 16:36:55 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:57:33 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class RadScorpion: public Enemy
 public:
 	RadScorpion();
 	RadScorpion(RadScorpion const &other);
-	~RadScorpion();
+	virtual ~RadScorpion();
 
 	RadScorpion &operator=(RadScorpion const &other);
 

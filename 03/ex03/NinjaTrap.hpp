@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 19:11:39 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 16:50:14 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:58:10 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ private:
 public:
 	NinjaTrap(std::string const &name);
 	NinjaTrap(NinjaTrap const &other);
-	~NinjaTrap();
+	virtual ~NinjaTrap();
 
 	NinjaTrap &operator=(NinjaTrap const &other);
 

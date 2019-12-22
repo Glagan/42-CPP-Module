@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 13:28:15 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/21 16:32:45 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:57:47 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ private:
 public:
 	Sorcerer(std::string const &name, std::string const &title);
 	Sorcerer(const Sorcerer& other);
-	~Sorcerer();
+	virtual ~Sorcerer();
 
 	Sorcerer &operator=(const Sorcerer& other);
 

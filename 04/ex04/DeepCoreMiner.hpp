@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 16:19:35 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/21 17:03:43 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:56:54 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class DeepCoreMiner: public IMiningLaser
 public:
 	DeepCoreMiner();
 	DeepCoreMiner(DeepCoreMiner const &other);
-	~DeepCoreMiner();
+	virtual ~DeepCoreMiner();
 
 	DeepCoreMiner &operator=(DeepCoreMiner const &other);
 

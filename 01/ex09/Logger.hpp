@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 19:24:06 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 19:10:57 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:58:54 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ private:
 	void logToFile(std::string const &value);
 public:
 	Logger(std::string const &logfile);
-	~Logger();
+	virtual ~Logger();
 
 	void log(std::string const &dest, std::string const &message);
 };

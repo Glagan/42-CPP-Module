@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 17:19:22 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/21 16:31:56 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:57:25 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ private:
 public:
 	Squad();
 	Squad(Squad const &other);
-	~Squad();
+	virtual ~Squad();
 
 	Squad &operator=(Squad const &other);
 

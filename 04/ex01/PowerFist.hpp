@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:14:59 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 16:36:58 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:57:34 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class PowerFist: public AWeapon
 public:
 	PowerFist();
 	PowerFist(PowerFist const &other);
-	~PowerFist();
+	virtual ~PowerFist();
 
 	PowerFist &operator=(PowerFist const &other);
 

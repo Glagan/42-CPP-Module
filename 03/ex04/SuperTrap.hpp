@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 19:36:31 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 16:50:25 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:57:57 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ private:
 public:
 	SuperTrap(std::string const &name);
 	SuperTrap(SuperTrap const &other);
-	~SuperTrap();
+	virtual ~SuperTrap();
 
 	SuperTrap &operator=(SuperTrap const &other);
 

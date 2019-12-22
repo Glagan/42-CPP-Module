@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 18:32:25 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 20:29:30 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:59:36 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ private:
 	std::string	type;
 public:
 	ZombieEvent();
-	~ZombieEvent();
+	virtual ~ZombieEvent();
 
 	void 		setZombieType(std::string const &type);
 	Zombie		*newZombie(std::string const &name);

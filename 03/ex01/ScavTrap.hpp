@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 18:20:26 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 16:49:39 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:58:23 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ private:
 public:
 	ScavTrap(std::string const &name);
 	ScavTrap(ScavTrap const &other);
-	~ScavTrap();
+	virtual ~ScavTrap();
 
 	ScavTrap &operator=(ScavTrap const &other);
 

@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 19:47:40 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 19:10:50 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:58:51 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Reader
 private:
 public:
 	Reader();
-	~Reader();
+	virtual ~Reader();
 
 	static void readFile(std::istream &stream);
 	static void openReadFile(std::string const &filename);

@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 16:08:49 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 19:11:50 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:59:53 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ private:
 	int		amount;
 public:
 	Annuaire();
-	~Annuaire();
+	virtual ~Annuaire();
 
 	void	show_startup(void);
 	void	add_contact(void);

@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 19:12:56 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 20:29:12 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:59:33 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ private:
 public:
 	ZombieHorde(int size);
 	ZombieHorde(std::string const &type, int size);
-	~ZombieHorde();
+	virtual ~ZombieHorde();
 
 	void announce(void);
 };

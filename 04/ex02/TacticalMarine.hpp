@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 17:27:14 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 18:09:34 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:57:27 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class TacticalMarine: public ISpaceMarine
 public:
 	TacticalMarine();
 	TacticalMarine(TacticalMarine const &other);
-	~TacticalMarine();
+	virtual ~TacticalMarine();
 
 	TacticalMarine &operator=(TacticalMarine const &other);
 

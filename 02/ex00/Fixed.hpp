@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/16 17:14:08 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 19:04:36 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:58:47 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ private:
 public:
 	Fixed();
 	Fixed(Fixed const &other);
-	~Fixed();
+	virtual ~Fixed();
 
 	Fixed &operator=(Fixed const &other);
 

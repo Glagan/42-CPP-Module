@@ -6,47 +6,45 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 17:28:22 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/21 19:34:17 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:55:05 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Bureaucrat.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main(void)
 {
-	Bureaucrat francis("Francis", 100);
+	Bureaucrat supervisor("Supervisor", 1);
+	std::cout << supervisor << std::endl;
+	Bureaucrat francis("Francis", 25);
 	std::cout << francis << std::endl;
 
-	Form form1("Taxes", 100, 50);
-	std::cout << form1 << std::endl;
-	form1.beSigned(francis);
-	std::cout << form1 << std::endl;
+	Form *shrub = new ShrubberyCreationForm("home");
+	std::cout << *shrub << std::endl;
+	shrub->beSigned(supervisor);
+	shrub->execute(francis);
 
-	std::cout << "---" << std::endl;
+	Form *pres = new PresidentialPardonForm("Francis");
+	std::cout << *pres << std::endl;
+	supervisor.signForm(*pres);
+	pres->execute(supervisor);
 
-	Form form2("NDA", 99, 50);
-	std::cout << form2 << std::endl;
-	francis.signForm(form2);
-	std::cout << form2 << std::endl;
-
-	std::cout << "---" << std::endl;
-
-	Form form3("Other Paper", 101, 50);
-	std::cout << form3 << std::endl;
-	francis.signForm(form3);
-	std::cout << form3 << std::endl;
-	francis.signForm(form3);
-	std::cout << form3 << std::endl;
+	Form *robot = new RobotomyRequestForm("Bender");
+	std::cout << *robot << std::endl;
+	robot->beSigned(supervisor);
+	robot->execute(francis);
+	francis.executeForm(*robot);
+	francis.executeForm(*robot);
 
 	std::cout << "---" << std::endl;
 
 	try
 	{
-		Form formException("NDA", 99, 50);
-		std::cout << formException << std::endl;
-		formException.beSigned(francis);
-		std::cout << formException << std::endl;
+		francis.executeForm(*pres);
 	}
 	catch(std::exception const &e)
 	{
@@ -57,8 +55,9 @@ int main(void)
 
 	try
 	{
-		Form formException("Important Form", 1000, 50);
-		std::cout << formException << std::endl;
+		RobotomyRequestForm robot = RobotomyRequestForm("Bender");
+		std::cout << robot << std::endl;
+		robot.execute(supervisor);
 	}
 	catch(std::exception const &e)
 	{
@@ -69,8 +68,10 @@ int main(void)
 
 	try
 	{
-		Form formException("Important Form", 0, 50);
-		std::cout << formException << std::endl;
+		PresidentialPardonForm pres = PresidentialPardonForm("Francis");
+		std::cout << pres << std::endl;
+		supervisor.signForm(pres);
+		pres.execute(francis);
 	}
 	catch(std::exception const &e)
 	{
@@ -81,25 +82,19 @@ int main(void)
 
 	try
 	{
-		Form formException("Important Form", 100, 1000);
-		std::cout << formException << std::endl;
+		PresidentialPardonForm pres = PresidentialPardonForm("Francis");
+		std::cout << pres << std::endl;
+		supervisor.signForm(pres);
+		francis.executeForm(pres);
 	}
 	catch(std::exception const &e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
 
-	std::cout << "---" << std::endl;
-
-	try
-	{
-		Form formException("Important Form", 100, 0);
-		std::cout << formException << std::endl;
-	}
-	catch(std::exception const &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	delete shrub;
+	delete pres;
+	delete robot;
 
 	return (0);
 }

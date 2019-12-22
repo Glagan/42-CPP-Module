@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 17:29:08 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/21 19:27:29 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:50:07 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,15 +72,34 @@ bool Bureaucrat::signForm(Form &form)
 				<< " because the form is already signed." << std::endl;
 		return (false);
 	}
-	else if (form.getSignGrade() >= this->grade)
+	else if (form.getSignGrade() < this->grade)
 	{
-		form.beSigned(*this);
-		std::cout << this->name << " signs " << form.getName() << std::endl;
-		return (true);
+		std::cout << this->name << " cannot sign " << form.getName()
+				<< " because it's grade is too low." << std::endl;
+		return (false);
 	}
-	std::cout << this->name << " cannot sign " << form.getName()
-			<< " because is grade is too low." << std::endl;
-	return (false);
+	form.beSigned(*this);
+	std::cout << this->name << " signs " << form.getName() << std::endl;
+	return (true);
+}
+
+bool Bureaucrat::executeForm(Form const &form)
+{
+	if (!form.isSigned())
+	{
+		std::cout << this->name << " cannot execute " << form.getName()
+				<< " because the form is unsigned." << std::endl;
+		return (false);
+	}
+	else if (form.getExecuteGrade() < this->grade)
+	{
+		std::cout << this->name << " cannot execute " << form.getName()
+				<< " because it's grade is too low." << std::endl;
+		return (false);
+	}
+	std::cout << this->name << " executes " << form.getName() << std::endl;
+	form.execute(*this);
+	return (true);
 }
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &bureaucrat)

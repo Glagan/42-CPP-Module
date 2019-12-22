@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 17:29:08 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/21 19:27:29 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 18:01:24 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ bool Bureaucrat::signForm(Form &form)
 		return (true);
 	}
 	std::cout << this->name << " cannot sign " << form.getName()
-			<< " because is grade is too low." << std::endl;
+			<< " because it's grade is too low." << std::endl;
 	return (false);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 16:41:24 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/21 16:56:56 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:57:03 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ private:
 public:
 	MiningBarge();
 	MiningBarge(MiningBarge const &other);
-	~MiningBarge();
+	virtual ~MiningBarge();
 
 	MiningBarge &operator=(MiningBarge const &other);
 

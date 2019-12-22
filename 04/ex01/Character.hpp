@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/20 15:46:35 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 16:09:43 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:57:40 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ private:
 public:
 	Character(std::string const &name);
 	Character(Character const &other);
-	~Character();
+	virtual ~Character();
 
 	Character &operator=(Character const &other);
 

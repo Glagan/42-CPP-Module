@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 17:00:10 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 16:48:09 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:58:25 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ private:
 public:
 	FragTrap(std::string const &name);
 	FragTrap(FragTrap const &other);
-	~FragTrap();
+	virtual ~FragTrap();
 
 	FragTrap &operator=(FragTrap const &other);
 

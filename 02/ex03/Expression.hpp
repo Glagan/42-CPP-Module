@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/17 19:28:49 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 13:35:52 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:58:36 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ public:
 	Expression();
 	Expression(std::string const &str);
 	Expression(Expression const &other);
-	~Expression();
+	virtual ~Expression();
 
 	Expression &operator=(Expression const &other);
 

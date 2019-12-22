@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 15:58:26 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 19:11:21 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:59:25 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ private:
 	const Brain	brain;
 public:
 	Human();
-	~Human();
+	virtual ~Human();
 
 	const Brain	&getBrain(void) const;
 	std::string	identify(void) const;

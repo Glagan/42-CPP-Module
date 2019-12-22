@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 16:27:10 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/21 17:01:53 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/21 20:00:28 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ AsteroKreog::AsteroKreog(std::string const &name):
 {
 }
 
-AsteroKreog::AsteroKreog(AsteroKreog const &other)
+AsteroKreog::AsteroKreog(AsteroKreog const &other):
+	name(other.name)
 {
-	this->name = other.name;
 }
 
 

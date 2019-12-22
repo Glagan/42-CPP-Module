@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 16:27:17 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/21 17:07:30 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:56:51 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
 	AsteroKreog();
 	AsteroKreog(std::string const &name);
 	AsteroKreog(AsteroKreog const &other);
-	~AsteroKreog();
+	virtual ~AsteroKreog();
 
 	AsteroKreog &operator=(AsteroKreog const &other);
 

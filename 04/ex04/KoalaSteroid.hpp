@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 16:26:32 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/21 17:07:22 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:56:57 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
 	KoalaSteroid();
 	KoalaSteroid(std::string const &name);
 	KoalaSteroid(KoalaSteroid const &other);
-	~KoalaSteroid();
+	virtual ~KoalaSteroid();
 
 	KoalaSteroid &operator=(KoalaSteroid const &other);
 

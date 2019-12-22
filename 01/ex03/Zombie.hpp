@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/14 18:24:33 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/19 20:28:55 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 17:59:31 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ private:
 public:
 	Zombie();
 	Zombie(std::string const &type, std::string const &name);
-	~Zombie();
+	virtual ~Zombie();
 
 	void setCharacteristics(std::string const &type, std::string const &name);
 	static std::string randomName(std::string::size_type length);
