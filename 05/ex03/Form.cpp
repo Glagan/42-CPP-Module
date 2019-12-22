@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 19:08:41 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/22 17:10:52 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 18:31:17 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ void Form::beSigned(Bureaucrat const &bureaucrat)
 {
 	if (bureaucrat.getGrade() > this->signGrade)
 		throw Form::GradeTooLowException();
+	else if (this->_signed)
+		throw Form::FormAlreadySignedException();
 	this->_signed = true;
 }
 

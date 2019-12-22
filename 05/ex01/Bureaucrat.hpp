@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 17:28:54 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/22 17:56:34 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 18:33:11 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ public:
 
 	void incrementGrade(void);
 	void decrementGrade(void);
-	bool signForm(Form &form);
+	void signForm(Form &form);
 };
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &bureaucrat);

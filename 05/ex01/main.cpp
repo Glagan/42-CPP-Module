@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 17:28:22 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/21 19:34:17 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 18:37:18 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,14 @@ int main(void)
 
 	Form form2("NDA", 99, 50);
 	std::cout << form2 << std::endl;
-	francis.signForm(form2);
+	try
+	{
+		francis.signForm(form2);
+	}
+	catch(std::exception const &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 	std::cout << form2 << std::endl;
 
 	std::cout << "---" << std::endl;
@@ -36,7 +43,14 @@ int main(void)
 	std::cout << form3 << std::endl;
 	francis.signForm(form3);
 	std::cout << form3 << std::endl;
-	francis.signForm(form3);
+	try
+	{
+		francis.signForm(form3);
+	}
+	catch(std::exception const &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 	std::cout << form3 << std::endl;
 
 	std::cout << "---" << std::endl;

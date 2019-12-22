@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 19:07:41 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/22 17:56:28 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 18:31:23 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,11 @@ public:
 	class GradeTooLowException: public std::exception {
 		virtual const char* what() const throw() {
 			return "FormException: Grade too Low";
+		}
+	};
+	class FormAlreadySignedException: public std::exception {
+		virtual const char* what() const throw() {
+			return "FormException: The Form is already signed";
 		}
 	};
 	class UnsignedFormException: public std::exception {
