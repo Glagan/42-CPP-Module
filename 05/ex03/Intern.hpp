@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/22 18:05:09 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/22 18:44:42 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 20:02:40 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ public:
 
 	Intern &operator=(Intern const &other);
 
-	Form *makeForm(std::string const &formName, std::string const &target);
+	Form *makeForm(std::string const &formName, std::string const &target) const;
 };
 
 #endif

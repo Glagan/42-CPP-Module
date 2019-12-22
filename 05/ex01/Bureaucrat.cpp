@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 17:29:08 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/22 19:12:03 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 20:01:39 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void Bureaucrat::decrementGrade(void)
 		throw Bureaucrat::GradeTooLowException();
 }
 
-void Bureaucrat::signForm(Form &form)
+void Bureaucrat::signForm(Form &form) const
 {
 	if (form.isSigned())
 	{

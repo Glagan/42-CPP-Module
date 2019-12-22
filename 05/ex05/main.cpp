@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 17:28:22 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/22 20:03:47 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 19:17:50 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int main(void)
 	Bureaucrat hermes = Bureaucrat("Hermes Conrad", 37);
 	Bureaucrat jack = Bureaucrat("Jack K", 25);
 	Bureaucrat bob = Bureaucrat("Bobby Bobson", 123);
-	Bureaucrat jean = Bureaucrat("Jean Jonson", 101);
 	OfficeBlock ob;
 
 	ob.setIntern(idiotOne);
@@ -69,8 +68,6 @@ int main(void)
 	}
 
 	std::cout << "---" << std::endl;
-
-	ob.setExecutor(jean);
 
 	try
 	{
