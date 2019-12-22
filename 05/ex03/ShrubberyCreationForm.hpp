@@ -1,35 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/21 19:41:12 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/22 18:13:58 by ncolomer         ###   ########.fr       */
+/*   Created: 2019/12/21 19:41:26 by ncolomer          #+#    #+#             */
+/*   Updated: 2019/12/22 18:22:07 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRESIDENTIALPARDONFORM_HPP
-# define PRESIDENTIALPARDONFORM_HPP
+#ifndef SHRUBBERYCREATIONFORM_HPP
+# define SHRUBBERYCREATIONFORM_HPP
 
 # include <string>
+# include <fstream>
 # include "Form.hpp"
 
-class PresidentialPardonForm: public Form
+class ShrubberyCreationForm: public Form
 {
 private:
-	PresidentialPardonForm();
+	ShrubberyCreationForm();
 
 	std::string const &target;
+	static std::string const trees[3];
 public:
-	PresidentialPardonForm(std::string const &target);
-	PresidentialPardonForm(PresidentialPardonForm const &other);
-	virtual ~PresidentialPardonForm();
+	ShrubberyCreationForm(std::string const &target);
+	ShrubberyCreationForm(ShrubberyCreationForm const &other);
+	virtual ~ShrubberyCreationForm();
 
 	static std::string const &name;
 
-	PresidentialPardonForm &operator=(PresidentialPardonForm const &other);
+	class TargetFileOpenException: public std::exception {
+		virtual const char* what() const throw() {
+			return "ShrubberyCreationFormException: Cannot open file";
+		}
+	};
+
+	ShrubberyCreationForm &operator=(ShrubberyCreationForm const &other);
 
 	void execute(Bureaucrat const &executor) const;
 };

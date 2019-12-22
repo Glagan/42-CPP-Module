@@ -6,11 +6,12 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 17:28:22 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/22 18:22:24 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 18:22:28 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include "Intern.hpp"
 #include "Bureaucrat.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
@@ -19,28 +20,34 @@
 int main(void)
 {
 	srand(time(NULL));
+	Intern someIntern;
 
 	Bureaucrat supervisor("Supervisor", 1);
 	std::cout << supervisor << std::endl;
 	Bureaucrat francis("Francis", 25);
 	std::cout << francis << std::endl;
 
-	Form *shrub = new ShrubberyCreationForm("home");
+	Form *shrub = someIntern.makeForm("Shrubbery Creation", "home");
 	std::cout << *shrub << std::endl;
 	shrub->beSigned(supervisor);
 	shrub->execute(francis);
 
-	Form *pres = new PresidentialPardonForm("Francis");
+	Form *pres = someIntern.makeForm("Presidential Pardon", "Francis");
 	std::cout << *pres << std::endl;
 	supervisor.signForm(*pres);
 	pres->execute(supervisor);
 
-	Form *robot = new RobotomyRequestForm("Bender");
+	Form *robot = someIntern.makeForm("Robotomy Request", "Bender");
 	std::cout << *robot << std::endl;
 	robot->beSigned(supervisor);
 	robot->execute(francis);
 	francis.executeForm(*robot);
 	francis.executeForm(*robot);
+
+	std::cout << "---" << std::endl;
+
+	Form *ran = someIntern.makeForm("Random Form", "nobody");
+	std::cout << ran << std::endl;
 
 	std::cout << "---" << std::endl;
 

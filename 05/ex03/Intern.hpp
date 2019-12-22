@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/21 19:41:16 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/22 18:13:54 by ncolomer         ###   ########.fr       */
+/*   Created: 2019/12/22 18:05:09 by ncolomer          #+#    #+#             */
+/*   Updated: 2019/12/22 18:11:09 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ROBOTOMYREQUESTFORM_HPP
-# define ROBOTOMYREQUESTFORM_HPP
+#ifndef INTERN_HPP
+# define INTERN_HPP
 
 # include <string>
 # include "Form.hpp"
+# include "PresidentialPardonForm.hpp"
+# include "RobotomyRequestForm.hpp"
+# include "ShrubberyCreationForm.hpp"
 
-class RobotomyRequestForm: public Form
+class Intern
 {
-private:
-	RobotomyRequestForm();
-
-	std::string const &target;
 public:
-	RobotomyRequestForm(std::string const &target);
-	RobotomyRequestForm(RobotomyRequestForm const &other);
-	virtual ~RobotomyRequestForm();
+	Intern();
+	Intern(Intern const &other);
+	virtual ~Intern();
 
-	static std::string const &name;
+	Intern &operator=(Intern const &other);
 
-	RobotomyRequestForm &operator=(RobotomyRequestForm const &other);
-
-	void execute(Bureaucrat const &executor) const;
+	Form *makeForm(std::string const &formName, std::string const &target);
 };
 
 #endif
