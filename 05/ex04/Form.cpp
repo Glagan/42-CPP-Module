@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 19:08:41 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/22 19:02:24 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 19:01:35 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,14 @@ void Form::beSigned(Bureaucrat const &bureaucrat)
 	else if (this->_signed)
 		throw Form::FormAlreadySignedException();
 	this->_signed = true;
+}
+
+void Form::execute(Bureaucrat const &bureaucrat) const
+{
+	if (bureaucrat.getGrade() > this->executeGrade)
+		throw Form::GradeTooLowException();
+	if (!this->_signed)
+		throw Form::UnsignedFormException();
 }
 
 std::ostream &operator<<(std::ostream &out, Form const &form)

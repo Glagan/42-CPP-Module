@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 17:28:22 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/22 18:22:28 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 18:45:15 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,15 @@ int main(void)
 
 	std::cout << "---" << std::endl;
 
-	Form *ran = someIntern.makeForm("Random Form", "nobody");
-	std::cout << ran << std::endl;
+	try
+	{
+		Form *ran = someIntern.makeForm("Random Form", "nobody");
+		std::cout << ran << std::endl;
+	}
+	catch(std::exception const &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
 
 	std::cout << "---" << std::endl;
 

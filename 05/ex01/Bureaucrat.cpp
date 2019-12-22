@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 17:29:08 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/22 18:36:13 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/22 19:12:03 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,23 +68,23 @@ void Bureaucrat::signForm(Form &form)
 {
 	if (form.isSigned())
 	{
-		std::cout << this->name << " cannot sign " << form.getName()
+		std::cout << *this << " cannot sign " << form
 				<< " because the form is already signed." << std::endl;
 	}
 	else if (form.getSignGrade() < this->grade)
 	{
-		std::cout << this->name << " cannot sign " << form.getName()
+		std::cout << *this << " cannot sign " << form
 				<< " because it's grade is too low." << std::endl;
 	}
 	else
 	{
-		std::cout << this->name << " signs " << form.getName() << std::endl;
+		std::cout << *this << " signs " << form << std::endl;
 	}
 	form.beSigned(*this);
 }
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat const &bureaucrat)
 {
-	out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
+	out << "Bureaucrat " << bureaucrat.getName() << " (Grade " << bureaucrat.getGrade() << ")";
 	return (out);
 }
