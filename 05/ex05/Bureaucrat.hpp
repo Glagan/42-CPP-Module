@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 17:28:54 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/22 19:59:33 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/23 14:54:39 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Bureaucrat
 private:
 	Bureaucrat();
 
-	std::string const &name;
+	std::string const name;
 	int grade;
 public:
 	Bureaucrat(std::string const &name, int grade);

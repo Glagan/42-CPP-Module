@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/22 18:04:58 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/22 19:59:47 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/23 16:49:15 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,6 @@ Form *Intern::makeForm(std::string const &formName, std::string const &target) c
 		throw Intern::FormDoesNotExistException();
 	}
 	else
-		std::cout << "Intern creates " << *form << std::endl;
+		std::cout << "Intern creates " << *form << " targeted at " << target << std::endl;
 	return (form);
 }

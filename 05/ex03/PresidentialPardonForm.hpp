@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 19:41:12 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/22 18:09:52 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/23 14:56:39 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class PresidentialPardonForm: public Form
 private:
 	PresidentialPardonForm();
 
-	std::string const &target;
+	std::string const target;
 public:
 	PresidentialPardonForm(std::string const &target);
 	PresidentialPardonForm(PresidentialPardonForm const &other);

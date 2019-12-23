@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 19:41:26 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/22 18:22:07 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/23 16:10:12 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class ShrubberyCreationForm: public Form
 private:
 	ShrubberyCreationForm();
 
-	std::string const &target;
+	std::string const target;
 	static std::string const trees[3];
 public:
 	ShrubberyCreationForm(std::string const &target);
@@ -34,6 +34,11 @@ public:
 	class TargetFileOpenException: public std::exception {
 		virtual const char* what() const throw() {
 			return "ShrubberyCreationFormException: Cannot open file";
+		}
+	};
+	class WriteException: public std::exception {
+		virtual const char* what() const throw() {
+			return "ShrubberyCreationFormException: Error while writing to the file";
 		}
 	};
 

@@ -6,89 +6,72 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 17:28:22 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/22 19:17:50 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/23 17:11:57 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "OfficeBlock.hpp"
-#include "Intern.hpp"
+#include <sstream>
+#include <random>
+#include "CentralBureaucracy.hpp"
 #include "Bureaucrat.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "ShrubberyCreationForm.hpp"
+
+std::string randomName(int length)
+{
+	static std::string const alphabet = "0123456789abcdefghijklmnopqrstuvxyzABCDEFGHIJKLMNOPQRSTUVXYZ";
+	static size_t alphabetLength = alphabet.length();
+	std::stringstream ss;
+
+	for (int j = 0; j < length; j++)
+		ss << alphabet[rand() % alphabetLength];
+	return (ss.str());
+}
 
 int main(void)
 {
 	srand(time(NULL));
-	Intern idiotOne;
-	Bureaucrat hermes = Bureaucrat("Hermes Conrad", 37);
-	Bureaucrat jack = Bureaucrat("Jack K", 25);
-	Bureaucrat bob = Bureaucrat("Bobby Bobson", 123);
-	OfficeBlock ob;
+	CentralBureaucracy cb;
+	Bureaucrat *bureaucrats[20];
 
-	ob.setIntern(idiotOne);
-	ob.setSigner(bob);
+	for (int i = 0; i < 20; i++)
+		bureaucrats[i] = new Bureaucrat(randomName(15), (rand() % 150 + 1));
 
 	try
 	{
-		ob.doBureaucracy("Shrubbery Creation", "home");
+		cb << *bureaucrats[0] << *bureaucrats[1];
+		cb.feed(*bureaucrats[2]);
+		cb.feed(*bureaucrats[3]);
+		for (int i = 4; i < 20; i++)
+			cb << *bureaucrats[i];
 	}
 	catch(std::exception & e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
 
-	std::cout << "---" << std::endl;
-
 	try
 	{
-		ob.setExecutor(bob);
-	}
-	catch(OfficeBlock::BureaucratAlreadyAssignedException & e)
-	{
-		std::cerr << bob << " has already a position in this Office Block" << std::endl;
+		cb << randomName((rand() % 20) + 1);
+		cb.queueUp(randomName((rand() % 20) + 1));
+		for (int i = 0; i < (rand() % 50); i++)
+			cb << randomName((rand() % 20) + 1);
 	}
 	catch(std::exception & e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
 
-	std::cout << "---" << std::endl;
-
-	ob.setExecutor(hermes);
-
 	try
 	{
-		ob.doBureaucracy("Shrubbery Creation", "home");
+		cb.doBureaucracy();
 	}
 	catch(std::exception & e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
 
-	std::cout << "---" << std::endl;
-
-	try
-	{
-		ob.doBureaucracy("Presidential Pardon", "Morty");
-	}
-	catch(std::exception & e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-
-	std::cout << "---" << std::endl;
-
-	ob.setSigner(jack);
-	try
-	{
-		ob.doBureaucracy("Presidential Pardon", "Morty");
-	}
-	catch(std::exception & e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	for (int i = 0; i < 20; i++)
+		delete bureaucrats[i];
 
 	return (0);
 }

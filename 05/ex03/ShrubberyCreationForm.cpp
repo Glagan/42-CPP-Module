@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 19:41:18 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/22 18:22:55 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/23 17:12:52 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,22 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm co
 void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 {
 	Form::execute(executor);
-	std::ofstream outfile(this->target + "_shrubbery", std::ios::trunc);
+	std::string const shrubName = (this->target + "_shrubbery");
+	std::ofstream outfile(shrubName, std::ios::out | std::ios::app);
 
-	if (!outfile.is_open() || !outfile.good())
+	if (!outfile.is_open() || outfile.bad())
 		throw TargetFileOpenException();
 	int treeCount = (rand() % 6) + 1;
 	for (int i = 0; i < treeCount; i++)
+	{
 		outfile << ShrubberyCreationForm::trees[rand() % 3];
+		if (outfile.bad())
+		{
+			outfile << std::endl;
+			outfile.close();
+			throw WriteException();
+		}
+	}
+	outfile << std::endl;
 	outfile.close();
 }

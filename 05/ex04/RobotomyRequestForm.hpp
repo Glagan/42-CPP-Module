@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 19:41:16 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/22 18:10:01 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/23 14:56:28 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class RobotomyRequestForm: public Form
 private:
 	RobotomyRequestForm();
 
-	std::string const &target;
+	std::string const target;
 public:
 	RobotomyRequestForm(std::string const &target);
 	RobotomyRequestForm(RobotomyRequestForm const &other);
