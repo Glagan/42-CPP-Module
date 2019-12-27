@@ -6,128 +6,190 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 17:47:28 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/23 18:25:18 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/27 15:49:17 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Interpreter.hpp"
 
 Interpreter::Interpreter(std::string const &value):
-	originalValue(value), impossibleInt(false), impossibleChar(false)
+	str(value), type(TypeInvalid)
 {
-	if (this->tryAsInt())
-		this->originalType = TypeInt;
-	else if (this->tryAsFloat())
-		this->originalType = TypeFloat;
-	else if (this->tryAsDouble())
-		this->originalType = TypeDouble;
-	else if (this->tryAsChar())
-		this->originalType = TypeChar;
+	for (int i = 0; i < 4; i++)
+		this->status[i] = 0;
+	this->parse();
+	if (this->type != TypeInvalid)
+	{
+		this->convert();
+		if (this->ivalue > 127 || this->ivalue < 0)
+			this->setFlag(TypeChar, this->isImpossible);
+		if (!std::isprint(this->cvalue))
+			this->setFlag(TypeChar, this->nonDisplayable);
+	}
 	else
-		this->originalType = TypeInvalid;
+	{
+		this->setFlag(TypeInt, this->isImpossible);
+		this->setFlag(TypeFloat, this->isImpossible);
+		this->setFlag(TypeDouble, this->isImpossible);
+		this->setFlag(TypeChar, this->isImpossible);
+	}
 }
 
 Interpreter::Interpreter(Interpreter const &other):
-	originalValue(other.originalValue), originalType(other.originalType),
-	impossibleInt(false), ivalue(other.ivalue),
-	fvalue(other.fvalue), dvalue(other.dvalue),
-	impossibleChar(false), cvalue(other.cvalue)
+	str(other.str), type(other.type),
+	ivalue(other.ivalue), fvalue(other.fvalue),
+	dvalue(other.dvalue), cvalue(other.cvalue)
 {
+	for (int i = 0; i < 4; i++)
+		this->status[i] = other.status[i];
 }
 
 Interpreter::~Interpreter()
 {
 }
 
-bool Interpreter::tryAsInt(void)
+void Interpreter::parse(void)
 {
-	try
-	{
-		this->ivalue = std::stoi(this->originalValue);
-		this->fvalue = static_cast<float>(this->ivalue);
-		this->dvalue = static_cast<double>(this->ivalue);
-		this->cvalue = static_cast<char>(this->ivalue);
-		return (true);
-	}
-	catch(const std::exception& e)
-	{
-	}
-	return (false);
-}
+	size_t length = this->str.length();
+	size_t i = 0;
+	bool hasFract = false;
 
-bool Interpreter::tryAsFloat(void)
-{
-	try
+	if (length == 1 && !std::isdigit(this->str[0]))
 	{
-		this->fvalue = std::stof(this->originalValue);
-		if (std::isnan(this->fvalue) || std::isinf(this->fvalue))
+		this->type = TypeChar;
+		this->cvalue = this->str[0];
+		return ;
+	}
+	if (this->str[0] == '+' || this->str[0] == '-')
+		i++;
+	this->type = TypeInt;
+	for ( ; i < length; i++)
+	{
+		if (this->str[i] == '.')
+			this->type = TypeDouble;
+		else if (this->str[i] != 'f' && i != length - 1 && this->type == TypeDouble)
+			this->type = TypeFloat;
+		else if (!std::isdigit(this->str[i]))
 		{
-			std::cout << "isnan or inf" << std::endl;
-			this->impossibleInt = true;
-			this->impossibleChar = true;
+			this->type = TypeInvalid;
+			i = length;
 		}
-		this->ivalue = static_cast<int>(this->fvalue);
-		this->dvalue = static_cast<double>(this->fvalue);
-		this->cvalue = static_cast<char>(this->fvalue);
-		return (true);
 	}
-	catch(const std::exception& e)
+	if (this->type == TypeDouble)
 	{
+		this->dvalue = std::stod(this->str);
+		this->type = TypeDouble;
 	}
-	return (false);
-}
-
-bool Interpreter::tryAsDouble(void)
-{
-	try
+	else if (this->type == TypeFloat)
 	{
-		this->dvalue = std::stod(this->originalValue);
-		if (std::isnan(this->dvalue) || std::isinf(this->dvalue))
+		try
 		{
-			std::cout << "isnan or inf" << std::endl;
-			this->impossibleInt = true;
-			this->impossibleChar = true;
+			this->fvalue = std::stof(this->str);
+			this->type = TypeFloat;
 		}
-		this->ivalue = static_cast<int>(this->dvalue);
-		this->fvalue = static_cast<float>(this->dvalue);
-		this->cvalue = static_cast<char>(this->dvalue);
-		return (true);
+		catch(const std::exception& e)
+		{
+			this->type == TypeInvalid;
+		}
 	}
-	catch(const std::exception& e)
+	else if (this->type == TypeInt)
 	{
+		this->ivalue = std::stoi(this->str);
+		this->type = TypeInt;
 	}
-	return (false);
+	else if (this->type == TypeInvalid)
+	{
+		if (this->str == "-inff" || this->str == "+inff" || this->str == "nanf")
+		{
+			this->fvalue = std::stof(this->str);
+			this->type = TypeFloat;
+		}
+		else if (this->str == "-inf" || this->str == "+inf" || this->str == "nan")
+		{
+			this->dvalue = std::stod(this->str);
+			this->type = TypeDouble;
+		}
+	}
 }
 
-bool Interpreter::tryAsChar(void)
+void Interpreter::convert(void)
 {
-	if (this->originalValue.length() == 1)
+	switch (this->type)
 	{
-		this->cvalue = this->originalValue[0];
-		this->ivalue = static_cast<int>(this->cvalue);
-		this->fvalue = static_cast<float>(this->cvalue);
-		this->dvalue = static_cast<double>(this->cvalue);
-		return (true);
+	case TypeInt:
+		this->fromInt();
+		break;
+	case TypeFloat:
+		this->fromFloat();
+		break;
+	case TypeDouble:
+		this->fromDouble();
+		break;
+	case TypeChar:
+		this->fromChar();
+		break;
 	}
-	return (false);
+}
+
+void Interpreter::fromInt(void)
+{
+	this->fvalue = static_cast<float>(this->ivalue);
+	this->dvalue = static_cast<double>(this->ivalue);
+	this->cvalue = static_cast<char>(this->ivalue);
+}
+
+bool Interpreter::floatIsValue(void) const
+{
+	return (!(std::isnan(this->fvalue) || std::isinf(this->fvalue)));
+}
+
+bool Interpreter::doubleIsValue(void) const
+{
+	return (!(std::isnan(this->dvalue) || std::isinf(this->dvalue)));
+}
+
+void Interpreter::fromFloat(void)
+{
+	this->ivalue = static_cast<int>(this->fvalue);
+	this->dvalue = static_cast<double>(this->fvalue);
+	this->cvalue = static_cast<char>(this->fvalue);
+}
+
+void Interpreter::fromDouble(void)
+{
+	this->ivalue = static_cast<int>(this->dvalue);
+	this->fvalue = static_cast<float>(this->dvalue);
+	this->cvalue = static_cast<char>(this->dvalue);
+}
+
+void Interpreter::fromChar(void)
+{
+	this->ivalue = static_cast<int>(this->cvalue);
+	this->fvalue = static_cast<float>(this->cvalue);
+	this->dvalue = static_cast<double>(this->cvalue);
+}
+
+void Interpreter::setFlag(int status, int flag)
+{
+	this->status[status] = flag;
+}
+
+bool Interpreter::hasFlag(int status, int flag)
+{
+	return (this->status[status] & flag);
 }
 
 Interpreter &Interpreter::operator=(Interpreter const &other)
 {
-	this->originalValue = other.originalValue;
-	this->originalType = other.originalType;
-	this->impossibleInt = other.impossibleInt;
+	this->str = other.str;
+	this->type = other.type;
+	for (int i = 0; i < 4; i++)
+		this->status[i] = other.status[i];
 	this->ivalue = other.ivalue;
 	this->fvalue = other.fvalue;
 	this->dvalue = other.dvalue;
-	this->impossibleChar = other.impossibleChar;
 	this->cvalue = other.cvalue;
 	return (*this);
-}
-
-bool Interpreter::isImpossibleInt(void) const
-{
-	return (this->impossibleInt);
 }
 
 int Interpreter::getAsInt(void) const
@@ -145,11 +207,6 @@ double Interpreter::getAsDouble(void) const
 	return (this->dvalue);
 }
 
-bool Interpreter::isImpossibleChar(void) const
-{
-	return (this->impossibleChar);
-}
-
 char Interpreter::getAsChar(void) const
 {
 	return (this->cvalue);
@@ -157,17 +214,37 @@ char Interpreter::getAsChar(void) const
 
 std::ostream &operator<<(std::ostream &out, Interpreter const &pr)
 {
+	std::stringstream ss;
+	std::string tmp;
+
 	if (pr.isImpossibleChar())
-		std::cout << "char: impossible" << '\n';
+		ss << "char: impossible" << '\n';
 	else if (std::isprint(pr.getAsChar()))
-		std::cout << "char: '" << pr.getAsChar() << "'\n";
+		ss << "char: '" << pr.getAsChar() << "'\n";
 	else
-		std::cout << "char: Non displayable" << '\n';
+		ss << "char: Non displayable" << '\n';
+
 	if (pr.isImpossibleInt())
-		std::cout << "int: impossible" << '\n';
+		ss << "int: impossible" << '\n';
 	else
-		std::cout << "int: " << pr.getAsInt() << '\n';
-	std::cout << "float: " << pr.getAsFloat() << "f\n"
-			<< "double: " << pr.getAsDouble() << std::endl;
+		ss << "int: " << pr.getAsInt() << '\n';
+	out << ss.str();
+	ss.str(std::string());
+	ss.clear();
+
+	ss << "float: " << pr.getAsFloat();
+	tmp = ss.str();
+	if (pr.floatIsValue() && tmp.find('.') == std::string::npos)
+		ss << ".0";
+	ss << "f\n";
+	out << ss.str();
+	ss.str(std::string());
+	ss.clear();
+
+	ss << "double: " << pr.getAsDouble();
+	tmp = ss.str();
+	if (pr.doubleIsValue() && tmp.find('.') == std::string::npos)
+		ss << ".0";
+	out << ss.str() << std::endl;
 	return (out);
 }
