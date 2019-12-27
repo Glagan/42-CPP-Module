@@ -6,24 +6,30 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 17:28:09 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/27 17:49:07 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/27 18:58:53 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Interpreter.hpp"
+#include "Data.hpp"
 
-int main(int argc, char const *argv[])
+int main(void)
 {
-	if (argc != 1)
+	srand(time(NULL));
+
+	for (int i = 0; i < 5; i++)
 	{
-		std::cout << "convert: error: bad arguments\n"
-				<< "         usage: value" << std::endl;
+		std::cout << "test " << i << ": " << '\n';
+		void *raw = serialize();
+		Data *dt = deserialize(raw);
+
+		std::cout << "\tstr1: " << dt->s1 << '\n';
+		std::cout << "\tn:    " << dt->n << '\n';
+		std::cout << "\tstr2: " << dt->s2 << std::endl;
+
+		delete static_cast<char*>(raw);
+		delete dt;
 	}
-	else
-	{
-		Interpreter p(argv[1]);
-		std::cout << p << std::endl;
-	}
+
 	return (0);
 }

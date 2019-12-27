@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 17:00:28 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 16:59:41 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/27 18:34:57 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ FragTrap::FragTrap(FragTrap const &other):
 	this->maxEnergyPoints = other.maxEnergyPoints;
 	this->meleeAttackDamage = other.meleeAttackDamage;
 	this->rangedAttackDamage = other.rangedAttackDamage;
+	this->armorDamageReduction = other.armorDamageReduction;
 }
 
 FragTrap::~FragTrap()
@@ -62,6 +63,7 @@ FragTrap &FragTrap::operator=(FragTrap const &other)
 	this->maxEnergyPoints = other.maxEnergyPoints;
 	this->meleeAttackDamage = other.meleeAttackDamage;
 	this->rangedAttackDamage = other.rangedAttackDamage;
+	this->armorDamageReduction = other.armorDamageReduction;
 	return (*this);
 }
 

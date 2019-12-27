@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 18:51:45 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 17:00:02 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/27 18:35:17 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void ClapTrap::copy(ClapTrap const &other)
 	this->maxEnergyPoints = other.maxEnergyPoints;
 	this->meleeAttackDamage = other.meleeAttackDamage;
 	this->rangedAttackDamage = other.rangedAttackDamage;
+	this->armorDamageReduction = other.armorDamageReduction;
 }
 
 void ClapTrap::meleeAttack(std::string const &target)

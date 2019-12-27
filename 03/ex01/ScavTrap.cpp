@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 18:20:20 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 16:59:50 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/27 18:35:13 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ ScavTrap::ScavTrap(ScavTrap const &other):
 	this->maxEnergyPoints = other.maxEnergyPoints;
 	this->meleeAttackDamage = other.meleeAttackDamage;
 	this->rangedAttackDamage = other.rangedAttackDamage;
+	this->armorDamageReduction = other.armorDamageReduction;
 }
 
 ScavTrap::~ScavTrap()
@@ -62,6 +63,7 @@ ScavTrap &ScavTrap::operator=(ScavTrap const &other)
 	this->maxEnergyPoints = other.maxEnergyPoints;
 	this->meleeAttackDamage = other.meleeAttackDamage;
 	this->rangedAttackDamage = other.rangedAttackDamage;
+	this->armorDamageReduction = other.armorDamageReduction;
 	return (*this);
 }
 
