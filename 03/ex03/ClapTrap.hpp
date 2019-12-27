@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 18:51:53 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 17:01:46 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/26 16:45:27 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ public:
 
 	ClapTrap &operator=(ClapTrap const &other);
 
-	void meleeAttack(std::string const &target);
-	void rangedAttack(std::string const &target);
+	virtual void meleeAttack(std::string const &target);
+	virtual void rangedAttack(std::string const &target);
 	bool takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 

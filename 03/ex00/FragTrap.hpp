@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 17:00:10 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/22 17:58:29 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/27 14:18:30 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ class FragTrap
 private:
 	FragTrap();
 
+	std::string name;
+	int level;
 	int hitPoints;
 	int maxHitPoints;
 	int energyPoints;
 	int maxEnergyPoints;
-	int level;
-	std::string name;
 	int meleeAttackDamage;
 	int rangedAttackDamage;
 	int armorDamageReduction;

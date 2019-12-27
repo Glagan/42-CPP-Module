@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 19:36:31 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/22 17:57:57 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/27 14:42:05 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ public:
 
 	SuperTrap &operator=(SuperTrap const &other);
 
-	using FragTrap::rangedAttack;
-	using NinjaTrap::meleeAttack;
+	void rangedAttack(std::string const &target);
+	void meleeAttack(std::string const &target);
 };
 
 #endif

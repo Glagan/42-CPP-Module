@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 19:11:32 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 17:04:08 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/27 14:24:03 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ NinjaTrap::NinjaTrap(std::string const &name):
 	ClapTrap(name)
 {
 	std::cout << this->name << ": setting up traps..." << std::endl;
-	this->level = 1;
 	this->hitPoints = 60;
 	this->maxHitPoints = 60;
 	this->energyPoints = 120;

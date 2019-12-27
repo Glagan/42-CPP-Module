@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 18:20:20 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 17:04:19 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/27 14:24:08 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,6 @@ ScavTrap::ScavTrap(std::string const &name):
 	ClapTrap(name)
 {
 	std::cout << this->name << ": Locking the door." << std::endl;
-	this->level = 1;
-	this->hitPoints = 100;
-	this->maxHitPoints = 100;
 	this->energyPoints = 50;
 	this->maxEnergyPoints = 50;
 	this->meleeAttackDamage = 20;

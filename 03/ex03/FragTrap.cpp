@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 17:00:28 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 17:02:58 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/27 14:23:39 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,6 @@ FragTrap::FragTrap(std::string const &name):
 	ClapTrap(name)
 {
 	std::cout << this->name << ": Recompiling my combat code !" << std::endl;
-	this->level = 1;
-	this->hitPoints = 100;
-	this->maxHitPoints = 100;
-	this->energyPoints = 100;
-	this->maxEnergyPoints = 100;
 	this->meleeAttackDamage = 30;
 	this->rangedAttackDamage = 20;
 	this->armorDamageReduction = 5;

@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 19:36:22 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 17:04:54 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/27 14:41:08 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ SuperTrap::SuperTrap(std::string const &name):
 	ClapTrap(name), NinjaTrap(name), FragTrap(name)
 {
 	std::cout << this->name << ": SUPER CREATING." << std::endl;
-	this->level = 1;
 	this->hitPoints = this->FragTrap::hitPoints;
 	this->maxHitPoints = this->FragTrap::maxHitPoints;
 	this->energyPoints = this->NinjaTrap::energyPoints;
@@ -42,4 +41,14 @@ SuperTrap &SuperTrap::operator=(SuperTrap const &other)
 {
 	ClapTrap::copy(other);
 	return (*this);
+}
+
+void SuperTrap::rangedAttack(std::string const &target)
+{
+	FragTrap::rangedAttack(target);
+}
+
+void SuperTrap::meleeAttack(std::string const &target)
+{
+	NinjaTrap::meleeAttack(target);
 }

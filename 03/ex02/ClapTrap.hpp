@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 18:51:53 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/20 16:53:03 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/27 14:18:56 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ protected:
 	ClapTrap();
 
 	std::string name;
+	int level;
 	int hitPoints;
 	int maxHitPoints;
 	int energyPoints;
 	int maxEnergyPoints;
-	int level;
 	int meleeAttackDamage;
 	int rangedAttackDamage;
 	int armorDamageReduction;
@@ -39,8 +39,8 @@ public:
 
 	ClapTrap &operator=(ClapTrap const &other);
 
-	void meleeAttack(std::string const &target);
-	void rangedAttack(std::string const &target);
+	virtual void meleeAttack(std::string const &target);
+	virtual void rangedAttack(std::string const &target);
 	bool takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 };
