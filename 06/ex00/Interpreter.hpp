@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 17:46:16 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/27 15:45:00 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/27 17:28:46 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,18 @@
 # include <string>
 # include <cctype>
 # include <cmath>
+# include <limits>
 
 class Interpreter
 {
 private:
 	Interpreter();
 
-	static const int isImpossible = 0x00000001;
-	static const int nonDisplayable = 0x00000010;
-
 	std::string str;
 	int type;
 
 	int status[4];
+	long lvalue;
 	int ivalue;
 	float fvalue;
 	double dvalue;
@@ -41,18 +40,19 @@ private:
 
 	void convert(void);
 	void fromInt(void);
+	void fromLong(void);
 	void fromFloat(void);
 	void fromDouble(void);
 	void fromChar(void);
 
 	void setFlag(int status, int flag);
-	bool hasFlag(int status, int flag);
 
 	enum Type {
+		TypeChar,
 		TypeInt,
 		TypeFloat,
 		TypeDouble,
-		TypeChar,
+		TypeLong,
 		TypeInvalid
 	};
 public:
@@ -60,15 +60,20 @@ public:
 	Interpreter(Interpreter const &other);
 	virtual ~Interpreter();
 
+	static const int isImpossible = 0x00000001;
+	static const int nonDisplayable = 0x00000010;
+
 	Interpreter &operator=(Interpreter const &other);
 
 	bool floatIsValue(void) const;
 	bool doubleIsValue(void) const;
+	bool hasFlag(int status, int flag) const;
 
 	int getAsInt(void) const;
 	float getAsFloat(void) const;
 	double getAsDouble(void) const;
 	char getAsChar(void) const;
+	std::string const &getRaw(void) const;
 };
 
 std::ostream &operator<<(std::ostream &out, Interpreter const &pr);

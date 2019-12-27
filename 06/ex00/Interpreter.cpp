@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 17:47:28 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/27 15:49:17 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/27 17:28:49 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,12 @@ Interpreter::Interpreter(std::string const &value):
 	if (this->type != TypeInvalid)
 	{
 		this->convert();
-		if (this->ivalue > 127 || this->ivalue < 0)
+		if (this->lvalue > std::numeric_limits<int>::max())
+			this->setFlag(TypeInt, this->isImpossible);
+		else if (this->lvalue < std::numeric_limits<int>::min())
+			this->setFlag(TypeInt, this->isImpossible);
+		if (this->hasFlag(TypeInt, this->isImpossible)
+			|| this->ivalue > 127 || this->ivalue < 0)
 			this->setFlag(TypeChar, this->isImpossible);
 		if (!std::isprint(this->cvalue))
 			this->setFlag(TypeChar, this->nonDisplayable);
@@ -52,7 +57,6 @@ void Interpreter::parse(void)
 {
 	size_t length = this->str.length();
 	size_t i = 0;
-	bool hasFract = false;
 
 	if (length == 1 && !std::isdigit(this->str[0]))
 	{
@@ -67,7 +71,7 @@ void Interpreter::parse(void)
 	{
 		if (this->str[i] == '.')
 			this->type = TypeDouble;
-		else if (this->str[i] != 'f' && i != length - 1 && this->type == TypeDouble)
+		else if (this->str[i] == 'f' && i == length - 1 && this->type == TypeDouble)
 			this->type = TypeFloat;
 		else if (!std::isdigit(this->str[i]))
 		{
@@ -77,34 +81,48 @@ void Interpreter::parse(void)
 	}
 	if (this->type == TypeDouble)
 	{
-		this->dvalue = std::stod(this->str);
-		this->type = TypeDouble;
+		try
+		{
+			this->dvalue = std::stod(this->str);
+		}
+		catch(const std::exception& e)
+		{
+			this->type = TypeInvalid;
+		}
 	}
 	else if (this->type == TypeFloat)
 	{
 		try
 		{
 			this->fvalue = std::stof(this->str);
-			this->type = TypeFloat;
 		}
 		catch(const std::exception& e)
 		{
-			this->type == TypeInvalid;
+			this->type = TypeInvalid;
 		}
 	}
 	else if (this->type == TypeInt)
 	{
-		this->ivalue = std::stoi(this->str);
-		this->type = TypeInt;
+		try
+		{
+			this->ivalue = std::stoi(this->str);
+		}
+		catch(const std::exception& e)
+		{
+			this->lvalue = std::stol(this->str);
+			this->type = TypeLong;
+		}
 	}
 	else if (this->type == TypeInvalid)
 	{
-		if (this->str == "-inff" || this->str == "+inff" || this->str == "nanf")
+		if (this->str == "inff" || this->str == "-inff" || this->str == "+inff"
+			|| this->str == "nanf")
 		{
 			this->fvalue = std::stof(this->str);
 			this->type = TypeFloat;
 		}
-		else if (this->str == "-inf" || this->str == "+inf" || this->str == "nan")
+		else if (this->str == "inf" ||  this->str == "-inf" || this->str == "+inf"
+				|| this->str == "nan")
 		{
 			this->dvalue = std::stod(this->str);
 			this->type = TypeDouble;
@@ -116,6 +134,9 @@ void Interpreter::convert(void)
 {
 	switch (this->type)
 	{
+	case TypeLong:
+		this->fromLong();
+		break;
 	case TypeInt:
 		this->fromInt();
 		break;
@@ -129,6 +150,13 @@ void Interpreter::convert(void)
 		this->fromChar();
 		break;
 	}
+}
+
+void Interpreter::fromLong(void)
+{
+	this->fvalue = static_cast<float>(static_cast<int>(this->lvalue));
+	this->dvalue = static_cast<double>(static_cast<int>(this->lvalue));
+	this->cvalue = static_cast<char>(static_cast<int>(this->lvalue));
 }
 
 void Interpreter::fromInt(void)
@@ -150,20 +178,27 @@ bool Interpreter::doubleIsValue(void) const
 
 void Interpreter::fromFloat(void)
 {
+	this->lvalue = static_cast<long>(this->fvalue);
 	this->ivalue = static_cast<int>(this->fvalue);
 	this->dvalue = static_cast<double>(this->fvalue);
 	this->cvalue = static_cast<char>(this->fvalue);
+	if (!this->floatIsValue())
+		this->setFlag(TypeInt, this->isImpossible);
 }
 
 void Interpreter::fromDouble(void)
 {
+	this->lvalue = static_cast<long>(this->dvalue);
 	this->ivalue = static_cast<int>(this->dvalue);
 	this->fvalue = static_cast<float>(this->dvalue);
 	this->cvalue = static_cast<char>(this->dvalue);
+	if (!this->doubleIsValue())
+		this->setFlag(TypeInt, this->isImpossible);
 }
 
 void Interpreter::fromChar(void)
 {
+	this->lvalue = static_cast<long>(this->cvalue);
 	this->ivalue = static_cast<int>(this->cvalue);
 	this->fvalue = static_cast<float>(this->cvalue);
 	this->dvalue = static_cast<double>(this->cvalue);
@@ -171,10 +206,10 @@ void Interpreter::fromChar(void)
 
 void Interpreter::setFlag(int status, int flag)
 {
-	this->status[status] = flag;
+	this->status[status] |= flag;
 }
 
-bool Interpreter::hasFlag(int status, int flag)
+bool Interpreter::hasFlag(int status, int flag) const
 {
 	return (this->status[status] & flag);
 }
@@ -212,19 +247,24 @@ char Interpreter::getAsChar(void) const
 	return (this->cvalue);
 }
 
+std::string const &Interpreter::getRaw(void) const
+{
+	return (this->str);
+}
+
 std::ostream &operator<<(std::ostream &out, Interpreter const &pr)
 {
 	std::stringstream ss;
 	std::string tmp;
 
-	if (pr.isImpossibleChar())
+	if (pr.hasFlag(0, Interpreter::isImpossible))
 		ss << "char: impossible" << '\n';
-	else if (std::isprint(pr.getAsChar()))
-		ss << "char: '" << pr.getAsChar() << "'\n";
-	else
+	else if (pr.hasFlag(0, Interpreter::nonDisplayable))
 		ss << "char: Non displayable" << '\n';
+	else
+		ss << "char: '" << pr.getAsChar() << "'\n";
 
-	if (pr.isImpossibleInt())
+	if (pr.hasFlag(1, Interpreter::isImpossible))
 		ss << "int: impossible" << '\n';
 	else
 		ss << "int: " << pr.getAsInt() << '\n';
@@ -232,19 +272,29 @@ std::ostream &operator<<(std::ostream &out, Interpreter const &pr)
 	ss.str(std::string());
 	ss.clear();
 
-	ss << "float: " << pr.getAsFloat();
-	tmp = ss.str();
-	if (pr.floatIsValue() && tmp.find('.') == std::string::npos)
-		ss << ".0";
-	ss << "f\n";
+	if (pr.hasFlag(2, Interpreter::isImpossible))
+		ss << "float: impossible" << '\n';
+	else
+	{
+		ss << "float: " << pr.getAsFloat();
+		tmp = ss.str();
+		if (pr.floatIsValue() && tmp.find('.') == std::string::npos)
+			ss << ".0";
+		ss << "f\n";
+	}
 	out << ss.str();
 	ss.str(std::string());
 	ss.clear();
 
-	ss << "double: " << pr.getAsDouble();
-	tmp = ss.str();
-	if (pr.doubleIsValue() && tmp.find('.') == std::string::npos)
-		ss << ".0";
+	if (pr.hasFlag(3,  Interpreter::isImpossible))
+		ss << "double: impossible";
+	else
+	{
+		ss << "double: " << pr.getAsDouble();
+		tmp = ss.str();
+		if (pr.doubleIsValue() && tmp.find('.') == std::string::npos)
+			ss << ".0";
+	}
 	out << ss.str() << std::endl;
 	return (out);
 }

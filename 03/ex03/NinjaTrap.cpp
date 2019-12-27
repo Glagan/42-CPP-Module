@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 19:11:32 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/27 14:23:51 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/27 16:45:04 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void NinjaTrap::ninjaShoebox(ScavTrap &trap)
 		this->energyPoints -= 20;
 		std::cout << this->name << " try to cut trough " << trap.getName()
 				<< " and damage him for " << this->rangedAttackDamage << "!" << std::endl;
-		trap.takeDamage(this->meleeAttackDamage);
+		trap.takeDamage(this->rangedAttackDamage);
 	}
 	else
 		std::cout << this->name << " is too tired." << std::endl;
