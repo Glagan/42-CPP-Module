@@ -6,14 +6,13 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 15:06:16 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/28 15:16:48 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/28 15:29:55 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Number.hpp"
 #include "iter.hpp"
-#include "iter.cpp"
 
 template<typename T>
 void display(T value)

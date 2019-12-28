@@ -6,11 +6,11 @@
 #    By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/17 19:21:17 by ncolomer          #+#    #+#              #
-#    Updated: 2019/12/28 15:17:56 by ncolomer         ###   ########.fr        #
+#    Updated: 2019/12/28 15:29:12 by ncolomer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			= main.cpp functions.cpp Number.cpp
+SRCS			= main.cpp Number.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++

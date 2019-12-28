@@ -6,14 +6,13 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 14:34:28 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/28 15:22:41 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/28 15:29:17 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Number.hpp"
 #include "functions.hpp"
-#include "functions.cpp"
 
 int main(void)
 {

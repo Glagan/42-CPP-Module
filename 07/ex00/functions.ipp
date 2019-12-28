@@ -1,20 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.cpp                                           :+:      :+:    :+:   */
+/*   functions.ipp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/28 15:04:07 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/28 15:06:10 by ncolomer         ###   ########.fr       */
+/*   Created: 2019/12/28 14:54:57 by ncolomer          #+#    #+#             */
+/*   Updated: 2019/12/28 15:28:59 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "iter.hpp"
+template<typename T>
+void swap(T &a, T &b)
+{
+	T tmp;
+
+	tmp = a;
+	a = b;
+	b = tmp;
+}
 
 template<typename T>
-void iter(T arr[], size_t length, void (*f)(T elt))
+T min(T &a, T &b)
 {
-	for (size_t i = 0; i < length; i++)
-		(*f)(arr[i]);
+	if (b > a)
+		return (a);
+	return (b);
+}
+
+template<typename T>
+T max(T &a, T &b)
+{
+	if (a > b)
+		return (a);
+	return (b);
 }

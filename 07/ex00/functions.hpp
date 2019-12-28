@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 14:34:52 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/28 14:59:56 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/28 15:29:06 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@ T min(T &a, T &b);
 
 template<typename T>
 T max(T &a, T &b);
+
+# include "functions.ipp"
 
 #endif

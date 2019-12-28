@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 15:04:02 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/28 15:05:39 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/28 15:29:47 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,7 @@
 
 template<typename T>
 void iter(T arr[], size_t length, void (*f)(T elt));
+
+# include "iter.ipp"
 
 #endif
