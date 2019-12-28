@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 16:41:07 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/28 17:39:45 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/28 17:55:04 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,13 @@ public:
 	Span &operator=(Span const &other);
 
 	void addNumber(int value);
+	template<typename InputIterator>
+	void addNumber(InputIterator begin, InputIterator end);
 
 	int shortestSpan(void) const;
 	int longestSpan(void) const;
 };
+
+# include "Span.ipp"
 
 #endif

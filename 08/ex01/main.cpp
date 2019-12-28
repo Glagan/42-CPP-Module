@@ -6,11 +6,12 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 16:41:29 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/28 17:38:23 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/28 17:57:24 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <list>
 #include "Span.hpp"
 
 void displaySpan(std::string const &name, Span &span)
@@ -60,9 +61,11 @@ int main(void)
 
 	for (int i = 0; i < 20; i++)
 	{
+		std::vector<int> tmp;
 		Span sprandom = Span(100000);
 		for (int i = 0; i < 100000; i++)
-			sprandom.addNumber((rand() % 100000) - 50000);
+			tmp.push_back((rand() % 100000) - 50000);
+		sprandom.addNumber(tmp.begin(), tmp.end());
 		displaySpan("Random", sprandom);
 	}
 
@@ -92,6 +95,23 @@ int main(void)
 	try
 	{
 		spexception.addNumber(1);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	try
+	{
+		std::list<int> lst;
+		lst.push_back(1);
+		lst.push_back(2);
+		lst.push_back(3);
+		lst.push_back(4);
+
+		Span spexception = Span(3);
+		spexception.addNumber(lst.begin(), lst.end());
+		displaySpan("Exception", spexception);
 	}
 	catch(const std::exception& e)
 	{
