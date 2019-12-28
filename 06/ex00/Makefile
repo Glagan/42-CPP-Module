@@ -6,7 +6,7 @@
 #    By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/17 19:21:17 by ncolomer          #+#    #+#              #
-#    Updated: 2019/12/27 17:25:25 by ncolomer         ###   ########.fr        #
+#    Updated: 2019/12/28 16:02:05 by ncolomer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,4 +69,4 @@ test:			$(NAME)
 				./convert 12544.545f
 				./convert 54178652.41784187
 
-.PHONY:			all clean fclean re
+.PHONY:			all clean fclean re test

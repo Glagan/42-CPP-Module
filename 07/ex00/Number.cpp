@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 15:14:47 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/28 15:25:26 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/28 16:00:21 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@ Number::~Number()
 Number &Number::operator=(Number const &other)
 {
 	this->n = other.n;
+	return (*this);
+}
+
+Number &Number::operator=(int value)
+{
+	this->n = value;
 	return (*this);
 }
 

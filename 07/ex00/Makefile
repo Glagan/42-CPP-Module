@@ -6,7 +6,7 @@
 #    By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/17 19:21:17 by ncolomer          #+#    #+#              #
-#    Updated: 2019/12/28 15:29:12 by ncolomer         ###   ########.fr        #
+#    Updated: 2019/12/28 16:01:53 by ncolomer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,4 +35,4 @@ re:				fclean $(NAME)
 test:			$(NAME)
 				./intro_templates
 
-.PHONY:			all clean fclean re
+.PHONY:			all clean fclean re test

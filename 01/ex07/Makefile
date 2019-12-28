@@ -6,7 +6,7 @@
 #    By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/15 17:06:28 by ncolomer          #+#    #+#              #
-#    Updated: 2019/12/21 16:04:12 by ncolomer         ###   ########.fr        #
+#    Updated: 2019/12/28 16:03:18 by ncolomer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,4 +37,4 @@ test:			$(NAME)
 				./replace tests/1 "e" "E"
 				./replace tests/2 "cheval" "poney"
 
-.PHONY:			all clean fclean re
+.PHONY:			all clean fclean re test

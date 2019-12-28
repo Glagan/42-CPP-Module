@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 15:14:55 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/28 15:24:57 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/28 16:00:56 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ public:
 	virtual ~Number();
 
 	Number &operator=(Number const &other);
+	Number &operator=(int value);
 
 	bool operator<(Number const &b);
 	bool operator<=(Number const &b);

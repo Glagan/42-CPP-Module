@@ -5,19 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/12/13 18:47:47 by ncolomer          #+#    #+#              #
-#    Updated: 2019/12/28 16:05:10 by ncolomer         ###   ########.fr        #
+#    Created: 2019/12/17 19:21:17 by ncolomer          #+#    #+#              #
+#    Updated: 2019/12/28 16:01:33 by ncolomer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			= megaphone.cpp
+SRCS			= main.cpp Number.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++
 RM				= rm -f
 CXXFLAGS		= -Wall -Wextra -Werror -I.
 
-NAME			= megaphone
+NAME			= array
 
 all:			$(NAME)
 
@@ -33,8 +33,6 @@ fclean:			clean
 re:				fclean $(NAME)
 
 test:			$(NAME)
-				./megaphone "shhhhh... I think the students are asleep..."
-				./megaphone Damnit " ! " "Sorry students, I thought this thing was off."
-				./megaphone
+				./array
 
 .PHONY:			all clean fclean re test
