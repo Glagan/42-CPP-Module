@@ -6,11 +6,12 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 14:34:28 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/28 14:59:53 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/28 15:22:41 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include "Number.hpp"
 #include "functions.hpp"
 #include "functions.cpp"
 
@@ -40,6 +41,13 @@ int main(void)
 	std::cout << "e = " << e << ", f = " << f << std::endl;
 	std::cout << "min(e, f) = " << ::min(e, f) << std::endl;
 	std::cout << "max(e, f) = " << ::max(e, f) << std::endl;
+
+	Number g(2);
+	Number h(3);
+	::swap(g, h);
+	std::cout << "g = " << g << ", h = " << h << std::endl;
+	std::cout << "min(g, h) = " << ::min(g, h) << std::endl;
+	std::cout << "max(g, h) = " << ::max(g, h) << std::endl;
 
 	return (0);
 }
