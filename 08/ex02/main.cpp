@@ -6,12 +6,13 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 18:22:52 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/29 16:06:36 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/29 16:19:40 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <stack>
+#include <list>
 #include "MutantStack.hpp"
 
 int main(void)
@@ -27,7 +28,10 @@ int main(void)
 	mstack.push(3);
 	mstack.push(5);
 	mstack.push(737);
-	//[...]
+	mstack.push(42);
+	mstack.push(4242);
+	mstack.push(24);
+	mstack.push(2424);
 	mstack.push(0);
 
 	MutantStack<int>::iterator it = mstack.begin();
