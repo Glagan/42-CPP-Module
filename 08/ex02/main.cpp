@@ -6,11 +6,12 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 18:22:52 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/28 18:49:06 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/29 16:06:36 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <stack>
 #include "MutantStack.hpp"
 
 int main(void)
@@ -19,9 +20,9 @@ int main(void)
 	mstack.push(5);
 	mstack.push(17);
 
-	std::cout << mstack.top() << std::endl;
+	std::cout << "top: " << mstack.top() << std::endl;
 	mstack.pop();
-	std::cout << mstack.size() << std::endl;
+	std::cout << "size: " << mstack.size() << std::endl;
 
 	mstack.push(3);
 	mstack.push(5);
@@ -42,6 +43,7 @@ int main(void)
 	}
 
 	std::stack<int> s(mstack);
+	MutantStack<int> st = mstack;
 
 	return (0);
 }
