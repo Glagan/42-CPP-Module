@@ -6,11 +6,12 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/29 19:35:59 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/29 19:39:58 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/30 16:40:31 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include "Postfix.hpp"
 
 int main(int argc, char const *argv[])
 {
@@ -20,6 +21,14 @@ int main(int argc, char const *argv[])
 	}
 	else
 	{
+		try
+		{
+			Postfix poland(argv[1]);
+		}
+		catch(char const *e)
+		{
+			std::cerr << e << std::endl;
+		}
 	}
 	return (0);
 }

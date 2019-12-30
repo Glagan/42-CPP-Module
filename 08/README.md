@@ -6,3 +6,4 @@
 
 * [~~Brainfuck~~ MindOpen](https://en.wikipedia.org/wiki/Brainfuck#Commands)
 * [MindOpen programs](https://copy.sh/brainfuck/)
+* [Postix notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation)

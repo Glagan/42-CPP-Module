@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/29 19:46:30 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/29 19:46:35 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/30 17:41:38 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ public:
 
 	ParOpen &operator=(ParOpen const &other);
 
+	int getType(void) const;
+	void display(void) const;
 };
 
 #endif
