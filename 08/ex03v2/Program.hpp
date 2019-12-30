@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/29 18:22:10 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/30 15:17:41 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/30 15:38:58 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <array>
 # include <deque>
 # include <vector>
-# include "LoopReference.hpp"
 
 class Program
 {
@@ -27,7 +26,7 @@ private:
 	int stackSize;
 	std::vector<char> stack;
 	std::deque<int> instructions;
-	std::vector<LoopReference*> loops;
+	std::vector<int> loops;
 public:
 	Program(int stackSize=30000);
 	Program(Program const &other);

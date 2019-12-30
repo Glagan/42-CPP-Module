@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/29 18:22:12 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/30 15:21:41 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/30 15:39:30 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ void Program::setLoops(int instr)
 
 void Program::addLoop(int start, int end)
 {
-	this->loops[start] = new LoopReference(start, end);
-	this->loops[end] = this->loops[start];
+	this->loops[start] = end;
+	this->loops[end] = start;
 }
 
 int Program::moveToNextLoop(int start, int size)
@@ -117,11 +117,11 @@ void Program::executeInstruction(int instruction)
 		break;
 	case LoopStart:
 		if (this->stack[this->pointer] == 0)
-			this->curr = this->loops[this->curr]->getExitInt();
+			this->curr = this->loops[this->curr];
 		break;
 	case LoopEnd:
 		if (this->stack[this->pointer] != 0)
-			this->curr = this->loops[this->curr]->getEntryInt();
+			this->curr = this->loops[this->curr];
 		break;
 	}
 }

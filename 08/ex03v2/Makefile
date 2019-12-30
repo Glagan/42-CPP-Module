@@ -6,11 +6,11 @@
 #    By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/29 18:01:14 by ncolomer          #+#    #+#              #
-#    Updated: 2019/12/30 14:42:58 by ncolomer         ###   ########.fr        #
+#    Updated: 2019/12/30 15:33:45 by ncolomer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS			= main.cpp MindOpen.cpp LoopReference.cpp Program.cpp
+SRCS			= main.cpp MindOpen.cpp Program.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++
