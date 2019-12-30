@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/29 19:37:20 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/30 18:00:54 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/30 18:27:55 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,9 +115,34 @@ void Postfix::displayTokens(void) const
 	}
 }
 
+/**
+ * Add every Number to stack
+ * Add every operand to stack
+ * When seeing closing parenthesis unload operand stack up to the last opened parenthesis,
+ * also unload the operand up to the last opened parenthesis.
+ **/
 void Postfix::polish(void)
 {
-	
+	std::deque<Token*>::const_iterator it = this->tokens.begin();
+	std::deque<Token*>::const_iterator ite = this->tokens.end();
+	std::deque<Num*> numStack;
+	std::deque<Op*> opStack;
+
+	for ( ; it != ite; it++)
+	{
+		if ((*it)->getType() == 0)
+			numStack.push_back(static_cast<Num*>(*it));
+		else if ((*it)->getType() == 1)
+			numStack.push_back(static_cast<Num*>(*it));
+		else if ((*it)->getType() == 2)
+		{
+
+		}
+		else if ((*it)->getType() == 3)
+		{
+
+		}
+	}
 }
 
 void Postfix::displayPostfix(void) const
