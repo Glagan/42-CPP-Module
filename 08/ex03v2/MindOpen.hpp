@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/29 16:54:37 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/30 14:35:48 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/30 14:45:25 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,6 @@
 # include <array>
 # include <deque>
 # include "Program.hpp"
-# include "Instruction.hpp"
-# include "Instructions/Incr.hpp"
-# include "Instructions/Decr.hpp"
-# include "Instructions/IncrPtr.hpp"
-# include "Instructions/DecrPtr.hpp"
-# include "Instructions/Input.hpp"
-# include "Instructions/Output.hpp"
-# include "Instructions/LoopStart.hpp"
-# include "Instructions/LoopEnd.hpp"
 
 class MindOpen
 {

@@ -6,13 +6,11 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/29 18:22:12 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/29 19:13:31 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/30 14:35:24 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Program.hpp"
-
-#define DEBUG false
 
 Program::Program():
 	curr(0), pointer(0)
@@ -53,43 +51,31 @@ void Program::addInstruction(Instruction *instruction)
 
 void Program::incrPtr(void)
 {
-	if (DEBUG)
-		std::cout << "incr pointer" << '\n';
 	this->pointer++;
 }
 
 void Program::decrPtr(void)
 {
-	if (DEBUG)
-		std::cout << "decr pointer" << '\n';
 	this->pointer--;
 }
 
 void Program::incrData(void)
 {
-	if (DEBUG)
-		std::cout << "incr data" << '\n';
 	this->stack[this->pointer]++;
 }
 
 void Program::decrData(void)
 {
-	if (DEBUG)
-		std::cout << "decr data" << '\n';
 	this->stack[this->pointer]--;
 }
 
 void Program::setPtrData(char in)
 {
-	if (DEBUG)
-		std::cout << "set data" << '\n';
 	this->stack[this->pointer] = in;
 }
 
 char Program::getPtrData(void) const
 {
-	if (DEBUG)
-		std::cout << "get data" << '\n';
 	return (this->stack[this->pointer]);
 }
 

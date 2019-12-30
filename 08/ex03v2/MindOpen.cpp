@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/29 16:58:21 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/30 14:35:32 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/30 15:12:09 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ MindOpen &MindOpen::operator=(MindOpen const &other)
 bool MindOpen::loadFromString(std::string const &str)
 {
 	size_t length = str.length();
-	int countStart = 0;
+	int instr = 0;
+	int loopCount = 0;
 
 	this->moriginal = str;
 	for (size_t i = 0; i < length; i++)
@@ -44,35 +45,44 @@ bool MindOpen::loadFromString(std::string const &str)
 		switch (str[i])
 		{
 		case '>':
-			this->program.addInstruction(new IncrPtr(this->program));
+			this->program.addInstruction(Program::IncrPtr);
+			instr++;
 			break;
 		case '<':
-			this->program.addInstruction(new DecrPtr(this->program));
+			this->program.addInstruction(Program::DecrPtr);
+			instr++;
 			break;
 		case '+':
-			this->program.addInstruction(new Incr(this->program));
+			this->program.addInstruction(Program::IncrData);
+			instr++;
 			break;
 		case '-':
-			this->program.addInstruction(new Decr(this->program));
+			this->program.addInstruction(Program::DecrData);
+			instr++;
 			break;
 		case '.':
-			this->program.addInstruction(new Output(this->program));
+			this->program.addInstruction(Program::Output);
+			instr++;
 			break;
 		case ',':
-			this->program.addInstruction(new Input(this->program));
+			this->program.addInstruction(Program::Input);
+			instr++;
 			break;
 		case '[':
-			this->program.addInstruction(new LoopStart(this->program));
-			countStart++;
+			this->program.addInstruction(Program::LoopStart);
+			instr++;
+			loopCount++;
 			break;
 		case ']':
-			this->program.addInstruction(new LoopEnd(this->program));
-			countStart--;
+			this->program.addInstruction(Program::LoopEnd);
+			instr++;
+			loopCount--;
 			break;
 		}
 	}
-	if (countStart != 0)
+	if (loopCount != 0)
 		return (false);
+	this->program.setLoops(instr);
 	return (true);
 }
 
