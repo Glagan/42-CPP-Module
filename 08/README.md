@@ -7,3 +7,4 @@
 * [~~Brainfuck~~ MindOpen](https://en.wikipedia.org/wiki/Brainfuck#Commands)
 * [MindOpen programs](https://copy.sh/brainfuck/)
 * [Postix notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation)
+* [Infix to Postfix](https://codeburst.io/conversion-of-infix-expression-to-postfix-expression-using-stack-data-structure-3faf9c212ab8)

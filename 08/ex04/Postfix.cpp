@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/29 19:37:20 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/30 18:27:55 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/31 20:07:56 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void Postfix::setExpression(std::string const &expression)
 {
 	this->original = expression;
 	this->simplify();
-	if (this->simple.find_first_not_of("0123456789+-*/") != std::string::npos)
+	if (this->simple.find_first_not_of("0123456789+-*/()") != std::string::npos)
 		throw "invalid character.";
 }
 
@@ -115,33 +115,38 @@ void Postfix::displayTokens(void) const
 	}
 }
 
-/**
- * Add every Number to stack
- * Add every operand to stack
- * When seeing closing parenthesis unload operand stack up to the last opened parenthesis,
- * also unload the operand up to the last opened parenthesis.
- **/
 void Postfix::polish(void)
 {
-	std::deque<Token*>::const_iterator it = this->tokens.begin();
-	std::deque<Token*>::const_iterator ite = this->tokens.end();
-	std::deque<Num*> numStack;
-	std::deque<Op*> opStack;
+	size_t end = this->tokens.size();
+	std::stack<Token*> opStack;
 
-	for ( ; it != ite; it++)
+	for (size_t i = 0; i < end; i++)
 	{
-		if ((*it)->getType() == 0)
-			numStack.push_back(static_cast<Num*>(*it));
-		else if ((*it)->getType() == 1)
-			numStack.push_back(static_cast<Num*>(*it));
-		else if ((*it)->getType() == 2)
+		if (this->tokens[i]->getType() == Token::TokenNum)
+			this->postfix.push_back(this->tokens[i]);
+		else if (this->tokens[i]->getType() == Token::TokenOp
+				|| this->tokens[i]->getType() == Token::TokenParOpen)
 		{
-
+			opStack.push(this->tokens[i]);
 		}
-		else if ((*it)->getType() == 3)
+		else if (this->tokens[i]->getType() == Token::TokenParClose)
 		{
-
+			while (!opStack.empty())
+			{
+				if (opStack.top()->getType() == Token::TokenParOpen)
+				{
+					opStack.pop();
+					break ;
+				}
+				this->postfix.push_back(opStack.top());
+				opStack.pop();
+			}
 		}
+	}
+	while (!opStack.empty())
+	{
+		this->postfix.push_back(opStack.top());
+		opStack.pop();
 	}
 }
 
@@ -183,8 +188,8 @@ int Postfix::execute(int a, char op, int b) const
 
 void Postfix::displayStack(std::deque<int> const &stack) const
 {
-	std::deque<int>::const_iterator it = stack.begin();
-	std::deque<int>::const_iterator ite = stack.end();
+	std::deque<int>::const_reverse_iterator it = stack.rbegin();
+	std::deque<int>::const_reverse_iterator ite = stack.rend();
 
 	std::cout << "ST ";
 	for ( ; it != ite; it++)
@@ -204,7 +209,7 @@ void Postfix::calculate(void)
 
 	for ( ; it != ite; it++)
 	{
-		if ((*it)->getType() == 0)
+		if ((*it)->getType() == Token::TokenNum)
 		{
 			stack.push_back(static_cast<Num*>(*it)->getValue());
 			std::cout << "I ";
@@ -212,16 +217,16 @@ void Postfix::calculate(void)
 			std::cout << " | OP Push\t| ";
 			this->displayStack(stack);
 		}
-		else if ((*it)->getType() == 1)
+		else if ((*it)->getType() == Token::TokenOp)
 		{
-			int a = stack.back();
+			int op2 = stack.back();
 			stack.pop_back();
-			int b = stack.back();
+			int op1 = stack.back();
 			stack.pop_back();
 			std::cout << "I ";
 			(*it)->display();
 			std::cout << " | OP ";
-			stack.push_back(this->execute(b, static_cast<Op*>(*it)->getOp(), a));
+			stack.push_back(this->execute(op1, static_cast<Op*>(*it)->getOp(), op2));
 			this->displayStack(stack);
 		}
 	}

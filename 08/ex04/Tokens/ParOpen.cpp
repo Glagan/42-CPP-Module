@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/29 19:46:29 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/30 17:42:30 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/31 20:06:57 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ ParOpen &ParOpen::operator=(ParOpen const &other)
 
 int ParOpen::getType(void) const
 {
-	return (3);
+	return (TokenParOpen);
 }
 
 void ParOpen::display(void) const

@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/29 19:46:07 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/30 17:46:34 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/31 20:05:45 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Op &Op::operator=(Op const &other)
 
 int Op::getType(void) const
 {
-	return (1);
+	return (TokenOp);
 }
 
 char Op::getOp(void) const

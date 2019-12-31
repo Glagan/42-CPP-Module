@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/29 19:43:59 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/30 17:41:30 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/31 20:05:32 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,13 @@ public:
 	virtual ~Token();
 
 	Token &operator=(Token const &other);
+
+	enum TokenType {
+		TokenNum,
+		TokenOp,
+		TokenParOpen,
+		TokenParClose
+	};
 
 	virtual int getType(void) const = 0;
 	virtual void display(void) const = 0;

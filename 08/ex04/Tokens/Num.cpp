@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/29 19:45:41 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/30 17:42:03 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/31 20:05:38 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ Num &Num::operator=(Num const &other)
 
 int Num::getType(void) const
 {
-	return (0);
+	return (TokenNum);
 }
 
 int Num::getValue(void) const

@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/29 19:35:59 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/30 16:40:31 by ncolomer         ###   ########.fr       */
+/*   Updated: 2019/12/31 16:32:47 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@ int main(int argc, char const *argv[])
 		try
 		{
 			Postfix poland(argv[1]);
+			poland.tokenize();
+			poland.displayTokens();
+			poland.polish();
+			poland.displayPostfix();
+			poland.calculate();
 		}
 		catch(char const *e)
 		{
