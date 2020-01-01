@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/29 19:37:20 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/31 20:07:56 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/01 19:33:59 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,16 @@ Postfix::~Postfix()
 	this->postfix.clear();
 }
 
+const char* Postfix::DivisionByZeroException::what() const throw()
+{
+	return "PostfixException: Division by zero";
+}
+
+const char* Postfix::InvalidExpressionException::what() const throw()
+{
+	return "PostfixException: Invalid expression";
+}
+
 Postfix &Postfix::operator=(Postfix const &other)
 {
 	this->acc = other.acc;
@@ -61,41 +71,75 @@ void Postfix::setExpression(std::string const &expression)
 {
 	this->original = expression;
 	this->simplify();
-	if (this->simple.find_first_not_of("0123456789+-*/()") != std::string::npos)
-		throw "invalid character.";
 }
 
 void Postfix::simplify(void)
 {
+	static std::string validChars = "0123456789+-*/() ";
 	size_t length = this->original.length();
 	std::stringstream ss;
+	int parCount = 0;
 
 	for (size_t i = 0; i < length; i++)
-		if (this->original[i] != ' ')
+	{
+		if (validChars.find(this->original[i]) == std::string::npos)
+			throw Postfix::InvalidExpressionException();
+		else if (this->original[i] != ' ')
+		{
+			if (this->original[i] == '(')
+				parCount++;
+			else if (this->original[i] == ')')
+				parCount--;
 			ss << this->original[i];
+		}
+	}
 	this->simple = ss.str();
+	if (parCount != 0
+		|| (this->simple.length() > 0 && this->isOperand(this->simple[this->simple.length() - 1])))
+		throw Postfix::InvalidExpressionException();
 }
 
 void Postfix::tokenize(void)
 {
 	size_t length = this->simple.length();
+	std::stringstream ss;
 
 	for (size_t i = 0; i < length; i++)
 	{
 		if (std::isdigit(this->simple[i]))
 		{
-			std::stringstream ss;
+			if (i > 0
+				&& !this->isOperand(this->simple[i - 1])
+				&& this->simple[i - 1] != '(')
+				throw Postfix::InvalidExpressionException();
 			while (std::isdigit(this->simple[i]))
 				ss << this->simple[i++];
 			i--;
 			this->tokens.push_back(new Num(std::stoi(ss.str())));
+			ss.str(std::string());
+			ss.clear();
 		}
 		else if (this->simple[i] == '(')
 			this->tokens.push_back(new ParOpen());
 		else if (this->simple[i] == ')')
 			this->tokens.push_back(new ParClose());
 		else if (this->isOperand(this->simple[i]))
-			this->tokens.push_back(new Op(this->simple[i]));
+		{
+			if (this->simple[i] == '-'
+				&& (i == 0
+				|| this->isOperand(this->simple[i - 1]) || this->simple[i - 1] == '('))
+			{
+				if (ss.str() == "-")
+					throw Postfix::InvalidExpressionException();
+				ss << this->simple[i];
+			}
+			else
+			{
+				if (i == 0 || this->isOperand(this->simple[i - 1]))
+					throw Postfix::InvalidExpressionException();
+				this->tokens.push_back(new Op(this->simple[i]));
+			}
+		}
 	}
 }
 
@@ -181,6 +225,8 @@ int Postfix::execute(int a, char op, int b) const
 		return (a * b);
 	case '/':
 		std::cout << "Divide\t| ";
+		if (b == 0)
+			throw Postfix::DivisionByZeroException();
 		return (a / b);
 	}
 	return (a);
@@ -219,6 +265,8 @@ void Postfix::calculate(void)
 		}
 		else if ((*it)->getType() == Token::TokenOp)
 		{
+			if (stack.size() < 2)
+				throw Postfix::InvalidExpressionException();
 			int op2 = stack.back();
 			stack.pop_back();
 			int op1 = stack.back();
@@ -230,6 +278,8 @@ void Postfix::calculate(void)
 			this->displayStack(stack);
 		}
 	}
+	if (stack.size() > 1)
+		throw Postfix::InvalidExpressionException();
 	std::cout << "Result : " << stack.back() << std::endl;
 	stack.pop_back();
 }

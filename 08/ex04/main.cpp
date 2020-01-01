@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/29 19:35:59 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/31 16:32:47 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/01 19:32:23 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@
 int main(int argc, char const *argv[])
 {
 	if (argc != 2)
-	{
 		std::cerr << "Postfix: error: missing expression" << std::endl;
-	}
 	else
 	{
 		try
@@ -30,9 +28,9 @@ int main(int argc, char const *argv[])
 			poland.displayPostfix();
 			poland.calculate();
 		}
-		catch(char const *e)
+		catch(const std::exception& e)
 		{
-			std::cerr << e << std::endl;
+			std::cerr << e.what() << std::endl;
 		}
 	}
 	return (0);

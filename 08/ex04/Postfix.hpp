@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/29 19:37:23 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/31 20:05:27 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/01 19:34:48 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,13 @@ private:
 	std::string simple;
 	std::deque<Token*> tokens;
 	std::deque<Token*> postfix;
+
+	class DivisionByZeroException: public std::exception {
+		virtual const char* what() const throw();
+	};
+	class InvalidExpressionException: public std::exception {
+		virtual const char* what() const throw();
+	};
 
 	bool isOperand(char c) const;
 public:

@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 17:28:54 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/23 14:55:13 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/01 19:43:50 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,10 @@ public:
 	virtual ~Bureaucrat();
 
 	class GradeTooHighException: public std::exception {
-		virtual const char* what() const throw() {
-			return "BureaucratException: Grade too High";
-		}
+		virtual const char* what() const throw();
 	};
 	class GradeTooLowException: public std::exception {
-		virtual const char* what() const throw() {
-			return "BureaucratException: Grade too Low";
-		}
+		virtual const char* what() const throw();
 	};
 
 	Bureaucrat &operator=(Bureaucrat const &other);
