@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/22 18:46:28 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/22 19:57:52 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/02 14:43:30 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,7 @@ public:
 	virtual ~OfficeBlock();
 
 	class BureaucratAlreadyAssignedException: public std::exception {
-		virtual const char* what() const throw() {
-			return "OfficeBlockException: Bureaucrat already assigned to another position";
-		}
+		virtual const char* what() const throw();
 	};
 
 	void setIntern(Intern const &intern);

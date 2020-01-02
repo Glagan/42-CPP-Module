@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/22 18:04:58 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/22 20:02:36 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/02 14:42:45 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ Intern::Intern(Intern const &other)
 
 Intern::~Intern()
 {
+}
+
+const char* Intern::FormDoesNotExistException::what() const throw()
+{
+	return "InternException: Form does not exist";
 }
 
 Intern &Intern::operator=(Intern const &other)

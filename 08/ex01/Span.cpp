@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 16:41:17 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/28 17:40:02 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/02 14:51:15 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,16 @@ Span::Span(Span const &other):
 Span::~Span()
 {
 	this->numbers.clear();
+}
+
+const char* Span::FullSpanException::what() const throw()
+{
+	return "SpanException: Span is already full";
+}
+
+const char* Span::NotEnoughNumbersException::what() const throw()
+{
+	return "SpanException: not enough numbers in Span";
 }
 
 Span &Span::operator=(Span const &other)

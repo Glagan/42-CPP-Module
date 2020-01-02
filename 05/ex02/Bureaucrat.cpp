@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 17:29:08 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/22 20:01:32 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/02 14:38:14 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,16 @@ Bureaucrat::Bureaucrat(Bureaucrat const &other):
 
 Bureaucrat::~Bureaucrat()
 {
+}
+
+const char* Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return "BureaucratException: Grade too High";
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return "BureaucratException: Grade too Low";
 }
 
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const &other)

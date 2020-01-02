@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 19:07:41 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/22 18:31:23 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/02 14:39:28 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,24 +33,16 @@ public:
 	virtual ~Form();
 
 	class GradeTooHighException: public std::exception {
-		virtual const char* what() const throw() {
-			return "FormException: Grade too High";
-		}
+		virtual const char* what() const throw();
 	};
 	class GradeTooLowException: public std::exception {
-		virtual const char* what() const throw() {
-			return "FormException: Grade too Low";
-		}
+		virtual const char* what() const throw();
 	};
 	class FormAlreadySignedException: public std::exception {
-		virtual const char* what() const throw() {
-			return "FormException: The Form is already signed";
-		}
+		virtual const char* what() const throw();
 	};
 	class UnsignedFormException: public std::exception {
-		virtual const char* what() const throw() {
-			return "FormException: Unsigned form can not be executed";
-		}
+		virtual const char* what() const throw();
 	};
 
 	Form &operator=(Form const &other);

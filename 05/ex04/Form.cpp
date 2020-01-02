@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 19:08:41 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/22 19:01:35 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/02 14:39:14 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,26 @@ Form::Form(Form const &other):
 
 Form::~Form()
 {
+}
+
+const char* Form::GradeTooHighException::what() const throw()
+{
+	return "FormException: Grade too High";
+}
+
+const char* Form::GradeTooLowException::what() const throw()
+{
+	return "FormException: Grade too Low";
+}
+
+const char* Form::FormAlreadySignedException::what() const throw()
+{
+	return "FormException: The Form is already signed";
+}
+
+const char* Form::UnsignedFormException::what() const throw()
+{
+	return "FormException: Unsigned form can not be executed";
 }
 
 Form &Form::operator=(Form const &other)

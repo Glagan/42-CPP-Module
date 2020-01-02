@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 19:41:18 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/23 17:12:12 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/02 14:41:29 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,16 @@ ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &other)
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
+}
+
+const char* ShrubberyCreationForm::TargetFileOpenException::what() const throw()
+{
+	return "ShrubberyCreationFormException: Cannot open file";
+}
+
+const char* ShrubberyCreationForm::WriteException::what() const throw()
+{
+	return "ShrubberyCreationFormException: Error while writing to the file";
 }
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &other)

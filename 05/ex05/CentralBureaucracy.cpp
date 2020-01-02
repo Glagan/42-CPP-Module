@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/22 19:27:13 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/23 16:48:26 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/02 14:44:04 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ CentralBureaucracy::~CentralBureaucracy()
 {
 	if (this->queue)
 		delete[] this->queue;
+}
+
+const char* CentralBureaucracy::BureaucratyFullException::what() const throw()
+{
+	return "CentralBureaucracyException: Every post has already been assigned";
 }
 
 void CentralBureaucracy::feed(Bureaucrat const &bureaucrat)

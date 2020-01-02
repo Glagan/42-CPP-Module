@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/22 18:05:09 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/22 20:02:40 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/02 14:42:31 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ public:
 	virtual ~Intern();
 
 	class FormDoesNotExistException: public std::exception {
-		virtual const char* what() const throw() {
-			return "InternException: Form does not exist";
-		}
+		virtual const char* what() const throw();
 	};
 
 	Intern &operator=(Intern const &other);

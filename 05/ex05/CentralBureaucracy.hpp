@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/22 19:27:17 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/23 16:34:20 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/02 14:44:08 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,7 @@ public:
 	virtual ~CentralBureaucracy();
 
 	class BureaucratyFullException: public std::exception {
-		virtual const char* what() const throw() {
-			return "CentralBureaucracyException: Every post has already been assigned";
-		}
+		virtual const char* what() const throw();
 	};
 
 	void feed(Bureaucrat const &bureaucrat);
