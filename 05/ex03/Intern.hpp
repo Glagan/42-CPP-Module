@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/22 18:05:09 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/02 14:42:31 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/02 17:15:11 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 
 class Intern
 {
+private:
+	Form *(*generators[4])(std::string const &);
 public:
 	Intern();
 	Intern(Intern const &other);

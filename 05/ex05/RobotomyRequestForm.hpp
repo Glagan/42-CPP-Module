@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 19:41:16 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/23 14:56:17 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/02 17:19:11 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ public:
 	RobotomyRequestForm &operator=(RobotomyRequestForm const &other);
 
 	void execute(Bureaucrat const &executor) const;
+
+	static Form *generate(std::string const &target);
 };
 
 #endif

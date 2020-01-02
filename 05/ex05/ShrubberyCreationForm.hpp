@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 19:41:26 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/02 14:41:13 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/02 17:21:53 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define SHRUBBERYCREATIONFORM_HPP
 
 # include <string>
-# include <iostream>
 # include <fstream>
 # include "Form.hpp"
 
@@ -42,6 +41,8 @@ public:
 	ShrubberyCreationForm &operator=(ShrubberyCreationForm const &other);
 
 	void execute(Bureaucrat const &executor) const;
+
+	static Form *generate(std::string const &target);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 19:41:10 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/22 18:13:36 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/02 17:20:00 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,9 @@ void PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
 	Form::execute(executor);
 	std::cout << this->target << " has been pardoned by Zafod Beeblebrox" << std::endl;
+}
+
+Form *PresidentialPardonForm::generate(std::string const &target)
+{
+	return (new PresidentialPardonForm(target));
 }

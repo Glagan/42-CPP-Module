@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 19:41:26 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/02 14:41:05 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/02 16:50:47 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ public:
 	ShrubberyCreationForm &operator=(ShrubberyCreationForm const &other);
 
 	void execute(Bureaucrat const &executor) const;
+
+	static Form *generate(std::string const &target);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 19:41:18 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/02 14:41:25 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/02 17:20:33 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,4 +107,9 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 	}
 	outfile << std::endl;
 	outfile.close();
+}
+
+Form *ShrubberyCreationForm::generate(std::string const &target)
+{
+	return (new ShrubberyCreationForm(target));
 }

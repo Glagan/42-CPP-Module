@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/22 18:04:58 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/02 14:42:25 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/02 17:06:06 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 Intern::Intern()
 {
+	this->generators[0] = PresidentialPardonForm::generate;
+	this->generators[1] = RobotomyRequestForm::generate;
+	this->generators[2] = ShrubberyCreationForm::generate;
+	this->generators[3] = Form::generate;
 }
 
 Intern::Intern(Intern const &other)
@@ -39,19 +43,17 @@ Intern &Intern::operator=(Intern const &other)
 Form *Intern::makeForm(std::string const &formName, std::string const &target) const
 {
 	Form *form = nullptr;
+	int key = 	(formName == PresidentialPardonForm::name) 	? 0 :
+				(formName == RobotomyRequestForm::name) 	? 1 :
+				(formName == ShrubberyCreationForm::name) 	? 2 : 3;
 
-	if (PresidentialPardonForm::name == formName)
-		form = new PresidentialPardonForm(target);
-	else if (RobotomyRequestForm::name == formName)
-		form = new RobotomyRequestForm(target);
-	else if (ShrubberyCreationForm::name == formName)
-		form = new ShrubberyCreationForm(target);
+	form = (*this->generators[key])(target);
 	if (form == nullptr)
 	{
 		std::cout << formName << " does not exist" << std::endl;
 		throw Intern::FormDoesNotExistException();
 	}
 	else
-		std::cout << "Intern creates " << form << std::endl;
+		std::cout << "Intern creates " << *form << std::endl;
 	return (form);
 }
