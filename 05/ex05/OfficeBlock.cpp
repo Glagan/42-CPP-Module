@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/22 18:46:16 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/02 14:43:36 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/03 14:18:38 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,25 @@ OfficeBlock::~OfficeBlock()
 {
 }
 
+const char* OfficeBlock::InternAlreadyAssignedException::what() const throw()
+{
+	return "OfficeBlockException: Intern already assigned to another position";
+}
+
 const char* OfficeBlock::BureaucratAlreadyAssignedException::what() const throw()
 {
 	return "OfficeBlockException: Bureaucrat already assigned to another position";
 }
 
+const char* OfficeBlock::MissingOfficeMember::what() const throw()
+{
+	return "OfficeBlockException: Missing intern, signer or executor";
+}
+
 void OfficeBlock::setIntern(Intern const &intern)
 {
+	if (this->intern == &intern)
+		throw InternAlreadyAssignedException();
 	this->intern = &intern;
 }
 

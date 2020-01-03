@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 19:07:41 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/02 17:19:25 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/03 14:06:17 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,6 @@ public:
 
 	void beSigned(Bureaucrat const &bureaucrat);
 	virtual void execute(Bureaucrat const &bureaucrat) const = 0;
-
-	static Form *generate(std::string const &target);
 };
 
 std::ostream &operator<<(std::ostream &out, Form const &form);

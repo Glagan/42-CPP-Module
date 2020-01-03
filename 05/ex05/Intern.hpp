@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/22 18:05:09 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/02 17:18:32 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/03 14:13:29 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,23 @@
 class Intern
 {
 private:
-	Form *(*generators[4])(std::string const &);
+	class Pair {
+	private:
+		Pair();
+
+		std::string const name;
+		Form *(*fct)(std::string const &);
+	public:
+		Pair(std::string const &name, Form *(*fct)(std::string const &));
+		Pair(Pair const &other);
+		virtual ~Pair();
+
+		Pair &operator=(Pair const &other);
+
+		bool correspond(std::string const &name) const;
+		Form *execute(std::string const &target) const;
+	};
+	Pair *generators[9];
 public:
 	Intern();
 	Intern(Intern const &other);

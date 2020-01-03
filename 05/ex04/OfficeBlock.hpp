@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/22 18:46:28 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/02 14:43:26 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/03 14:18:09 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,13 @@ public:
 	OfficeBlock(Intern const &intern, Bureaucrat const &signer, Bureaucrat const &executor);
 	virtual ~OfficeBlock();
 
+	class InternAlreadyAssignedException: public std::exception {
+		virtual const char* what() const throw();
+	};
 	class BureaucratAlreadyAssignedException: public std::exception {
+		virtual const char* what() const throw();
+	};
+	class MissingOfficeMember: public std::exception {
 		virtual const char* what() const throw();
 	};
 

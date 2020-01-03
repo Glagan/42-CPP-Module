@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/21 19:08:41 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/02 17:05:14 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/03 14:06:11 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,10 +103,4 @@ std::ostream &operator<<(std::ostream &out, Form const &form)
 		<< "]<Sign:" << form.getSignGrade() << ",Execute:"
 		<< form.getExecuteGrade() << ">";
 	return (out);
-}
-
-Form *Form::generate(std::string const &target)
-{
-	(void)target;
-	return (nullptr);
 }
