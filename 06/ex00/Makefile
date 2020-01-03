@@ -6,7 +6,7 @@
 #    By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/17 19:21:17 by ncolomer          #+#    #+#              #
-#    Updated: 2019/12/28 16:02:05 by ncolomer         ###   ########.fr        #
+#    Updated: 2020/01/03 18:19:32 by ncolomer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++
 RM				= rm -f
-CXXFLAGS		= -Wall -Wextra -Werror -I.
+CXXFLAGS		= -std=c++98 -Wall -Wextra -Werror -I.
 
 NAME			= convert
 
