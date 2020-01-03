@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 17:47:28 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/27 17:28:49 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/03 18:56:10 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@ Interpreter::Interpreter(std::string const &value):
 	if (this->type != TypeInvalid)
 	{
 		this->convert();
-		if (this->lvalue > std::numeric_limits<int>::max())
-			this->setFlag(TypeInt, this->isImpossible);
-		else if (this->lvalue < std::numeric_limits<int>::min())
+		if (this->lvalue > std::numeric_limits<int>::max()
+			|| this->lvalue < std::numeric_limits<int>::min())
 			this->setFlag(TypeInt, this->isImpossible);
 		if (this->hasFlag(TypeInt, this->isImpossible)
 			|| this->ivalue > 127 || this->ivalue < 0)
@@ -55,6 +54,7 @@ Interpreter::~Interpreter()
 
 void Interpreter::parse(void)
 {
+	std::stringstream ss;
 	size_t length = this->str.length();
 	size_t i = 0;
 
@@ -65,12 +65,15 @@ void Interpreter::parse(void)
 		return ;
 	}
 	if (this->str[0] == '+' || this->str[0] == '-')
-		i++;
+		ss << str[i++];
 	this->type = TypeInt;
 	for ( ; i < length; i++)
 	{
 		if (this->str[i] == '.')
+		{
 			this->type = TypeDouble;
+			ss << str[i];
+		}
 		else if (this->str[i] == 'f' && i == length - 1 && this->type == TypeDouble)
 			this->type = TypeFloat;
 		else if (!std::isdigit(this->str[i]))
@@ -78,53 +81,43 @@ void Interpreter::parse(void)
 			this->type = TypeInvalid;
 			i = length;
 		}
+		else
+			ss << str[i];
 	}
 	if (this->type == TypeDouble)
 	{
-		try
-		{
-			this->dvalue = std::stod(this->str);
-		}
-		catch(const std::exception& e)
-		{
+		ss >> this->dvalue;
+		if (ss.fail())
 			this->type = TypeInvalid;
-		}
 	}
 	else if (this->type == TypeFloat)
 	{
-		try
-		{
-			this->fvalue = std::stof(this->str);
-		}
-		catch(const std::exception& e)
-		{
+		ss >> this->fvalue;
+		if (ss.fail())
 			this->type = TypeInvalid;
-		}
 	}
 	else if (this->type == TypeInt)
 	{
-		try
-		{
-			this->ivalue = std::stoi(this->str);
-		}
-		catch(const std::exception& e)
-		{
-			this->lvalue = std::stol(this->str);
+		ss >> this->lvalue;
+		this->ivalue = this->lvalue;
+		if (ss.fail())
+			this->type = TypeInvalid;
+		if (this->lvalue > std::numeric_limits<int>::max()
+			|| this->lvalue < std::numeric_limits<int>::min())
 			this->type = TypeLong;
-		}
 	}
 	else if (this->type == TypeInvalid)
 	{
 		if (this->str == "inff" || this->str == "-inff" || this->str == "+inff"
 			|| this->str == "nanf")
 		{
-			this->fvalue = std::stof(this->str);
+			this->fvalue = atof(this->str.c_str());
 			this->type = TypeFloat;
 		}
 		else if (this->str == "inf" ||  this->str == "-inf" || this->str == "+inf"
 				|| this->str == "nan")
 		{
-			this->dvalue = std::stod(this->str);
+			this->dvalue = atof(this->str.c_str());
 			this->type = TypeDouble;
 		}
 	}
@@ -154,9 +147,9 @@ void Interpreter::convert(void)
 
 void Interpreter::fromLong(void)
 {
-	this->fvalue = static_cast<float>(static_cast<int>(this->lvalue));
-	this->dvalue = static_cast<double>(static_cast<int>(this->lvalue));
-	this->cvalue = static_cast<char>(static_cast<int>(this->lvalue));
+	this->fvalue = static_cast<float>(this->lvalue);
+	this->dvalue = static_cast<double>(this->lvalue);
+	this->cvalue = static_cast<char>(this->lvalue);
 }
 
 void Interpreter::fromInt(void)
