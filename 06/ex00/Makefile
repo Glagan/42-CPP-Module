@@ -6,7 +6,7 @@
 #    By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/17 19:21:17 by ncolomer          #+#    #+#              #
-#    Updated: 2020/01/04 15:24:35 by ncolomer         ###   ########.fr        #
+#    Updated: 2020/01/04 16:28:45 by ncolomer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,6 +76,10 @@ test:			$(NAME)
 				./convert 454874.5e+21
 				./convert 3.40282e+38
 				./convert 3.5e+38
+				./convert 1.17549e-38
+				./convert 1.2e-38
+				./convert -1.17549e38
+				./convert -1.2e38
 				./convert 0e0f
 				./convert 0e+0f
 				./convert 0e-0f
@@ -85,5 +89,9 @@ test:			$(NAME)
 				./convert 454874.5e+21f
 				./convert 3.40282e+38f
 				./convert 3.5e+38f
+				./convert 1.17549e-38f
+				./convert 1.2e-38f
+				./convert -1.17549e38f
+				./convert -1.2e38f
 
 .PHONY:			all clean fclean re test

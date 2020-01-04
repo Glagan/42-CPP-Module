@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 17:46:16 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/27 17:28:46 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/04 16:27:11 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ private:
 	int type;
 
 	int status[4];
-	long lvalue;
 	int ivalue;
 	float fvalue;
 	double dvalue;
@@ -40,7 +39,6 @@ private:
 
 	void convert(void);
 	void fromInt(void);
-	void fromLong(void);
 	void fromFloat(void);
 	void fromDouble(void);
 	void fromChar(void);

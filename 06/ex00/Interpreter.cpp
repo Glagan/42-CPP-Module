@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 17:47:28 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/04 15:30:45 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/04 16:28:02 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,6 @@ Interpreter::Interpreter(std::string const &value):
 	if (this->type != TypeInvalid)
 	{
 		this->convert();
-		if (this->lvalue > std::numeric_limits<int>::max()
-			|| this->lvalue < std::numeric_limits<int>::min())
-			this->setFlag(TypeInt, this->isImpossible);
 		if (this->hasFlag(TypeInt, this->isImpossible)
 			|| this->ivalue > 127 || this->ivalue < 0)
 			this->setFlag(TypeChar, this->isImpossible);
@@ -99,13 +96,13 @@ void Interpreter::parse(void)
 		ss >> this->dvalue;
 	else if (this->type == TypeInt)
 	{
-		ss >> this->lvalue;
-		this->ivalue = this->lvalue;
-		if (ss.fail())
+		long lvalue;
+		ss >> lvalue;
+		this->ivalue = lvalue;
+		if (ss.fail()
+			|| lvalue > std::numeric_limits<int>::max()
+			|| lvalue < std::numeric_limits<int>::min())
 			this->type = TypeInvalid;
-		if (this->lvalue > std::numeric_limits<int>::max()
-			|| this->lvalue < std::numeric_limits<int>::min())
-			this->type = TypeLong;
 	}
 	else if (this->type == TypeInvalid)
 	{
@@ -128,9 +125,6 @@ void Interpreter::convert(void)
 {
 	switch (this->type)
 	{
-	case TypeLong:
-		this->fromLong();
-		break;
 	case TypeInt:
 		this->fromInt();
 		break;
@@ -144,13 +138,6 @@ void Interpreter::convert(void)
 		this->fromChar();
 		break;
 	}
-}
-
-void Interpreter::fromLong(void)
-{
-	this->fvalue = static_cast<float>(this->lvalue);
-	this->dvalue = static_cast<double>(this->lvalue);
-	this->cvalue = static_cast<char>(this->lvalue);
 }
 
 void Interpreter::fromInt(void)
@@ -172,27 +159,28 @@ bool Interpreter::doubleIsValue(void) const
 
 void Interpreter::fromFloat(void)
 {
-	this->lvalue = static_cast<long>(this->fvalue);
 	this->ivalue = static_cast<int>(this->fvalue);
 	this->dvalue = static_cast<double>(this->fvalue);
 	this->cvalue = static_cast<char>(this->fvalue);
-	if (!this->floatIsValue())
+	if (!this->floatIsValue()
+		|| this->fvalue > std::numeric_limits<int>::max()
+		|| this->fvalue < std::numeric_limits<int>::min())
 		this->setFlag(TypeInt, this->isImpossible);
 }
 
 void Interpreter::fromDouble(void)
 {
-	this->lvalue = static_cast<long>(this->dvalue);
 	this->ivalue = static_cast<int>(this->dvalue);
 	this->fvalue = static_cast<float>(this->dvalue);
 	this->cvalue = static_cast<char>(this->dvalue);
-	if (!this->doubleIsValue())
+	if (!this->doubleIsValue()
+		|| this->dvalue > std::numeric_limits<int>::max()
+		|| this->dvalue < std::numeric_limits<int>::min())
 		this->setFlag(TypeInt, this->isImpossible);
 }
 
 void Interpreter::fromChar(void)
 {
-	this->lvalue = static_cast<long>(this->cvalue);
 	this->ivalue = static_cast<int>(this->cvalue);
 	this->fvalue = static_cast<float>(this->cvalue);
 	this->dvalue = static_cast<double>(this->cvalue);
