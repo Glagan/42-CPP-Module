@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 15:31:54 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/02 14:50:22 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/04 15:38:17 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ template<typename T>
 class Array
 {
 private:
-	unsigned int length;
+	size_t length;
 	T *elts;
 public:
 	Array();
-	Array(unsigned int n);
+	Array(size_t n);
 	Array(Array<T> const &other);
 	virtual ~Array();
 
@@ -33,9 +33,9 @@ public:
 	};
 
 	Array &operator=(Array const &other);
-	T &operator[](unsigned int index);
+	T &operator[](size_t index);
 
-	unsigned int size(void) const;
+	size_t size(void) const;
 };
 
 # include "Array.ipp"

@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 15:32:13 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/28 15:54:14 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/04 15:38:31 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,27 +21,27 @@ int main(void)
 
 	Array<int> intRR(5);
 	intR = intRR;
-	for (unsigned i = 0; i < intR.size(); i++)
+	for (size_t i = 0; i < intR.size(); i++)
 	{
 		intR[i] = i;
 		std::cout << intR[i] << " ";
 	}
 	std::cout << std::endl;
-	for (unsigned i = 0; i < intRR.size(); i++)
+	for (size_t i = 0; i < intRR.size(); i++)
 	{
 		std::cout << intRR[i] << " ";
 	}
 	std::cout << std::endl;
 
 	Array<float> floatR(25);
-	for (unsigned i = 0; i < floatR.size(); i++)
+	for (size_t i = 0; i < floatR.size(); i++)
 	{
 		std::cout << floatR[i] << "f ";
 	}
 	std::cout << std::endl;
 
 	Array<std::string> stringR(5);
-	for (unsigned i = 0; i < stringR.size(); i++)
+	for (size_t i = 0; i < stringR.size(); i++)
 	{
 		stringR[i] = std::to_string(i);
 		std::cout << stringR[i] << " ";
@@ -49,7 +49,7 @@ int main(void)
 	std::cout << std::endl;
 
 	Array<Number> numberR(5);
-	for (unsigned i = 0; i < numberR.size(); i++)
+	for (size_t i = 0; i < numberR.size(); i++)
 	{
 		numberR[i] = i + 42;
 		std::cout << numberR[i] << " ";

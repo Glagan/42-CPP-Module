@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 15:31:53 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/02 14:50:13 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/04 15:38:25 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Array<T>::Array():
 }
 
 template<typename T>
-Array<T>::Array(unsigned int n):
+Array<T>::Array(size_t n):
 	length(n), elts(nullptr)
 {
 	this->elts = new T[n]();
@@ -32,7 +32,7 @@ Array<T>::Array(Array const &other)
 	if (other.length > 0)
 	{
 		this->elts = new T[other.length];
-		for (unsigned int i = 0; i < other.length; i++)
+		for (size_t i = 0; i < other.length; i++)
 			this->elts[i] = other.elts[i];
 	}
 	this->length = other.length;
@@ -60,7 +60,7 @@ Array<T> &Array<T>::operator=(Array<T> const &other)
 	if (other.length > 0)
 	{
 		this->elts = new T[other.length];
-		for (unsigned int i = 0; i < other.length; i++)
+		for (size_t i = 0; i < other.length; i++)
 			this->elts[i] = other.elts[i];
 	}
 	this->length = other.length;
@@ -68,15 +68,15 @@ Array<T> &Array<T>::operator=(Array<T> const &other)
 }
 
 template<typename T>
-T &Array<T>::operator[](unsigned int index)
+T &Array<T>::operator[](size_t index)
 {
-	if (index < 0 || index >= this->length)
+	if (index >= this->length)
 		throw Array::InvalidIndexException();
 	return (this->elts[index]);
 }
 
 template<typename T>
-unsigned int Array<T>::size(void) const
+size_t Array<T>::size(void) const
 {
 	return (this->length);
 }
