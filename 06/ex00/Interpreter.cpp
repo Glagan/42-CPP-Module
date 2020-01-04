@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 17:47:28 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/03 18:56:10 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/04 15:30:45 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,19 @@ void Interpreter::parse(void)
 	this->type = TypeInt;
 	for ( ; i < length; i++)
 	{
-		if (this->str[i] == '.')
+		if (this->str[i] == '.' && this->type != TypeDouble)
 		{
 			this->type = TypeDouble;
 			ss << str[i];
+		}
+		else if (this->str[i] == 'e' && i < length - 1
+			&& (this->str[i + 1] == '-'
+				|| this->str[i + 1] == '+'
+				|| std::isdigit(this->str[i + 1])))
+		{
+			ss << str[i] << str[i + 1];
+			i++;
+			this->type = TypeDouble;
 		}
 		else if (this->str[i] == 'f' && i == length - 1 && this->type == TypeDouble)
 			this->type = TypeFloat;
@@ -84,18 +93,10 @@ void Interpreter::parse(void)
 		else
 			ss << str[i];
 	}
-	if (this->type == TypeDouble)
-	{
-		ss >> this->dvalue;
-		if (ss.fail())
-			this->type = TypeInvalid;
-	}
-	else if (this->type == TypeFloat)
-	{
+	if (this->type == TypeFloat)
 		ss >> this->fvalue;
-		if (ss.fail())
-			this->type = TypeInvalid;
-	}
+	else if (this->type == TypeDouble)
+		ss >> this->dvalue;
 	else if (this->type == TypeInt)
 	{
 		ss >> this->lvalue;

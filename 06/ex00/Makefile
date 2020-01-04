@@ -6,7 +6,7 @@
 #    By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/17 19:21:17 by ncolomer          #+#    #+#              #
-#    Updated: 2020/01/03 18:19:32 by ncolomer         ###   ########.fr        #
+#    Updated: 2020/01/04 15:24:35 by ncolomer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,6 @@ test:			$(NAME)
 				./convert 2147483647.f
 				./convert 2147483648.f
 				./convert -2147483648.f
-				# -2147483649.f == -2147483648 ??
 				./convert -2147483649.f
 				./convert 2147483647.
 				./convert 2147483648.
@@ -68,5 +67,23 @@ test:			$(NAME)
 				./convert 457846
 				./convert 12544.545f
 				./convert 54178652.41784187
+				./convert 0e0
+				./convert 0e+0
+				./convert 0e-0
+				./convert 0.5e-0
+				./convert 454874.5e-0
+				./convert 454874.5e-21
+				./convert 454874.5e+21
+				./convert 3.40282e+38
+				./convert 3.5e+38
+				./convert 0e0f
+				./convert 0e+0f
+				./convert 0e-0f
+				./convert 0.5e-0f
+				./convert 454874.5e-0f
+				./convert 454874.5e-21f
+				./convert 454874.5e+21f
+				./convert 3.40282e+38f
+				./convert 3.5e+38f
 
 .PHONY:			all clean fclean re test
