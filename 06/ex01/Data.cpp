@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 17:36:08 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/05 13:56:51 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/05 16:14:42 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,8 @@ Data *deserialize(void *raw)
 {
 	Data *d = new Data;
 
-	d->s1.resize(8);
-	for (int i = 0; i < 8; i++)
-		d->s1[i] = static_cast<char*>(raw)[i];
-	d->n = (static_cast<unsigned char*>(raw)[8] << 24)
-			| (static_cast<unsigned char*>(raw)[9] << 16)
-			| (static_cast<unsigned char*>(raw)[10] << 8)
-			| (static_cast<unsigned char*>(raw)[11]);
-	d->s2.resize(8);
-	for (int i = 0; i < 8; i++)
-		d->s2[i] = static_cast<char*>(raw)[i + 12];
+	d->s1 = std::string(static_cast<char*>(raw), 8);
+	d->n = *reinterpret_cast<int*>(static_cast<char*>(raw) + 12);
+	d->s2 = std::string(static_cast<char*>(raw) + 12, 8);
 	return (d);
 }

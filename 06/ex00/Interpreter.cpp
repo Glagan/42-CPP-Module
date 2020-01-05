@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/23 17:47:28 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/05 13:39:22 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/05 16:14:10 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,17 +91,9 @@ void Interpreter::parse(void)
 			ss << str[i];
 	}
 	if (this->type == TypeFloat)
-	{
 		ss >> this->fvalue;
-		if (ss.fail())
-			this->type = TypeInvalid;
-	}
 	else if (this->type == TypeDouble)
-	{
 		ss >> this->dvalue;
-		if (ss.fail())
-			this->type = TypeInvalid;
-	}
 	else if (this->type == TypeInt)
 	{
 		long lvalue;
