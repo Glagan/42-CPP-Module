@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 17:36:08 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/27 18:58:36 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/05 13:56:51 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,23 @@
 
 void *serialize(void)
 {
-	static std::string alphabet = "abcdefghijklmopqrstuvxyz" \
-								"ABCDEFGHIJKLMOPQRSTUVXYZ";
+	static std::string alphabet = "0123456789" \
+		"abcdefghijklmopqrstuvxyz" \
+		"ABCDEFGHIJKLMOPQRSTUVXYZ";
 	static size_t alphabetLength = alphabet.length();
 	char *raw;
 	int n;
-	int i = 0;
+	int i;
 
 	n = rand() % 424242;
 	raw = new char[20];
-	for ( ; i < 8; i++)
+	for (i = 0; i < 8; i++)
 		raw[i] = alphabet[rand() % alphabetLength];
 	raw[i++] = static_cast<unsigned char>(n >> 24);
 	raw[i++] = static_cast<unsigned char>(n >> 16);
 	raw[i++] = static_cast<unsigned char>(n >> 8);
 	raw[i++] = static_cast<unsigned char>(n);
-	for ( ; i < 8; i++)
+	for (i = 0; i < 8; i++)
 		raw[i + 12] = alphabet[rand() % alphabetLength];
 	return (raw);
 }
@@ -41,7 +42,6 @@ Data *deserialize(void *raw)
 	d->s1.resize(8);
 	for (int i = 0; i < 8; i++)
 		d->s1[i] = static_cast<char*>(raw)[i];
-	d->n = 0;
 	d->n = (static_cast<unsigned char*>(raw)[8] << 24)
 			| (static_cast<unsigned char*>(raw)[9] << 16)
 			| (static_cast<unsigned char*>(raw)[10] << 8)
