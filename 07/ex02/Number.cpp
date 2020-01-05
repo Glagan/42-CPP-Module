@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 15:14:47 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/28 15:52:47 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/05 15:26:16 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ Number::Number():
 
 Number::Number(int const &n):
 	n(n)
+{
+}
+
+Number::Number(Number const &other):
+	n(other.n)
 {
 }
 

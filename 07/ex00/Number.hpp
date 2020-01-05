@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 15:14:55 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/28 16:00:16 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/05 15:26:08 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ private:
 public:
 	Number();
 	Number(int const &a);
+	Number(Number const &other);
 	virtual ~Number();
 
 	Number &operator=(Number const &other);
