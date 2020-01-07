@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 14:34:28 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/07 18:22:32 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/07 18:26:37 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 template<typename T>
 void swap(T &a, T &b)
 {
-	T &tmp = a;
+	T tmp = a;
 	a = b;
 	b = tmp;
 }
