@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 17:36:08 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/05 16:14:42 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/07 11:44:28 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,12 @@ void *serialize(void)
 		"ABCDEFGHIJKLMOPQRSTUVXYZ";
 	static size_t alphabetLength = alphabet.length();
 	char *raw;
-	int n;
-	int i;
 
-	n = rand() % 424242;
 	raw = new char[20];
-	for (i = 0; i < 8; i++)
+	for (int i = 0; i < 8; i++)
 		raw[i] = alphabet[rand() % alphabetLength];
-	raw[i++] = static_cast<unsigned char>(n >> 24);
-	raw[i++] = static_cast<unsigned char>(n >> 16);
-	raw[i++] = static_cast<unsigned char>(n >> 8);
-	raw[i++] = static_cast<unsigned char>(n);
-	for (i = 0; i < 8; i++)
+	*reinterpret_cast<int*>(raw + 12) = rand();
+	for (int i = 0; i < 8; i++)
 		raw[i + 12] = alphabet[rand() % alphabetLength];
 	return (raw);
 }

@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/27 19:05:20 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/27 19:45:44 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/07 11:38:13 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,27 +36,4 @@ void identify_from_pointer(Base *p)
 void identify_from_reference(Base &p)
 {
 	identify_from_pointer(&p);
-	/*try
-	{
-		(void)dynamic_cast<A&>(p);
-		std::cout << "A";
-		return ;
-	}
-	catch(const std::exception& e) {}
-
-	try
-	{
-		(void)dynamic_cast<B&>(p);
-		std::cout << "B";
-		return ;
-	}
-	catch(const std::exception& e) {}
-
-	try
-	{
-		(void)dynamic_cast<C&>(p);
-		std::cout << "C";
-		return ;
-	}
-	catch(const std::exception& e) {}*/
 }
