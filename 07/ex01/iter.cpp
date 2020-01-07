@@ -6,15 +6,12 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 11:50:56 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/07 11:53:44 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/07 14:47:18 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cctype>
-
-template<typename T>
-void iter(T arr[], size_t length, void (*f)(T elt));
 
 template<typename T>
 void iter(T arr[], size_t length, void (*f)(T elt))
