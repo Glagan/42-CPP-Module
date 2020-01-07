@@ -6,13 +6,12 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 15:32:13 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/04 15:38:31 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/07 12:00:20 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
-#include "Number.hpp"
 #include "Array.hpp"
 
 int main(void)
@@ -44,17 +43,15 @@ int main(void)
 	for (size_t i = 0; i < stringR.size(); i++)
 	{
 		stringR[i] = std::to_string(i);
-		std::cout << stringR[i] << " ";
+		std::cout << stringR[i] << "s ";
 	}
 	std::cout << std::endl;
 
-	Array<Number> numberR(5);
-	for (size_t i = 0; i < numberR.size(); i++)
-	{
-		numberR[i] = i + 42;
-		std::cout << numberR[i] << " ";
-	}
-	std::cout << std::endl;
+	Array<std::string> stringRR = stringR;
+	for (size_t i = 0; i < 5; i++)
+		stringRR[i] = "42";
+	for (size_t i = 0; i < stringR.size(); i++)
+		std::cout << stringR[i] << "s <> " << stringRR[i] << std::endl;
 
 	std::cout << "---" << std::endl;
 

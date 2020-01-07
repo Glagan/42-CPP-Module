@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 15:31:53 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/04 15:38:25 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/07 11:58:37 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ Array<T> &Array<T>::operator=(Array<T> const &other)
 	this->elts = nullptr;
 	if (other.length > 0)
 	{
-		this->elts = new T[other.length];
+		this->elts = new T[other.length]();
 		for (size_t i = 0; i < other.length; i++)
 			this->elts[i] = other.elts[i];
 	}

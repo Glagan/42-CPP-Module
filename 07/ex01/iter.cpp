@@ -1,18 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   iter.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/28 15:06:16 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/28 15:29:55 by ncolomer         ###   ########.fr       */
+/*   Created: 2020/01/07 11:50:56 by ncolomer          #+#    #+#             */
+/*   Updated: 2020/01/07 11:53:44 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Number.hpp"
-#include "iter.hpp"
+#include <cctype>
+
+template<typename T>
+void iter(T arr[], size_t length, void (*f)(T elt));
+
+template<typename T>
+void iter(T arr[], size_t length, void (*f)(T elt))
+{
+	for (size_t i = 0; i < length; i++)
+		(*f)(arr[i]);
+}
 
 template<typename T>
 void display(T value)
@@ -38,9 +47,6 @@ int main(void)
 	iter(stringR, 5, &display); std::cout << std::endl;
 	iter(stringR, 2, &display); std::cout << std::endl;
 	iter(stringR, 0, &display); std::cout << std::endl;
-
-	Number numberR[5] = { 0, 5, 1, 2, 3 };
-	iter(numberR, 5, &display); std::cout << std::endl;
 
 	return (0);
 }
