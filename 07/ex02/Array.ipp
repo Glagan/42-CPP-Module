@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 15:31:53 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/07 18:06:17 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/07 18:14:39 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ Array<T>::~Array()
 }
 
 template<typename T>
-const char* Array<T>::InvalidIndexException::what() const throw()
+const char* Array<T>::OutOfBoundsException::what() const throw()
 {
 	return "ArrayException: index out of bounds";
 }
@@ -71,7 +71,7 @@ template<typename T>
 T &Array<T>::operator[](size_t index)
 {
 	if (index >= this->length)
-		throw Array::InvalidIndexException();
+		throw Array::OutOfBoundsException();
 	return (this->elts[index]);
 }
 

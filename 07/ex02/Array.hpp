@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 15:31:54 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/04 15:38:17 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/07 18:14:42 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ public:
 	Array(Array<T> const &other);
 	virtual ~Array();
 
-	class InvalidIndexException: public std::exception {
+	class OutOfBoundsException: public std::exception {
 		virtual const char* what() const throw();
 	};
 
