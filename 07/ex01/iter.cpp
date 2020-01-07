@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/07 11:50:56 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/07 14:47:18 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/07 18:08:13 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 #include <cctype>
 
 template<typename T>
-void iter(T arr[], size_t length, void (*f)(T elt))
+void iter(T *arr, size_t length, void (*f)(T &elt))
 {
 	for (size_t i = 0; i < length; i++)
 		(*f)(arr[i]);
 }
 
 template<typename T>
-void display(T value)
+void display(T &value)
 {
 	std::cout << value << " ";
 }
