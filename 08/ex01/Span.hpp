@@ -6,14 +6,15 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 16:41:07 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/02 14:51:22 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/08 16:29:15 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SPAN_HPP
 # define SPAN_HPP
 
-# include <vector>
+# include <set>
+# include <cmath>
 # include <algorithm>
 
 class Span
@@ -21,10 +22,10 @@ class Span
 private:
 	Span();
 
-	unsigned int max;
-	std::vector<int> numbers;
+	size_t max;
+	std::multiset<int> numbers;
 public:
-	Span(unsigned int amount);
+	Span(size_t amount);
 	Span(Span const &other);
 	virtual ~Span();
 
@@ -41,8 +42,8 @@ public:
 	template<typename InputIterator>
 	void addNumber(InputIterator begin, InputIterator end);
 
-	int shortestSpan(void) const;
-	int longestSpan(void) const;
+	size_t shortestSpan(void) const;
+	size_t longestSpan(void) const;
 };
 
 # include "Span.ipp"

@@ -6,12 +6,13 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 16:41:29 by ncolomer          #+#    #+#             */
-/*   Updated: 2019/12/28 17:57:24 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/08 16:26:29 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <list>
+#include <vector>
 #include "Span.hpp"
 
 void displaySpan(std::string const &name, Span &span)

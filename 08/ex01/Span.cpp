@@ -6,13 +6,13 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 16:41:17 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/02 14:51:15 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/08 16:29:46 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
-Span::Span(unsigned int amount):
+Span::Span(size_t amount):
 	max(amount)
 {
 }
@@ -51,26 +51,34 @@ void Span::addNumber(int value)
 {
 	if (this->numbers.size() == this->max)
 		throw Span::FullSpanException();
-	this->numbers.push_back(value);
+	this->numbers.insert(value);
 }
 
-int Span::shortestSpan(void) const
+size_t Span::shortestSpan(void) const
 {
-	unsigned int size = this->numbers.size();
+	size_t size = this->numbers.size();
 	if (size <= 1)
 		throw Span::NotEnoughNumbersException();
 
-	int smallest = *std::min_element(this->numbers.begin(), this->numbers.end());
-	int second = this->numbers[0];
-
-	for (unsigned int i = 1; i < this->numbers.size(); i++)
-		if (second == smallest
-			|| (this->numbers[i] < second && this->numbers[i] > smallest))
-			second = this->numbers[i];
-	return (std::abs(second - smallest));
+	bool hasDiff = false;
+	size_t minDiff = 0;
+	std::multiset<int>::iterator first = this->numbers.begin();
+	std::multiset<int>::iterator next = ++this->numbers.begin();
+	while (next != this->numbers.end())
+	{
+		size_t diff = std::abs(*next - *first);
+		if (!hasDiff || diff < minDiff)
+		{
+			minDiff = diff;
+			hasDiff = true;
+		}
+		first++;
+		next++;
+	}
+	return (minDiff);
 }
 
-int Span::longestSpan(void) const
+size_t Span::longestSpan(void) const
 {
 	if (this->numbers.size() <= 1)
 		throw Span::NotEnoughNumbersException();
