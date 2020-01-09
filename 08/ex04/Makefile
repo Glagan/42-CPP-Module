@@ -6,7 +6,7 @@
 #    By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/29 19:36:38 by ncolomer          #+#    #+#              #
-#    Updated: 2020/01/09 15:33:17 by ncolomer         ###   ########.fr        #
+#    Updated: 2020/01/09 15:50:47 by ncolomer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,5 +55,21 @@ test:			$(NAME)
 				./postfix " "
 				@echo ""
 				./postfix "1 / 0"
+				@echo ""
+				./postfix "++1"
+				@echo ""
+				./postfix "--1"
+				@echo ""
+				./postfix "+1"
+				@echo ""
+				./postfix "-1"
+				@echo ""
+				./postfix "-1 - -1"
+				@echo ""
+				./postfix "-1 - -1 + (-1)"
+				@echo ""
+				./postfix "424242424242"
+				@echo ""
+				./postfix "expression"
 
 .PHONY:			all clean fclean re test

@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/29 19:37:20 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/09 15:31:45 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/09 15:51:43 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ Postfix::~Postfix()
 {
 	this->tokens.clear();
 	this->postfix.clear();
+}
+
+const char* Postfix::InvalidNumberException::what() const throw()
+{
+	return "PostfixException: Number cannot be represented as an int";
 }
 
 const char* Postfix::NoExpressionException::what() const throw()
@@ -85,11 +90,11 @@ void Postfix::simplify(void)
 	std::stringstream ss;
 	int parCount = 0;
 
+	if (this->original.find_first_not_of(validChars) != std::string::npos)
+		throw Postfix::InvalidExpressionException();
 	for (size_t i = 0; i < length; i++)
 	{
-		if (validChars.find(this->original[i]) == std::string::npos)
-			throw Postfix::InvalidExpressionException();
-		else if (this->original[i] != ' ')
+		if (this->original[i] != ' ')
 		{
 			if (this->original[i] == '(')
 				parCount++;
@@ -120,7 +125,11 @@ void Postfix::tokenize(void)
 			while (std::isdigit(this->simple[i]))
 				ss << this->simple[i++];
 			i--;
-			this->tokens.push_back(new Num(std::stoi(ss.str())));
+			int num;
+			ss >> num;
+			if (ss.fail())
+				throw Postfix::InvalidNumberException();
+			this->tokens.push_back(new Num(num));
 			ss.str(std::string());
 			ss.clear();
 		}
@@ -130,11 +139,12 @@ void Postfix::tokenize(void)
 			this->tokens.push_back(new ParClose());
 		else if (this->isOperand(this->simple[i]))
 		{
-			if (this->simple[i] == '-'
+			if ((this->simple[i] == '-' || this->simple[i] == '+')
 				&& (i == 0
 				|| this->isOperand(this->simple[i - 1]) || this->simple[i - 1] == '('))
 			{
-				if (ss.str() == "-")
+				if ((this->simple[i] == '-' && ss.str() == "-")
+					|| (this->simple[i] == '+' && ss.str() == "+"))
 					throw Postfix::InvalidExpressionException();
 				ss << this->simple[i];
 			}

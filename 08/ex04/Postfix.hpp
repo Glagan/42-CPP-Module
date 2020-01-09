@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/29 19:37:23 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/09 15:26:50 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/09 15:47:16 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ private:
 	std::string simple;
 	std::deque<Token*> tokens;
 	std::deque<Token*> postfix;
+
+	class InvalidNumberException: public std::exception {
+		virtual const char* what() const throw();
+	};
 
 	class NoExpressionException: public std::exception {
 		virtual const char* what() const throw();
