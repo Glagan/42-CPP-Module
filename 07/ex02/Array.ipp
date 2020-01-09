@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 15:31:53 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/08 14:03:47 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/09 14:23:51 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,9 @@ Array<T>::Array(size_t n):
 }
 
 template<typename T>
-Array<T>::Array(Array const &other)
+Array<T>::Array(Array const &other):
+	length(0), elts(nullptr)
 {
-	if (this->length > 0)
-		delete[] this->elts;
-	this->elts = nullptr;
 	if (other.length > 0)
 	{
 		this->elts = new T[other.length]();

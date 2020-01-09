@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 14:34:28 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/07 18:26:37 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/09 14:30:17 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void swap(T &a, T &b)
 }
 
 template<typename T>
-T min(T &a, T &b)
+T &min(T &a, T &b)
 {
 	if (b > a)
 		return (a);
@@ -29,7 +29,7 @@ T min(T &a, T &b)
 }
 
 template<typename T>
-T max(T &a, T &b)
+T &max(T &a, T &b)
 {
 	if (a > b)
 		return (a);
@@ -62,8 +62,9 @@ int main(void)
 	std::cout << "e = " << e << ", f = " << f << std::endl;
 	::swap(e, f);
 	std::cout << "e = " << e << ", f = " << f << std::endl;
-	std::cout << "min(e, f) = " << ::min(e, f) << std::endl;
-	std::cout << "max(e, f) = " << ::max(e, f) << std::endl;
+	std::cout << "f -> " << &f  << std::endl;
+	std::cout << "min(e, f) = " << ::min(e, f) << " (" << &::min(e, f) << ")" << std::endl;
+	std::cout << "max(e, f) = " << ::max(e, f) << " (" << &::max(e, f) << ")" << std::endl;
 
 	return (0);
 }
