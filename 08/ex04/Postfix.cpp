@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/29 19:37:20 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/01 19:33:59 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/09 15:31:45 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,7 @@ Postfix::Postfix(Postfix const &other)
 	this->acc = other.acc;
 	this->original = other.original;
 	this->simple = other.simple;
-	this->tokens.clear();
 	this->tokens = other.tokens;
-	this->postfix.clear();
 	this->postfix = other.postfix;
 }
 
@@ -38,6 +36,11 @@ Postfix::~Postfix()
 {
 	this->tokens.clear();
 	this->postfix.clear();
+}
+
+const char* Postfix::NoExpressionException::what() const throw()
+{
+	return "PostfixException: No expression to evaluate";
 }
 
 const char* Postfix::DivisionByZeroException::what() const throw()
@@ -71,6 +74,8 @@ void Postfix::setExpression(std::string const &expression)
 {
 	this->original = expression;
 	this->simplify();
+	if (this->simple.length() < 1)
+		throw Postfix::NoExpressionException();
 }
 
 void Postfix::simplify(void)

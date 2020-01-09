@@ -6,7 +6,7 @@
 #    By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/29 19:36:38 by ncolomer          #+#    #+#              #
-#    Updated: 2019/12/30 17:56:36 by ncolomer         ###   ########.fr        #
+#    Updated: 2020/01/09 15:33:17 by ncolomer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,4 +33,27 @@ fclean:			clean
 
 re:				fclean $(NAME)
 
-.PHONY:			all clean fclean re
+test:			$(NAME)
+				./postfix "3 + ((1 + 4) * 2) - 1"
+				@echo ""
+				./postfix ""
+				@echo ""
+				./postfix "1"
+				@echo ""
+				./postfix "1 + 1"
+				@echo ""
+				./postfix "(2 * ((3 / 1) + ((3 * 3) * 5)) - 6) / 2"
+				@echo ""
+				./postfix "+"
+				@echo ""
+				./postfix "-"
+				@echo ""
+				./postfix "*"
+				@echo ""
+				./postfix "/"
+				@echo ""
+				./postfix " "
+				@echo ""
+				./postfix "1 / 0"
+
+.PHONY:			all clean fclean re test

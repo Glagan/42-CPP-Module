@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 16:41:17 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/08 16:29:46 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/09 14:40:42 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,18 +60,14 @@ size_t Span::shortestSpan(void) const
 	if (size <= 1)
 		throw Span::NotEnoughNumbersException();
 
-	bool hasDiff = false;
-	size_t minDiff = 0;
 	std::multiset<int>::iterator first = this->numbers.begin();
 	std::multiset<int>::iterator next = ++this->numbers.begin();
+	size_t minDiff = std::abs(*next++ - *first++);
 	while (next != this->numbers.end())
 	{
 		size_t diff = std::abs(*next - *first);
-		if (!hasDiff || diff < minDiff)
-		{
+		if (diff < minDiff)
 			minDiff = diff;
-			hasDiff = true;
-		}
 		first++;
 		next++;
 	}

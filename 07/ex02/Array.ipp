@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 15:31:53 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/09 14:23:51 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/09 14:33:19 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,17 @@ Array<T> &Array<T>::operator=(Array<T> const &other)
 }
 
 template<typename T>
-T &Array<T>::operator[](size_t index) const
+T &Array<T>::operator[](size_t index)
 {
 	if (index >= this->length)
 		throw Array::OutOfBoundsException();
 	return (this->elts[index]);
+}
+
+template<typename T>
+T const &Array<T>::operator[](size_t index) const
+{
+	return (operator[](index));
 }
 
 template<typename T>
