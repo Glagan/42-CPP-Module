@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/28 16:41:29 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/08 16:26:29 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/09 16:08:28 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,16 @@ int main(void)
 
 	Span spcopyc = Span(spfifty);
 	displaySpan("0 to 49 (included, Copy Constructor)", spcopyc);
+
+	Span sphard = Span(50);
+	sphard.addNumber(2);
+	sphard.addNumber(5);
+	sphard.addNumber(6);
+	sphard.addNumber(12);
+	sphard.addNumber(7);
+	sphard.addNumber(9);
+	sphard.addNumber(54);
+	displaySpan("[2, 5, 6, 12, 7, 9, 54] -> [1, 52]", sphard);
 
 	Span spzeroone = Span(2);
 	spzeroone.addNumber(0);
