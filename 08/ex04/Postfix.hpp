@@ -6,13 +6,14 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/29 19:37:23 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/09 15:47:16 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/10 12:32:17 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef POSTFIX_HPP
 # define POSTFIX_HPP
 
+# include <algorithm>
 # include <iostream>
 # include <sstream>
 # include <string>

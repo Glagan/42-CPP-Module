@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/29 19:37:20 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/09 15:51:43 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/10 12:35:12 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,25 +85,14 @@ void Postfix::setExpression(std::string const &expression)
 
 void Postfix::simplify(void)
 {
-	static std::string validChars = "0123456789+-*/() ";
-	size_t length = this->original.length();
-	std::stringstream ss;
-	int parCount = 0;
+	static std::string validChars = "0123456789+-*/()";
 
-	if (this->original.find_first_not_of(validChars) != std::string::npos)
+	this->simple = this->original;
+	std::remove(this->simple.begin(), this->simple.end(), ' ');
+	if (this->simple.find_first_not_of(validChars) != std::string::npos)
 		throw Postfix::InvalidExpressionException();
-	for (size_t i = 0; i < length; i++)
-	{
-		if (this->original[i] != ' ')
-		{
-			if (this->original[i] == '(')
-				parCount++;
-			else if (this->original[i] == ')')
-				parCount--;
-			ss << this->original[i];
-		}
-	}
-	this->simple = ss.str();
+	int parCount = std::count(this->simple.begin(), this->simple.end(), '(')
+				- std::count(this->simple.begin(), this->simple.end(), ')');
 	if (parCount != 0
 		|| (this->simple.length() > 0 && this->isOperand(this->simple[this->simple.length() - 1])))
 		throw Postfix::InvalidExpressionException();
