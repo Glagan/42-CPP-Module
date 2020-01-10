@@ -6,7 +6,7 @@
 /*   By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/29 15:21:31 by ncolomer          #+#    #+#             */
-/*   Updated: 2020/01/09 15:19:01 by ncolomer         ###   ########.fr       */
+/*   Updated: 2020/01/10 18:44:57 by ncolomer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,110 +24,6 @@ MutantStack<T>::MutantStack(MutantStack<T> const &other):
 
 template<typename T>
 MutantStack<T>::~MutantStack()
-{
-}
-
-template<typename T>
-MutantStack<T>::iterator::iterator():
-	std::deque<T>::iterator()
-{
-}
-
-template<typename T>
-MutantStack<T>::iterator::iterator(typename MutantStack<T>::iterator const &other):
-	std::deque<T>::iterator(other)
-{
-}
-
-template<typename T>
-MutantStack<T>::iterator::iterator(typename std::deque<T>::iterator const &other):
-	std::deque<T>::iterator(other)
-{
-}
-
-template<typename T>
-MutantStack<T>::iterator::~iterator()
-{
-}
-
-template<typename T>
-MutantStack<T>::const_iterator::const_iterator():
-	std::deque<T>::const_iterator()
-{
-}
-
-template<typename T>
-MutantStack<T>::const_iterator::const_iterator(typename MutantStack<T>::iterator const &other):
-	std::deque<T>::const_iterator(other)
-{
-}
-
-template<typename T>
-MutantStack<T>::const_iterator::const_iterator(typename MutantStack<T>::const_iterator const &other):
-	std::deque<T>::const_iterator(other)
-{
-}
-
-template<typename T>
-MutantStack<T>::const_iterator::const_iterator(typename std::deque<T>::const_iterator const &other):
-	std::deque<T>::const_iterator(other)
-{
-}
-
-template<typename T>
-MutantStack<T>::const_iterator::~const_iterator()
-{
-}
-
-template<typename T>
-MutantStack<T>::reverse_iterator::reverse_iterator():
-	std::deque<T>::reverse_iterator()
-{
-}
-
-template<typename T>
-MutantStack<T>::reverse_iterator::reverse_iterator(typename MutantStack<T>::reverse_iterator const &other):
-	std::deque<T>::reverse_iterator(other)
-{
-}
-
-template<typename T>
-MutantStack<T>::reverse_iterator::reverse_iterator(typename std::deque<T>::reverse_iterator const &other):
-	std::deque<T>::reverse_iterator(other)
-{
-}
-
-template<typename T>
-MutantStack<T>::reverse_iterator::~reverse_iterator()
-{
-}
-
-template<typename T>
-MutantStack<T>::const_reverse_iterator::const_reverse_iterator():
-	std::deque<T>::const_reverse_iterator()
-{
-}
-
-template<typename T>
-MutantStack<T>::const_reverse_iterator::const_reverse_iterator(typename MutantStack<T>::reverse_iterator const &other):
-	std::deque<T>::const_reverse_iterator(other)
-{
-}
-
-template<typename T>
-MutantStack<T>::const_reverse_iterator::const_reverse_iterator(typename MutantStack<T>::const_reverse_iterator const &other):
-	std::deque<T>::const_reverse_iterator(other)
-{
-}
-
-template<typename T>
-MutantStack<T>::const_reverse_iterator::const_reverse_iterator(typename std::deque<T>::const_reverse_iterator const &other):
-	std::deque<T>::const_reverse_iterator(other)
-{
-}
-
-template<typename T>
-MutantStack<T>::const_reverse_iterator::~const_reverse_iterator()
 {
 }
 
